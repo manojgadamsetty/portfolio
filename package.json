@@ -1,0 +1,32 @@
+{
+  "name": "manoj-portfolio",
+  "version": "1.0.0",
+  "description": "Professional portfolio website for Manoj Gadamsetty",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve .",
+    "dev": "live-server --port=3000",
+    "build": "echo 'Static site - no build required'",
+    "deploy": "gh-pages -d ."
+  },
+  "keywords": [
+    "portfolio",
+    "website",
+    "personal",
+    "developer",
+    "frontend",
+    "responsive"
+  ],
+  "author": "Manoj Gadamsetty",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "serve": "^14.2.1",
+    "gh-pages": "^6.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/manojgadamsetty/portfolio.git"
+  },
+  "homepage": "https://manojgadamsetty.github.io/portfolio"
+}
