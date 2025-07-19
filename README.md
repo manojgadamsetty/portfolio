@@ -1,19 +1,29 @@
 # Manoj Gadamsetty - Professional Portfolio
 
-A modern, responsive portfolio website showcasing my professional experience, skills, and projects.
+[![Portfolio](https://img.shields.io/badge/Portfolio-Live-blue?style=for-the-badge)](https://manojgadamsetty.github.io/portfolio/)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github)](https://github.com/manojgadamsetty/portfolio)
+
+A modern, responsive portfolio website showcasing my professional experience as a Staff Software Engineer specializing in mobile app security, iOS/Android development, and cybersecurity.
+
+## 🌐 Live Website
+
+**Portfolio URL**: [https://manojgadamsetty.github.io/portfolio/](https://manojgadamsetty.github.io/portfolio/)
+
+**Repository URL**: [https://github.com/manojgadamsetty/portfolio](https://github.com/manojgadamsetty/portfolio)
+
+> **Note**: If the GitHub Pages URL is not working, please ensure GitHub Pages is enabled in repository settings → Pages → Source: GitHub Actions
 
 ## 🌟 Features
 
+- **Mobile App Security Specialist**: Comprehensive portfolio showcasing 9+ years of experience
 - **Responsive Design**: Optimized for all devices and screen sizes
 - **Modern UI/UX**: Clean, professional design with smooth animations
-- **Interactive Elements**: Hover effects, scroll animations, and dynamic content
-- **Contact Form**: Functional contact form with validation
+- **Interactive Skills Section**: Horizontal scrollable categories with multi-line display
+- **Professional Timeline**: Detailed experience from CyberArk, Frost Interactive, and Edwisely
+- **Project Showcase**: Featured mobile applications with live store links
+- **Contact Integration**: Functional contact form with social media links
 - **Performance Optimized**: Fast loading times and smooth scrolling
-- **GitHub Pages Ready**: Configured for easy deployment
-
-## 🚀 Live Demo
-
-Visit the live website: [Your GitHub Pages URL]
+- **GitHub Pages Deployment**: Automated deployment with GitHub Actions
 
 ## 🛠️ Technologies Used
 
@@ -26,12 +36,20 @@ Visit the live website: [Your GitHub Pages URL]
 ## 📁 Project Structure
 
 ```
-MyWebSite/
-├── index.html          # Main HTML file
-├── styles.css          # CSS styles and responsive design
-├── script.js           # JavaScript functionality
-├── README.md           # Project documentation
-└── assets/             # Images and other assets (to be added)
+portfolio/
+├── 📁 .github/workflows/    # GitHub Actions for automated deployment
+├── 📁 assets/              # Professional images and documents
+│   ├── 📁 documents/       # Resume PDF
+│   └── 📁 images/          # Profile, about, and project images
+├── 📄 index.html           # Main portfolio website
+├── 🎨 styles.css           # Complete responsive styling
+├── ⚡ script.js            # Interactive functionality
+├── 🚀 deploy.sh            # Deployment automation script
+├── 📋 package.json         # Project configuration
+├── 📖 README.md            # Project documentation
+├── 🔧 DEPLOYMENT.md        # Deployment instructions
+├── 🌐 favicon.ico          # Website icon
+└── 📝 .gitignore           # Git ignore rules
 ```
 
 ## 🔧 Setup and Deployment
@@ -40,8 +58,8 @@ MyWebSite/
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/manojgadamsetty/portfolio.git
+cd portfolio
 ```
 
 2. Open `index.html` in your browser or use a local server:
@@ -58,10 +76,34 @@ npx serve .
 
 ### GitHub Pages Deployment
 
-1. Push your code to a GitHub repository
-2. Go to repository Settings → Pages
-3. Select source branch (usually `main` or `master`)
-4. Your site will be available at `https://yourusername.github.io/repository-name`
+#### Option 1: Using the deployment script
+```bash
+./deploy.sh
+```
+
+#### Option 2: Manual deployment
+1. Push your code to the repository:
+```bash
+git add .
+git commit -m "Update portfolio"
+git push origin main
+```
+
+2. **Enable GitHub Pages**:
+   - Go to [Repository Settings](https://github.com/manojgadamsetty/portfolio/settings/pages)
+   - Under "Source", select **"GitHub Actions"**
+   - The workflow will automatically deploy your site
+
+3. **Your site will be available at**: 
+   ```
+   https://manojgadamsetty.github.io/portfolio/
+   ```
+
+#### Troubleshooting GitHub Pages:
+- Ensure GitHub Pages is enabled in repository settings
+- Check that the source is set to "GitHub Actions"
+- Verify the workflow has run successfully in the Actions tab
+- It may take 5-10 minutes for changes to appear
 
 ## 📝 Customization
 
@@ -123,10 +165,13 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 📞 Contact
 
-Manoj Gadamsetty
-- LinkedIn: [linkedin.com/in/manojgadamsetty](https://www.linkedin.com/in/manojgadamsetty/)
-- Email: manoj@example.com
-- GitHub: [github.com/manojgadamsetty](https://github.com/manojgadamsetty)
+**Manoj Gadamsetty** - Staff Software Engineer | Mobile App Security Specialist
+
+- **Portfolio**: [https://manojgadamsetty.github.io/portfolio/](https://manojgadamsetty.github.io/portfolio/)
+- **LinkedIn**: [linkedin.com/in/manojgadamsetty](https://www.linkedin.com/in/manojgadamsetty/)
+- **Email**: manojgadamsetty@gmail.com
+- **GitHub**: [github.com/manojgadamsetty](https://github.com/manojgadamsetty)
+- **Medium**: [medium.com/@manojgadamsetty](https://medium.com/@manojgadamsetty)
 
 ---
 

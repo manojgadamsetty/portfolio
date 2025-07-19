@@ -31,12 +31,9 @@ git commit -m "$commit_message"
 
 # Check if remote origin exists
 if ! git remote get-url origin >/dev/null 2>&1; then
-    echo "🔗 No remote origin found. Please add your GitHub repository:"
-    echo "Example: git remote add origin https://github.com/yourusername/your-repo-name.git"
-    echo ""
-    echo "Then run this script again or manually push with:"
-    echo "git push -u origin main"
-    exit 1
+    echo "🔗 Setting up GitHub repository..."
+    git remote add origin https://github.com/manojgadamsetty/portfolio.git
+    echo "✅ Remote origin added: https://github.com/manojgadamsetty/portfolio.git"
 fi
 
 # Push to GitHub
@@ -46,10 +43,14 @@ git push -u origin main
 if [ $? -eq 0 ]; then
     echo ""
     echo "🎉 Success! Your website has been deployed!"
-    echo "📱 It will be available at your GitHub Pages URL in a few minutes"
+    echo "📱 Portfolio URL: https://manojgadamsetty.github.io/portfolio/"
     echo "🔄 GitHub Pages may take 5-10 minutes to update"
     echo ""
-    echo "🔗 Check your repository settings → Pages to see the live URL"
+    echo "🔗 Repository: https://github.com/manojgadamsetty/portfolio"
+    echo "⚙️  Check GitHub Actions tab to monitor deployment progress"
+    echo ""
+    echo "💡 If the site doesn't work, ensure GitHub Pages is enabled:"
+    echo "   Go to Settings → Pages → Source: GitHub Actions"
 else
     echo ""
     echo "❌ Push failed. Please check:"
