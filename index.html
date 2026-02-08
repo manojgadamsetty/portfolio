@@ -248,6 +248,7 @@
 
         .hero-content {
             max-width: 1000px;
+            margin: 0 auto;
             text-align: center;
             position: relative;
             z-index: 1;
@@ -275,11 +276,10 @@
         .hero-description {
             font-size: 1.05rem;
             color: var(--gray-text);
-            margin-bottom: 3rem;
+            margin: 0 auto 3rem;
             line-height: 1.8;
             max-width: 750px;
-            margin-left: auto;
-            margin-right: auto;
+            text-align: justify;
             animation: fadeInUp 1s ease-out 0.3s both;
         }
 
@@ -378,6 +378,8 @@
             padding: 6rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .section-title {
@@ -395,6 +397,7 @@
             line-height: 1.8;
             color: var(--gray-text);
             margin-bottom: 2rem;
+            text-align: justify;
             animation: fadeInUp 0.8s ease-out 0.1s both;
         }
 
@@ -463,6 +466,7 @@
             font-size: 0.95rem;
             color: var(--gray-text);
             line-height: 1.7;
+            text-align: justify;
         }
 
         /* Experience Timeline */
@@ -477,6 +481,9 @@
             grid-template-columns: 1fr 2fr;
             gap: 4rem;
             align-items: start;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
         }
 
         .experience-header {
@@ -544,7 +551,7 @@
 
         .exp-main-row {
             display: grid;
-            grid-template-columns: 1.5fr 1fr 1.2fr;
+            grid-template-columns: 2fr 1.5fr 2fr;
             align-items: center;
             gap: 2rem;
         }
@@ -593,14 +600,14 @@
             font-size: 0.9rem;
             color: rgba(255, 255, 255, 0.85);
             font-weight: 500;
-            text-align: center;
+            text-align: left;
         }
 
         .exp-role {
             font-size: 1rem;
             font-weight: 500;
             color: var(--white);
-            text-align: right;
+            text-align: left;
         }
 
         /* Company Group with Promotions */
@@ -635,7 +642,7 @@
             font-size: 0.95rem;
             font-weight: 500;
             color: var(--accent);
-            text-align: right;
+            text-align: left;
         }
 
         /* Education Section - same styling as experience */
@@ -706,6 +713,7 @@
             color: var(--gray-text);
             font-size: 0.95rem;
             line-height: 1.7;
+            text-align: justify;
         }
 
         /* Skills Breakdown Section */
@@ -724,6 +732,7 @@
             color: var(--gray-text);
             font-style: italic;
             margin: 0;
+            text-align: justify;
         }
 
         .skills-grid {
@@ -731,6 +740,7 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 3rem;
             margin-top: 3rem;
+            align-items: start;
         }
 
         .skills-column {
@@ -816,6 +826,8 @@
         /* Contact Section */
         .contact-section {
             text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .contact-text {
@@ -823,6 +835,10 @@
             color: var(--gray-text);
             margin-bottom: 2rem;
             line-height: 1.8;
+            text-align: justify;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .contact-buttons {
