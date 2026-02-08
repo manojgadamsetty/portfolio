@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Background -->
+  <rect width="64" height="64" fill="#000000"/>
+  
+  <!-- Accent border -->
+  <rect width="64" height="64" fill="none" stroke="#14B8A6" stroke-width="2"/>
+  
+  <!-- MG Text -->
+  <text x="32" y="40" font-family="Poppins, sans-serif" font-size="28" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="-1">MG</text>
+</svg>

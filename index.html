@@ -3,32 +3,599 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Manoj Gadamsetty - Staff Software Engineer specializing in mobile app security, iOS/Android development, and cybersecurity with 9+ years experience.">
+    <meta name="description" content="Manoj Gadamsetty - Staff Software Engineer specializing in mobile app security, iOS/Android development, and cybersecurity with 9.6+ years experience.">
     <meta name="keywords" content="Mobile App Security, iOS Developer, Android Developer, Swift, Kotlin, CyberArk, Staff Software Engineer, Cybersecurity">
     <meta name="author" content="Manoj Gadamsetty">
     <meta property="og:title" content="Manoj Gadamsetty - Mobile App Security Specialist">
-    <meta property="og:description" content="Staff Software Engineer with 9+ years of experience in mobile development and cybersecurity">
+    <meta property="og:description" content="Staff Software Engineer with 9.6+ years of experience in mobile development and cybersecurity">
     <meta property="og:type" content="website">
-    <title>Manoj Gadamsetty - Staff Software Engineer | Mobile App Security Specialist</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="styles.css">
+    <meta name="theme-color" content="#000000">
+    <title>Manoj Gadamsetty - Mobile App Security Specialist</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --white: #FFFFFF;
+            --gray-dark: #1a1a1a;
+            --gray-light: #f5f5f5;
+            --gray-text: #666666;
+            --accent: #14B8A6;
+            --accent-light: #a3f7f1;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--black);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--black);
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: -1px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--gray-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--black);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background: var(--black);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 4rem;
+            background: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(20, 184, 166, 0.04), transparent);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: -5%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(20, 184, 166, 0.03), transparent);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1.5px;
+            color: var(--black);
+            animation: fadeInUp 1s ease-out 0.1s both;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-text);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-description {
+            font-size: 1.05rem;
+            color: var(--gray-text);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .cta-button {
+            padding: 1rem 2.5rem;
+            border: 2px solid var(--black);
+            background: var(--black);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: var(--black);
+            border: 2px solid var(--black);
+        }
+
+        .cta-button.secondary:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.2rem;
+            justify-content: center;
+            margin-top: 2rem;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--gray-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--black);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--black);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* About Section */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 600;
+            margin-bottom: 3rem;
+            letter-spacing: -1px;
+            color: var(--black);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .about-intro {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--gray-text);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.1s both;
+        }
+
+        /* Skills/Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            padding: 2.5rem;
+            background: var(--white);
+            border-radius: 16px;
+            border: 1px solid #e8e8e8;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+        .service-card:nth-child(5) { animation-delay: 0.5s; }
+        .service-card:nth-child(6) { animation-delay: 0.6s; }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            border-color: #d0d0d0;
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: 60px;
+            width: 60px;
+        }
+
+        .material-icons {
+            font-size: 2.5rem !important;
+            color: var(--accent);
+            user-select: none;
+        }
+
+        .service-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--black);
+            letter-spacing: -0.5px;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: var(--gray-text);
+            line-height: 1.7;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            margin-top: 3rem;
+        }
+
+        .timeline-item {
+            padding: 2.5rem;
+            border-left: 4px solid var(--accent);
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 0.8s ease-out both;
+            transition: all 0.3s ease;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(5) { animation-delay: 0.5s; }
+        .timeline-item:nth-child(6) { animation-delay: 0.6s; }
+
+        .timeline-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            border-left-color: var(--accent);
+        }
+
+        .timeline-date {
+            font-size: 0.8rem;
+            color: var(--gray-text);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.8rem;
+            display: inline-block;
+            background: #f0fffe;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+        }
+
+        .timeline-item h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: var(--black);
+            letter-spacing: -0.5px;
+        }
+
+        .timeline-item .company {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-item p {
+            color: var(--gray-text);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Skills Tags */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .skill-tag {
+            background: var(--white);
+            padding: 0.7rem 1.4rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            color: var(--gray-text);
+            border: 1px solid #e8e8e8;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease-out both;
+        }
+
+        .skill-tag:hover {
+            background: var(--black);
+            color: var(--white);
+            border-color: var(--black);
+            transform: translateY(-2px);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            text-align: center;
+        }
+
+        .contact-text {
+            font-size: 1.1rem;
+            color: var(--gray-text);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-text {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 60px;
+                flex-direction: column;
+                background-color: var(--white);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                gap: 0;
+                padding: 2rem 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-button {
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-logo {
+                font-size: 1.2rem;
+            }
+
+            .nav-menu {
+                gap: 0;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav>
         <div class="nav-container">
-            <div class="nav-logo">
-                <h2>Manoj Gadamsetty</h2>
-            </div>
+            <div class="nav-logo">MG</div>
             <div class="nav-menu" id="nav-menu">
-                <a href="#home" class="nav-link">Home</a>
+                <a href="#home" class="nav-link active">Home</a>
                 <a href="#about" class="nav-link">About</a>
+                <a href="#expertise" class="nav-link">Expertise</a>
                 <a href="#experience" class="nav-link">Experience</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#certifications" class="nav-link">Certifications</a>
-                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#education" class="nav-link">Education</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
             <div class="nav-toggle" id="nav-toggle">
@@ -40,514 +607,287 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    Hi, I'm <span class="highlight">Manoj Gadamsetty</span>
-                </h1>
-                <p class="hero-subtitle">Staff Software Engineer | Mobile App Security Specialist</p>
-                <p class="hero-description">
-                    9+ years of experience specializing in the intersection of mobile application development and cybersecurity. 
-                    Expert in iOS & Android development with a focus on building secure, high-performance applications that protect user data and defend against evolving security threats.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                    <a href="#projects" class="btn btn-secondary">View My Work</a>
-                </div>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/manojgadamsetty/" target="_blank" class="social-link">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://github.com/manojgadamsetty" target="_blank" class="social-link">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="mailto:manojgadamsetty@gmail.com" class="social-link">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://medium.com/@manojgadamsetty" target="_blank" class="social-link">
-                        <i class="fab fa-medium"></i>
-                    </a>
-                </div>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Mobile App Security Specialist</h1>
+            <p class="hero-subtitle">Staff Software Engineer | iOS & Android | Python | OWASP | Secure Coding Advocate</p>
+            <p class="hero-description">
+                With 9.6+ years of experience, I've helped global enterprises protect millions of users by delivering apps with robust authentication, seamless compliance, and real-world threat prevention. Let's partner to outsmart tomorrow's mobile threats and create products users trust.
+            </p>
+            <div class="hero-cta">
+                <a href="#contact" class="cta-button">Get In Touch</a>
+                <a href="#expertise" class="cta-button secondary">Explore My Expertise</a>
             </div>
-            <div class="hero-image">
-                <div class="profile-card">
-                    <img src="assets/images/profile.jpg" alt="Manoj Gadamsetty" class="profile-img"
-                         onerror="this.src='https://via.placeholder.com/300x300/6b7280/ffffff?text=MG'">
-                </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/manojgadamsetty/" target="_blank" class="social-link">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/manojgadamsetty" target="_blank" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:manojgadamsetty@gmail.com" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://medium.com/@manojgadamsetty" target="_blank" class="social-link">
+                    <i class="fab fa-medium"></i>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        As a Staff Software Engineer with 9+ years of experience, I specialize in the intersection of mobile application 
-                        development and cybersecurity. My core mission is to build secure, high-performance mobile applications that 
-                        protect user data, meet compliance standards, and defend against evolving security threats.
-                    </p>
-                    <p>
-                        I bring 9+ years of iOS development experience using Swift and Objective-C, and over 3.5 years of Android 
-                        experience with Java and Kotlin. Throughout my career, I've led and contributed to the development of multiple 
-                        mobile applications with security integrated from the ground up adopting Secure Software Development Life Cycle (SSDLC) practices.
-                    </p>
-                    <p>
-                        A strong advocate for mobile app security, I have hands-on experience conducting threat modeling, vulnerability 
-                        assessments, code reviews, and penetration testing aligned with OWASP Mobile Top 10. I actively integrate 
-                        DevSecOps principles into mobile CI/CD pipelines, ensuring security is foundational to the development process.
-                    </p>
-                    <div class="about-stats">
-                        <div class="stat">
-                            <h3>9+</h3>
-                            <p>Years Experience</p>
-                        </div>
-                        <div class="stat">
-                            <h3>20+</h3>
-                            <p>Mobile Apps Developed</p>
-                        </div>
-                        <div class="stat">
-                            <h3>6+</h3>
-                            <p>Security Certifications</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <img src="assets/images/about-coding.jpg" alt="About Image"
-                         onerror="this.src='https://via.placeholder.com/400x500/6b7280/ffffff?text=Coding'">
-                </div>
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <p class="about-intro">
+            As a Staff Software Engineer focused on mobile security, I've helped global enterprises protect millions of users by delivering apps with robust authentication, seamless compliance, and real-world threat prevention. At CyberArk, I pioneered secure mobile architectures for flagship identity products enabling biometric MFA, zero-trust remote access, and GDPR-grade encryption—all while collaborating with cross-functional teams.
+        </p>
+        <p class="about-intro">
+            My toolkit spans iOS (Swift, Objective-C), Android (Kotlin, Java), secure backend (Golang, Python), and full-stack DevSecOps. I've driven threat modeling, code reviews, and incident response for security-first roadmaps and coached engineers on SSDLC best practices. I thrive on innovation, lifelong learning, and building secure solutions that scale.
+        </p>
+        <div class="skills-container">
+            <span class="skill-tag">Swift</span>
+            <span class="skill-tag">Objective-C</span>
+            <span class="skill-tag">Kotlin</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Golang</span>
+            <span class="skill-tag">iOS Development</span>
+            <span class="skill-tag">Android Development</span>
+            <span class="skill-tag">Mobile Security</span>
+            <span class="skill-tag">OWASP</span>
+            <span class="skill-tag">Biometric MFA</span>
+            <span class="skill-tag">Zero-Trust Architecture</span>
+            <span class="skill-tag">Penetration Testing</span>
+            <span class="skill-tag">DevSecOps</span>
+            <span class="skill-tag">Threat Modeling</span>
+            <span class="skill-tag">GDPR Compliance</span>
+            <span class="skill-tag">SSDLC</span>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="expertise">
+        <h2 class="section-title">Core Expertise</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="material-icons">security</i></div>
+                <h3>Mobile App Security</h3>
+                <p>Expert in threat modeling, vulnerability assessments, and implementing OWASP Mobile Top 10 protections. I architect security from the ground up.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="material-icons">phone_iphone</i></div>
+                <h3>iOS Development</h3>
+                <p>9.6+ years building production-grade iOS applications with Swift and Objective-C. Delivered apps serving millions of users with 99.99% crash-free stability and top app store ratings.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="material-icons">android</i></div>
+                <h3>Android Development</h3>
+                <p>Expert in building secure Android applications with Kotlin and Java. Specialized in material design, performance optimization, and enterprise-grade security implementations.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="material-icons">verified_user</i></div>
+                <h3>DevSecOps Integration</h3>
+                <p>Architect and implement CI/CD pipelines with security integration, SAST/DAST tools, and automated security compliance checks.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="material-icons">bug_report</i></div>
+                <h3>Code & Security Review</h3>
+                <p>Conduct thorough security code reviews, penetration testing, and vulnerability assessments aligned with industry standards.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="material-icons">people</i></div>
+                <h3>Team Leadership</h3>
+                <p>Mentor senior developers, lead security initiatives, and architect enterprise-level solutions at scale.</p>
             </div>
         </div>
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <h2 class="section-title">Professional Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">Jun 2025 - Present</div>
-                    <div class="timeline-content">
-                        <h3>Staff Software Engineer</h3>
-                        <h4>CyberArk</h4>
-                        <p>
-                            Leading mobile application security initiatives and advanced security architecture design. 
-                            Driving strategic security decisions and mentoring senior developers in secure coding practices.
-                        </p>
-                        <ul>
-                            <li>Architecting enterprise-level mobile security solutions</li>
-                            <li>Leading security reviews and threat modeling sessions</li>
-                            <li>Implementing advanced encryption and authentication mechanisms</li>
-                            <li>Mentoring teams on OWASP Mobile Top 10 best practices</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">Jun 2021 - May 2025</div>
-                    <div class="timeline-content">
-                        <h3>Senior Software Engineer</h3>
-                        <h4>CyberArk</h4>
-                        <p>
-                            Developed and maintained secure mobile applications with focus on privileged access management 
-                            and identity security. Integrated advanced security features and compliance standards.
-                        </p>
-                        <ul>
-                            <li>Built secure iOS and Android applications using Swift, Kotlin, and Java</li>
-                            <li>Implemented GDPR and HIPAA compliance measures</li>
-                            <li>Conducted penetration testing and vulnerability assessments</li>
-                            <li>Integrated DevSecOps practices into CI/CD pipelines</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">May 2020 - May 2021</div>
-                    <div class="timeline-content">
-                        <h3>Senior iOS Developer</h3>
-                        <h4>Frost Interactive</h4>
-                        <p>
-                            Led iOS development projects with emphasis on user experience and performance optimization. 
-                            Collaborated with cross-functional teams to deliver high-quality mobile solutions.
-                        </p>
-                        <ul>
-                            <li>Developed complex iOS applications using Swift and Objective-C</li>
-                            <li>Optimized app performance and memory management</li>
-                            <li>Implemented secure data storage and transmission protocols</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">Jan 2019 - May 2020</div>
-                    <div class="timeline-content">
-                        <h3>Senior iOS Developer</h3>
-                        <h4>Edwisely</h4>
-                        <p>
-                            Specialized in educational technology solutions, developing iOS applications for learning management 
-                            and student engagement platforms.
-                        </p>
-                        <ul>
-                            <li>Built scalable iOS applications for educational platforms</li>
-                            <li>Integrated real-time communication and collaboration features</li>
-                            <li>Implemented secure user authentication and data protection</li>
-                        </ul>
-                    </div>
-                </div>
+    <section id="experience">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">Jun 2025 - Present</div>
+                <h3>Staff Software Engineer</h3>
+                <p class="company">CyberArk</p>
+                <p>Leading mobile security initiatives for flagship identity products. Driving strategic security architecture decisions and mentoring senior engineers on SSDLC best practices.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">Jun 2021 - May 2025</div>
+                <h3>Senior Software Engineer</h3>
+                <p class="company">CyberArk</p>
+                <p>Pioneered secure mobile architectures enabling biometric MFA, zero-trust remote access, and GDPR-grade encryption. Powered enterprise rollouts and reduced risk exposure for high-value customers.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">May 2020 - May 2021</div>
+                <h3>Senior iOS Developer</h3>
+                <p class="company">Frost Interactive</p>
+                <p>Developed high-performance iOS applications, improving daily active users by 25% via seamless UI/UX. Implemented encryption and privacy protections ensuring app store compliance and top ratings.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">Jan 2019 - May 2020</div>
+                <h3>Senior iOS Developer</h3>
+                <p class="company">Edwisely</p>
+                <p>Delivered scalable education apps enabling secure logins for 20,000+ users with 99.99% crash-free stability. Implemented FERPA compliance and multi-factor authentication.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">May 2018 - Jan 2019</div>
+                <h3>iOS App Developer</h3>
+                <p class="company">Proxim Quest IT Solutions</p>
+                <p>Built enterprise iOS apps advancing delivery timelines by 20% through modular architectures. Enhanced security with cryptography and secure APIs, reducing incidents by 40%.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">Apr 2016 - May 2018</div>
+                <h3>iOS App Developer</h3>
+                <p class="company">BRN Infotech Private Limited</p>
+                <p>Developed iOS applications for diverse clients. Started as intern and progressed to full developer role, mastering Swift and iOS security fundamentals.</p>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-container">
-                <div class="skills-scroll">
-                    <div class="skill-category">
-                        <h3>Programming Languages</h3>
-                        <div class="skill-items">
-                            <span class="skill-item">Swift</span>
-                            <span class="skill-item">Kotlin</span>
-                            <span class="skill-item">Objective-C</span>
-                            <span class="skill-item">Java</span>
-                            <span class="skill-item">Python</span>
-                            <span class="skill-item">Golang</span>
-                            <span class="skill-item">JavaScript</span>
-                            <span class="skill-item">TypeScript</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Mobile Development</h3>
-                        <div class="skill-items">
-                            <span class="skill-item">iOS Development</span>
-                            <span class="skill-item">Android Development</span>
-                            <span class="skill-item">React Native</span>
-                            <span class="skill-item">Flutter</span>
-                            <span class="skill-item">Core Data</span>
-                            <span class="skill-item">SQLite</span>
-                            <span class="skill-item">RESTful APIs</span>
-                            <span class="skill-item">GraphQL</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Security & DevSecOps</h3>
-                        <div class="skill-items">
-                            <span class="skill-item">OWASP Mobile Top 10</span>
-                            <span class="skill-item">Penetration Testing</span>
-                            <span class="skill-item">Threat Modeling</span>
-                            <span class="skill-item">Code Security Review</span>
-                            <span class="skill-item">SAST/DAST</span>
-                            <span class="skill-item">GDPR Compliance</span>
-                            <span class="skill-item">HIPAA Compliance</span>
-                            <span class="skill-item">DevSecOps</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Development Tools</h3>
-                        <div class="skill-items">
-                            <span class="skill-item">Xcode</span>
-                            <span class="skill-item">Android Studio</span>
-                            <span class="skill-item">VS Code</span>
-                            <span class="skill-item">PyCharm</span>
-                            <span class="skill-item">Git</span>
-                            <span class="skill-item">CI/CD</span>
-                            <span class="skill-item">Docker</span>
-                            <span class="skill-item">AWS</span>
-                            <span class="skill-item">Linux</span>
-                            <span class="skill-item">Agile/Scrum</span>
-                            <span class="skill-item">JIRA</span>
-                            <span class="skill-item">TestFlight</span>
-                        </div>
-                    </div>
-                </div>
+    <!-- Education Section -->
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">Jul 2025 - Jul 2027</div>
+                <h3>Master's Degree, Software Systems</h3>
+                <p class="company">Birla Institute of Technology and Science, Pilani</p>
+                <p>Advancing expertise in software engineering, security architecture, and system design.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Education & Certifications Section -->
-    <section id="certifications" class="certifications">
-        <div class="container">
-            <h2 class="section-title">Education & Certifications</h2>
-            <div class="cert-grid">
-                <div class="education-card">
-                    <h3>Education</h3>
-                    <div class="education-content">
-                        <div class="education-item">
-                            <h4>Master's in Software Systems</h4>
-                            <p>Birla Institute of Technology and Science, Pilani</p>
-                            <span class="date">2025 - 2027</span>
-                        </div>
-                        <div class="education-item">
-                            <h4>B.Tech in Electrical & Electronics Engineering</h4>
-                            <p>QIS College Of Engineering and Technology</p>
-                            <span class="date">2013 - 2016</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="certifications-card">
-                    <h3>Security Certifications</h3>
-                    <div class="cert-content">
-                        <div class="cert-list">
-                            <div class="cert-item">
-                                <i class="fas fa-shield-alt"></i>
-                                <span>CompTIA Security+ (SY0-601)</span>
-                                <div class="cert-badge">VERIFIED</div>
-                            </div>
-                            <div class="cert-item">
-                                <i class="fas fa-network-wired"></i>
-                                <span>Cisco IOS Security Specialist</span>
-                                <div class="cert-badge">ACTIVE</div>
-                            </div>
-                            <div class="cert-item">
-                                <i class="fas fa-lock"></i>
-                                <span>Secure Coding in Python</span>
-                                <div class="cert-badge">CERTIFIED</div>
-                            </div>
-                            <div class="cert-item">
-                                <i class="fas fa-cloud"></i>
-                                <span>Internet of Things (IoT)</span>
-                                <div class="cert-badge">COMPLETE</div>
-                            </div>
-                            <div class="cert-item">
-                                <i class="fas fa-users"></i>
-                                <span>Scrum: The Basics</span>
-                                <div class="cert-badge">AGILE</div>
-                            </div>
-                            <div class="cert-item">
-                                <i class="fas fa-bug"></i>
-                                <span>Threats, Attacks, and Vulnerabilities</span>
-                                <div class="cert-badge">SECURITY</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="timeline-item">
+                <div class="timeline-date">2013 - 2016</div>
+                <h3>B.Tech, Electrical and Electronics Engineering</h3>
+                <p class="company">QIS College of Engineering and Technology</p>
+                <p>Foundation in engineering principles and problem-solving methodologies.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-slider-container">
-                <div class="projects-slider" id="projects-slider">
-                    <div class="project-slide">
-                        <div class="project-card">
-                            <div class="project-image">
-                                <img src="assets/images/projects/cyberark-identity.jpg" alt="CyberArk Identity App" 
-                                     onerror="this.src='https://via.placeholder.com/400x250/6b7280/ffffff?text=CyberArk+Identity'">
-                            </div>
-                            <div class="project-content">
-                                <h3>CyberArk Identity Mobile App</h3>
-                                <p>Enterprise identity security mobile application providing secure access management, multi-factor authentication, and privileged account protection for organizations worldwide.</p>
-                                <div class="project-tech">
-                                    <span>Swift</span>
-                                    <span>Kotlin</span>
-                                    <span>SAML</span>
-                                    <span>OAuth 2.0</span>
-                                    <span>Biometrics</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://apps.apple.com/app/cyberark-identity/id1533875632" target="_blank" class="project-link">
-                                        <i class="fab fa-apple"></i> App Store
-                                    </a>
-                                    <a href="https://play.google.com/store/apps/details?id=com.cyberark.identity" target="_blank" class="project-link">
-                                        <i class="fab fa-google-play"></i> Play Store
-                                    </a>
-                                    <a href="https://www.cyberark.com/products/identity-security-platform/" target="_blank" class="project-link">
-                                        <i class="fas fa-external-link-alt"></i> Product
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-slide">
-                        <div class="project-card">
-                            <div class="project-image">
-                                <img src="assets/images/projects/cyberark-mobile.jpg" alt="CyberArk Mobile App"
-                                     onerror="this.src='https://via.placeholder.com/400x250/6b7280/ffffff?text=CyberArk+Mobile'">
-                            </div>
-                            <div class="project-content">
-                                <h3>CyberArk Mobile Application</h3>
-                                <p>Secure mobile access to CyberArk's Privileged Access Management platform. Enables secure password retrieval, session monitoring, and administrative tasks with enterprise-grade security.</p>
-                                <div class="project-tech">
-                                    <span>iOS</span>
-                                    <span>Android</span>
-                                    <span>REST APIs</span>
-                                    <span>Encryption</span>
-                                    <span>Zero Trust</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://apps.apple.com/app/cyberark/id1168415428" target="_blank" class="project-link">
-                                        <i class="fab fa-apple"></i> App Store
-                                    </a>
-                                    <a href="https://play.google.com/store/apps/details?id=com.cyberark.mobile" target="_blank" class="project-link">
-                                        <i class="fab fa-google-play"></i> Play Store
-                                    </a>
-                                    <a href="https://www.cyberark.com" target="_blank" class="project-link">
-                                        <i class="fas fa-external-link-alt"></i> CyberArk
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-slide">
-                        <div class="project-card">
-                            <div class="project-image">
-                                <img src="assets/images/projects/ace-online.jpg" alt="Ace Online App"
-                                     onerror="this.src='https://via.placeholder.com/400x250/6b7280/ffffff?text=Ace+Online'">
-                            </div>
-                            <div class="project-content">
-                                <h3>Ace Online Mobile App</h3>
-                                <p>Comprehensive online learning platform mobile application featuring interactive courses, live sessions, assessment tools, and student progress tracking with secure user management.</p>
-                                <div class="project-tech">
-                                    <span>Swift</span>
-                                    <span>Objective-C</span>
-                                    <span>WebRTC</span>
-                                    <span>Real-time</span>
-                                    <span>Analytics</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://apps.apple.com/app/ace-online/id1234567890" target="_blank" class="project-link">
-                                        <i class="fab fa-apple"></i> App Store
-                                    </a>
-                                    <a href="https://play.google.com/store/apps/details?id=com.aceonline.app" target="_blank" class="project-link">
-                                        <i class="fab fa-google-play"></i> Play Store
-                                    </a>
-                                    <a href="https://www.frostinteractive.com" target="_blank" class="project-link">
-                                        <i class="fas fa-external-link-alt"></i> Frost Interactive
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-slide">
-                        <div class="project-card">
-                            <div class="project-image">
-                                <img src="assets/images/projects/edwisely.jpg" alt="Edwisely App"
-                                     onerror="this.src='https://via.placeholder.com/400x250/6b7280/ffffff?text=Edwisely'">
-                            </div>
-                            <div class="project-content">
-                                <h3>Edwisely Learning Platform</h3>
-                                <p>Educational technology mobile application providing personalized learning experiences, student engagement analytics, and collaborative learning tools for academic institutions.</p>
-                                <div class="project-tech">
-                                    <span>iOS</span>
-                                    <span>Swift</span>
-                                    <span>Core Data</span>
-                                    <span>Push Notifications</span>
-                                    <span>Analytics</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://apps.apple.com/app/edwisely/id1234567891" target="_blank" class="project-link">
-                                        <i class="fab fa-apple"></i> App Store
-                                    </a>
-                                    <a href="https://play.google.com/store/apps/details?id=com.edwisely.app" target="_blank" class="project-link">
-                                        <i class="fab fa-google-play"></i> Play Store
-                                    </a>
-                                    <a href="https://www.edwisely.com" target="_blank" class="project-link">
-                                        <i class="fas fa-external-link-alt"></i> Edwisely
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="slider-controls">
-                    <button class="slider-btn prev-btn" id="prev-btn">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <div class="slider-dots" id="slider-dots"></div>
-                    <button class="slider-btn next-btn" id="next-btn">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
+            <div class="timeline-item">
+                <div class="timeline-date">2010 - 2013</div>
+                <h3>Diploma, Electrical and Electronics Engineering</h3>
+                <p class="company">St. Ann's College of Engineering and Technology</p>
+                <p>Technical foundation in electrical systems and engineering fundamentals.</p>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Let's Connect</h3>
-                    <p>
-                        I'm passionate about mobile security and always interested in discussing innovative security solutions, 
-                        collaboration opportunities, and knowledge sharing. Whether you need mobile security consulting 
-                        or want to discuss the latest security trends, feel free to reach out!
-                    </p>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>manojgadamsetty@gmail.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Hyderabad, Telangana, India</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-linkedin"></i>
-                        <span>linkedin.com/in/manojgadamsetty</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-medium"></i>
-                        <span>medium.com/@manojgadamsetty</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-file-pdf"></i>
-                        <a href="assets/documents/resume.pdf" target="_blank" style="color: inherit; text-decoration: none;">
-                            Download Resume (PDF)
-                        </a>
-                    </div>
-                </div>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="subject" placeholder="Subject" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
+    <section id="contact">
+        <div class="contact-section">
+            <h2 class="section-title">Let's Connect</h2>
+            <p class="contact-text">
+                I'm always interested in discussing mobile security, innovative solutions, and collaboration opportunities. Whether you need consulting, want to discuss security trends, or explore partnership possibilities, let's connect.
+            </p>
+            <div class="contact-buttons">
+                <a href="mailto:manojgadamsetty@gmail.com" class="cta-button">Email Me</a>
+                <a href="https://www.linkedin.com/in/manojgadamsetty/" target="_blank" class="cta-button secondary">Connect on LinkedIn</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-text">
-                    <p>&copy; 2025 Manoj Gadamsetty. All rights reserved.</p>
-                </div>
-                <div class="footer-links">
-                    <a href="https://www.linkedin.com/in/manojgadamsetty/" target="_blank">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://github.com/manojgadamsetty" target="_blank">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="mailto:manojgadamsetty@gmail.com">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://medium.com/@manojgadamsetty" target="_blank">
-                        <i class="fab fa-medium"></i>
-                    </a>
-                </div>
+    <footer>
+        <div class="footer-content">
+            <p class="footer-text">&copy; 2026 Manoj Gadamsetty. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/manojgadamsetty/">LinkedIn</a>
+                <a href="https://github.com/manojgadamsetty">GitHub</a>
+                <a href="https://medium.com/@manojgadamsetty">Medium</a>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const bars = navToggle.querySelectorAll('.bar');
+            bars.forEach((bar, index) => {
+                if (navMenu.classList.contains('active')) {
+                    if (index === 0) bar.style.transform = 'rotate(45deg) translate(5px, 5px)';
+                    if (index === 1) bar.style.opacity = '0';
+                    if (index === 2) bar.style.transform = 'rotate(-45deg) translate(7px, -6px)';
+                } else {
+                    bar.style.transform = 'none';
+                    bar.style.opacity = '1';
+                }
+            });
+        });
+
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                const bars = navToggle.querySelectorAll('.bar');
+                bars.forEach(bar => {
+                    bar.style.transform = 'none';
+                    bar.style.opacity = '1';
+                });
+            });
+        });
+
+        // Smooth scrolling and active link highlighting
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 60,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Update active nav link on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollPos = window.scrollY + 100;
+
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    const activeLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                    }
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        const animateElements = document.querySelectorAll('.service-card, .timeline-item, .skill-tag');
+        animateElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
