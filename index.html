@@ -42,6 +42,12 @@
             color: var(--black);
             background: var(--white);
             overflow-x: hidden;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        body.loaded {
+            opacity: 1;
         }
 
         /* Navigation */
@@ -54,6 +60,7 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
             border-bottom: 1px solid #f0f0f0;
+            transition: all 0.3s ease;
         }
 
         .nav-container {
@@ -142,7 +149,7 @@
             right: -10%;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(20, 184, 166, 0.04), transparent);
+            background: radial-gradient(circle, rgba(20, 184, 166, 0.03), transparent);
             border-radius: 50%;
             pointer-events: none;
             animation: float 8s ease-in-out infinite;
@@ -155,7 +162,7 @@
             left: -5%;
             width: 500px;
             height: 500px;
-            background: radial-gradient(circle, rgba(20, 184, 166, 0.03), transparent);
+            background: radial-gradient(circle, rgba(20, 184, 166, 0.02), transparent);
             border-radius: 50%;
             pointer-events: none;
             animation: float 10s ease-in-out infinite reverse;
@@ -218,11 +225,35 @@
             transition: all 0.3s ease;
             cursor: pointer;
             display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
         }
 
         .cta-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
         }
 
         .cta-button.secondary {
@@ -261,7 +292,7 @@
         .social-link:hover {
             background: var(--black);
             color: var(--white);
-            transform: translateY(-3px);
+            transform: translateY(-5px) scale(1.1);
         }
 
         /* About Section */
@@ -328,6 +359,11 @@
             justify-content: flex-start;
             height: 60px;
             width: 60px;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
         }
 
         .material-icons {
@@ -352,6 +388,184 @@
         }
 
         /* Experience Timeline */
+        /* Experience Section */
+        #experience {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .experience-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .experience-header {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .experience-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .experience-label::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .experience-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -1px;
+            color: var(--white);
+        }
+
+        .experience-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .exp-item {
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeInUp 0.8s ease-out both;
+            transition: all 0.3s ease;
+        }
+
+        .exp-item:hover {
+            background: rgba(255, 255, 255, 0.02);
+            padding-left: 1rem;
+            border-left: 3px solid var(--accent);
+        }
+
+        .exp-item:nth-child(1) { animation-delay: 0.1s; }
+        .exp-item:nth-child(2) { animation-delay: 0.2s; }
+        .exp-item:nth-child(3) { animation-delay: 0.3s; }
+        .exp-item:nth-child(4) { animation-delay: 0.4s; }
+        .exp-item:nth-child(5) { animation-delay: 0.5s; }
+
+        .exp-item:last-child {
+            border-bottom: none;
+        }
+
+        .exp-main-row {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1.2fr;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .exp-company {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--white);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .company-icon {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .exp-item:hover .company-icon {
+            transform: scale(1.1) rotate(3deg);
+        }
+
+        .company-icon svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .company-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .exp-date {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .exp-role {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--white);
+            text-align: right;
+        }
+
+        /* Company Group with Promotions */
+        .exp-company-group {
+            padding: 2rem 0;
+        }
+
+        .exp-promotions {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            padding-left: 2rem;
+        }
+
+        .exp-promotion-row {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .exp-promotion-date {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 500;
+        }
+
+        .exp-promotion-role {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--accent);
+            text-align: right;
+        }
+
+        /* Education Section - same styling as experience */
+        #education {
+            background: var(--black);
+            color: var(--white);
+        }
+
         .timeline {
             position: relative;
             margin-top: 3rem;
@@ -389,7 +603,7 @@
             letter-spacing: 1px;
             margin-bottom: 0.8rem;
             display: inline-block;
-            background: #f0fffe;
+            background: var(--gray-light);
             padding: 0.4rem 0.8rem;
             border-radius: 4px;
         }
@@ -416,6 +630,84 @@
             line-height: 1.7;
         }
 
+        /* Skills Breakdown Section */
+        .skills-quote {
+            background: transparent;
+            padding: 2rem;
+            border-left: 4px solid var(--accent);
+            border-radius: 0;
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.8s ease-out 0.1s both;
+        }
+
+        .skills-quote p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--gray-text);
+            font-style: italic;
+            margin: 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .skills-column {
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .skills-column:nth-child(1) { animation-delay: 0.2s; }
+        .skills-column:nth-child(2) { animation-delay: 0.3s; }
+
+        .skills-column h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--black);
+            letter-spacing: -0.5px;
+        }
+
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skills-list li {
+            font-size: 1.05rem;
+            color: var(--gray-text);
+            margin-bottom: 1.2rem;
+            padding-left: 2rem;
+            position: relative;
+            line-height: 1.6;
+            animation: fadeInUp 0.6s ease-out both;
+        }
+
+        .skills-list li:nth-child(1) { animation-delay: 0.2s; }
+        .skills-list li:nth-child(2) { animation-delay: 0.25s; }
+        .skills-list li:nth-child(3) { animation-delay: 0.3s; }
+        .skills-list li:nth-child(4) { animation-delay: 0.35s; }
+        .skills-list li:nth-child(5) { animation-delay: 0.4s; }
+        .skills-list li:nth-child(6) { animation-delay: 0.45s; }
+
+        .skills-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 2px solid var(--accent);
+            box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+        }
+
         /* Skills Tags */
         .skills-container {
             display: flex;
@@ -439,7 +731,8 @@
             background: var(--black);
             color: var(--white);
             border-color: var(--black);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
         /* Contact Section */
@@ -494,11 +787,29 @@
             color: var(--white);
             text-decoration: none;
             font-size: 0.9rem;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
         }
 
         .footer-links a:hover {
             color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .footer-links a:hover::after {
+            width: 100%;
         }
 
         /* Animations */
@@ -513,9 +824,54 @@
             }
         }
 
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
+        }
+
+        /* Animation utility classes */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Responsive */
@@ -562,6 +918,42 @@
             section {
                 padding: 3rem 1.5rem;
             }
+
+            .experience-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .experience-title {
+                font-size: 2rem;
+            }
+
+            .exp-main-row {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+                text-align: left;
+            }
+
+            .exp-date {
+                text-align: left;
+            }
+
+            .exp-role {
+                text-align: left;
+            }
+
+            .exp-promotions {
+                padding-left: 0;
+            }
+
+            .exp-promotion-row {
+                grid-template-columns: 1fr;
+                gap: 0.3rem;
+            }
+
+            .exp-promotion-role {
+                text-align: left;
+            }
         }
 
         @media (max-width: 480px) {
@@ -594,6 +986,7 @@
                 <a href="#home" class="nav-link active">Home</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#expertise" class="nav-link">Expertise</a>
+                <a href="#skills" class="nav-link">Skills</a>
                 <a href="#experience" class="nav-link">Experience</a>
                 <a href="#education" class="nav-link">Education</a>
                 <a href="#contact" class="nav-link">Contact</a>
@@ -639,30 +1032,20 @@
     <section id="about">
         <h2 class="section-title">About Me</h2>
         <p class="about-intro">
-            As a Staff Software Engineer focused on mobile security, I've helped global enterprises protect millions of users by delivering apps with robust authentication, seamless compliance, and real-world threat prevention. At CyberArk, I pioneered secure mobile architectures for flagship identity products enabling biometric MFA, zero-trust remote access, and GDPR-grade encryption—all while collaborating with cross-functional teams.
+            Hello! I'm Manoj Gadamsetty, a Staff Software Engineer based in Hyderabad, India, with 9.6+ years of experience at the intersection of mobile development and cybersecurity. I'm passionate about building secure, scalable solutions that protect millions of users worldwide while maintaining exceptional user experience.
         </p>
         <p class="about-intro">
-            My toolkit spans iOS (Swift, Objective-C), Android (Kotlin, Java), secure backend (Golang, Python), and full-stack DevSecOps. I've driven threat modeling, code reviews, and incident response for security-first roadmaps and coached engineers on SSDLC best practices. I thrive on innovation, lifelong learning, and building secure solutions that scale.
+            Currently at CyberArk, I lead mobile security initiatives for flagship identity products, pioneering secure architectures that enable biometric MFA, zero-trust remote access, and GDPR-grade encryption. My work directly powers enterprise rollouts and reduces risk exposure for high-value customers. With a customer-first approach, I excel in enterprise product environments where SLA management and rapid issue resolution are critical. I've mastered navigating complex policy landscapes and configuration challenges to adapt applications for diverse enterprise needs. My expertise includes conducting over 150 root cause analyses (RCAs) for reported issues, ensuring robust solutions that maintain service reliability and user trust. Over the course of my career, I've led the development and successful launch of several high-impact iOS applications that have collectively served millions of users. These apps have maintained an impressive 99.99% crash-free stability rate through comprehensive testing strategies, performance optimization, and proactive monitoring. This reliability, combined with intuitive user interfaces and robust functionality, has resulted in consistently high app store ratings and positive user feedback.
         </p>
-        <div class="skills-container">
-            <span class="skill-tag">Swift</span>
-            <span class="skill-tag">Objective-C</span>
-            <span class="skill-tag">Kotlin</span>
-            <span class="skill-tag">Java</span>
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">Golang</span>
-            <span class="skill-tag">iOS Development</span>
-            <span class="skill-tag">Android Development</span>
-            <span class="skill-tag">Mobile Security</span>
-            <span class="skill-tag">OWASP</span>
-            <span class="skill-tag">Biometric MFA</span>
-            <span class="skill-tag">Zero-Trust Architecture</span>
-            <span class="skill-tag">Penetration Testing</span>
-            <span class="skill-tag">DevSecOps</span>
-            <span class="skill-tag">Threat Modeling</span>
-            <span class="skill-tag">GDPR Compliance</span>
-            <span class="skill-tag">SSDLC</span>
-        </div>
+        <p class="about-intro">
+            My technical toolkit spans iOS (Swift, Objective-C), Android (Kotlin, Java), secure backend development (Golang, Python), and full-stack DevSecOps. I specialize in threat modeling, security architecture design, code reviews, and incident response. I'm deeply committed to secure software development lifecycle (SSDLC) best practices and regularly mentor senior engineers on security-first development approaches.
+        </p>
+        <p class="about-intro">
+            Beyond coding, I value open communication, believe in lifelong learning, and thrive on solving complex problems that matter. I'm passionate about mentoring talented teams, driving innovation in mobile security, and creating products that users can trust. Whether guiding technical deep-dives, presenting to business stakeholders, or collaborating with cross-functional teams, I bring clarity, passion, and an unwavering commitment to user safety and privacy.
+        </p>
+        <p class="about-intro">
+            Let's partner to outsmart tomorrow's mobile threats and create secure solutions that scale.
+        </p>
     </section>
 
     <!-- Expertise Section -->
@@ -702,70 +1085,205 @@
         </div>
     </section>
 
+    <!-- Skills Breakdown Section -->
+    <section id="skills">
+        <h2 class="section-title">Skillset</h2>
+        <div class="skills-quote">
+            <p>My skillset is constantly evolving. I value open communication and believe a strong team thrives on shared learning. I'm always eager to contribute my knowledge and learn from others.</p>
+        </div>
+        <div class="skills-grid">
+            <div class="skills-column">
+                <h3>Soft Skills</h3>
+                <ul class="skills-list">
+                    <li>Communication</li>
+                    <li>Problem-Solving</li>
+                    <li>Collaboration</li>
+                    <li>Team Leadership</li>
+                    <li>Mentoring & Coaching</li>
+                    <li>Empathy & Active Listening</li>
+                </ul>
+            </div>
+            <div class="skills-column">
+                <h3>Hard Skills</h3>
+                <ul class="skills-list">
+                    <li>iOS Development (Swift, Objective-C)</li>
+                    <li>Android Development (Kotlin, Java)</li>
+                    <li>Mobile Security Architecture</li>
+                    <li>Threat Modeling & Security Design</li>
+                    <li>DevSecOps & CI/CD Pipeline</li>
+                    <li>Backend (Golang, Python)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
     <!-- Experience Section -->
     <section id="experience">
-        <h2 class="section-title">Professional Experience</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-date">Jun 2025 - Present</div>
-                <h3>Staff Software Engineer</h3>
-                <p class="company">CyberArk</p>
-                <p>Leading mobile security initiatives for flagship identity products. Driving strategic security architecture decisions and mentoring senior engineers on SSDLC best practices.</p>
+        <div class="experience-container">
+            <div class="experience-header">
+                <span class="experience-label">Experience</span>
+                <h2 class="experience-title">Building Secure Solutions at Scale</h2>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-date">Jun 2021 - May 2025</div>
-                <h3>Senior Software Engineer</h3>
-                <p class="company">CyberArk</p>
-                <p>Pioneered secure mobile architectures enabling biometric MFA, zero-trust remote access, and GDPR-grade encryption. Powered enterprise rollouts and reduced risk exposure for high-value customers.</p>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-date">May 2020 - May 2021</div>
-                <h3>Senior iOS Developer</h3>
-                <p class="company">Frost Interactive</p>
-                <p>Developed high-performance iOS applications, improving daily active users by 25% via seamless UI/UX. Implemented encryption and privacy protections ensuring app store compliance and top ratings.</p>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-date">Jan 2019 - May 2020</div>
-                <h3>Senior iOS Developer</h3>
-                <p class="company">Edwisely</p>
-                <p>Delivered scalable education apps enabling secure logins for 20,000+ users with 99.99% crash-free stability. Implemented FERPA compliance and multi-factor authentication.</p>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-date">May 2018 - Jan 2019</div>
-                <h3>iOS App Developer</h3>
-                <p class="company">Proxim Quest IT Solutions</p>
-                <p>Built enterprise iOS apps advancing delivery timelines by 20% through modular architectures. Enhanced security with cryptography and secure APIs, reducing incidents by 40%.</p>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-date">Apr 2016 - May 2018</div>
-                <h3>iOS App Developer</h3>
-                <p class="company">BRN Infotech Private Limited</p>
-                <p>Developed iOS applications for diverse clients. Started as intern and progressed to full developer role, mastering Swift and iOS security fundamentals.</p>
+            <div class="experience-timeline">
+                <div class="exp-item exp-company-group">
+                    <div class="exp-main-row">
+                        <div class="exp-company">
+                            <div class="company-icon">
+                                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="40" height="40" rx="6" fill="#E40046"/>
+                                    <g transform="translate(20, 20)">
+                                        <circle cx="0" cy="0" r="12" stroke="white" stroke-width="1" fill="none" opacity="0.3"/>
+                                        <circle cx="0" cy="0" r="9" stroke="white" stroke-width="1.5" fill="none" opacity="0.6"/>
+                                        <circle cx="0" cy="0" r="6" stroke="white" stroke-width="2" fill="none"/>
+                                        <circle cx="0" cy="0" r="3" fill="white"/>
+                                        <line x1="0" y1="-13" x2="0" y2="-15" stroke="white" stroke-width="1.5" opacity="0.8"/>
+                                        <line x1="0" y1="13" x2="0" y2="15" stroke="white" stroke-width="1.5" opacity="0.8"/>
+                                        <line x1="-13" y1="0" x2="-15" y2="0" stroke="white" stroke-width="1.5" opacity="0.8"/>
+                                        <line x1="13" y1="0" x2="15" y2="0" stroke="white" stroke-width="1.5" opacity="0.8"/>
+                                    </g>
+                                </svg>
+                            </div>
+                            <span>CyberArk</span>
+                        </div>
+                        <div class="exp-date">Jun 2021 - Present</div>
+                        <div class="exp-role">4+ Years</div>
+                    </div>
+                    <div class="exp-promotions">
+                        <div class="exp-promotion-row">
+                            <div class="exp-promotion-date">Jun 2025 - Present</div>
+                            <div class="exp-promotion-role">Staff Software Engineer</div>
+                        </div>
+                        <div class="exp-promotion-row">
+                            <div class="exp-promotion-date">Jun 2021 - May 2025</div>
+                            <div class="exp-promotion-role">Senior Software Engineer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="exp-item">
+                    <div class="exp-main-row">
+                        <div class="exp-company">
+                            <div class="company-icon">
+                                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="40" height="40" rx="6" fill="#4A90E2"/>
+                                    <path d="M15 14L20 10L25 14V18L20 22L15 18V14Z" fill="white"/>
+                                    <rect x="12" y="24" width="16" height="6" rx="1" fill="white"/>
+                                </svg>
+                            </div>
+                            <span>Frost Interactive</span>
+                        </div>
+                        <div class="exp-date">May 2020 - May 2021</div>
+                        <div class="exp-role">Senior iOS Developer</div>
+                    </div>
+                </div>
+                <div class="exp-item">
+                    <div class="exp-main-row">
+                        <div class="exp-company">
+                            <div class="company-icon">
+                                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="40" height="40" rx="6" fill="#FF6B6B"/>
+                                    <path d="M20 12L27 16L20 20L13 16L20 12Z" fill="white"/>
+                                    <path d="M20 22L27 18V24L20 28L13 24V18L20 22Z" fill="white" opacity="0.7"/>
+                                </svg>
+                            </div>
+                            <span>Edwisely</span>
+                        </div>
+                        <div class="exp-date">Jan 2019 - May 2020</div>
+                        <div class="exp-role">Senior iOS Developer</div>
+                    </div>
+                </div>
+                <div class="exp-item">
+                    <div class="exp-main-row">
+                        <div class="exp-company">
+                            <div class="company-icon">
+                                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="40" height="40" rx="6" fill="#34495E"/>
+                                    <path d="M12 14H19V21H12V14ZM21 14H28V21H21V14ZM12 23H19V30H12V23ZM21 23H28V30H21V23Z" fill="white"/>
+                                </svg>
+                            </div>
+                            <span>Proxim Quest IT Solutions</span>
+                        </div>
+                        <div class="exp-date">May 2018 - Jan 2019</div>
+                        <div class="exp-role">iOS App Developer</div>
+                    </div>
+                </div>
+                <div class="exp-item">
+                    <div class="exp-main-row">
+                        <div class="exp-company">
+                            <div class="company-icon">
+                                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="40" height="40" rx="6" fill="#2C3E50"/>
+                                    <rect x="12" y="12" width="16" height="16" rx="2" fill="white"/>
+                                    <path d="M16 16H24V24H16V16Z" fill="#2C3E50"/>
+                                    <circle cx="20" cy="20" r="2" fill="white"/>
+                                </svg>
+                            </div>
+                            <span>BRN Infotech Private Limited</span>
+                        </div>
+                        <div class="exp-date">Apr 2016 - May 2018</div>
+                        <div class="exp-role">iOS App Developer</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Education Section -->
     <section id="education">
-        <h2 class="section-title">Education</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-date">Jul 2025 - Jul 2027</div>
-                <h3>Master's Degree, Software Systems</h3>
-                <p class="company">Birla Institute of Technology and Science, Pilani</p>
-                <p>Advancing expertise in software engineering, security architecture, and system design.</p>
+        <div class="experience-container">
+            <div class="experience-header">
+                <span class="experience-label">Education</span>
+                <h2 class="experience-title">Academic Foundation</h2>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-date">2013 - 2016</div>
-                <h3>B.Tech, Electrical and Electronics Engineering</h3>
-                <p class="company">QIS College of Engineering and Technology</p>
-                <p>Foundation in engineering principles and problem-solving methodologies.</p>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-date">2010 - 2013</div>
-                <h3>Diploma, Electrical and Electronics Engineering</h3>
-                <p class="company">St. Ann's College of Engineering and Technology</p>
-                <p>Technical foundation in electrical systems and engineering fundamentals.</p>
+            <div class="experience-timeline">
+                <div class="exp-item">
+                    <div class="exp-main-row">
+                        <div class="exp-company">
+                            <div class="company-icon">
+                                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="40" height="40" rx="6" fill="#0052CC"/>
+                                    <path d="M20 12L28 16L20 20L12 16L20 12Z" fill="white"/>
+                                    <path d="M12 20V24L20 28L28 24V20" stroke="white" stroke-width="2" fill="none"/>
+                                    <circle cx="20" cy="20" r="1.5" fill="white"/>
+                                </svg>
+                            </div>
+                            <span>Birla Institute of Technology and Science, Pilani</span>
+                        </div>
+                        <div class="exp-date">Jul 2025 - Jul 2027</div>
+                        <div class="exp-role">Master's Degree, Software Systems</div>
+                    </div>
+                </div>
+                <div class="exp-item">
+                    <div class="exp-main-row">
+                        <div class="exp-company">
+                            <div class="company-icon">
+                                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="40" height="40" rx="6" fill="#2C5282"/>
+                                    <path d="M20 12L28 16L20 20L12 16L20 12Z" fill="white"/>
+                                    <path d="M12 20V24L20 28L28 24V20" stroke="white" stroke-width="2" fill="none"/>
+                                </svg>
+                            </div>
+                            <span>QIS College of Engineering and Technology</span>
+                        </div>
+                        <div class="exp-date">2013 - 2016</div>
+                        <div class="exp-role">B.Tech, EEE</div>
+                    </div>
+                </div>
+                <div class="exp-item">
+                    <div class="exp-main-row">
+                        <div class="exp-company">
+                            <div class="company-icon">
+                                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="40" height="40" rx="6" fill="#2D3748"/>
+                                    <path d="M20 12L28 16L20 20L12 16L20 12Z" fill="white"/>
+                                    <path d="M12 20V24L20 28L28 24V20" stroke="white" stroke-width="2" fill="none"/>
+                                </svg>
+                            </div>
+                            <span>St. Ann's College of Engineering and Technology</span>
+                        </div>
+                        <div class="exp-date">2010 - 2013</div>
+                        <div class="exp-role">Diploma, EEE</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -797,6 +1315,11 @@
     </footer>
 
     <script>
+        // Page load animation
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+
         // Mobile Navigation Toggle
         const navToggle = document.getElementById('nav-toggle');
         const navMenu = document.getElementById('nav-menu');
@@ -846,9 +1369,13 @@
         });
 
         // Update active nav link on scroll
+        const nav = document.querySelector('nav');
+        let lastScroll = 0;
+
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section[id]');
             const scrollPos = window.scrollY + 100;
+            const currentScroll = window.pageYOffset;
 
             navLinks.forEach(link => link.classList.remove('active'));
 
@@ -864,6 +1391,17 @@
                     }
                 }
             });
+
+            // Enhanced navbar appearance on scroll
+            if (currentScroll > 100) {
+                nav.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+
+            lastScroll = currentScroll;
         });
 
         // Intersection Observer for fade-in animations
@@ -877,16 +1415,54 @@
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
+                    // Add visible class for elements with animate-on-scroll class
+                    if (entry.target.classList.contains('animate-on-scroll')) {
+                        entry.target.classList.add('visible');
+                    }
                 }
             });
         }, observerOptions);
 
-        const animateElements = document.querySelectorAll('.service-card, .timeline-item, .skill-tag');
+        const animateElements = document.querySelectorAll('.service-card, .timeline-item, .skill-tag, .animate-on-scroll, .about-intro, .section-title');
         animateElements.forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
+        });
+
+        // Add stagger delay for grid items
+        document.querySelectorAll('.services-grid .service-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        document.querySelectorAll('.skills-container .skill-tag').forEach((tag, index) => {
+            tag.style.transitionDelay = `${index * 0.05}s`;
+        });
+
+        // Subtle parallax effect for hero section
+        const hero = document.querySelector('.hero');
+        if (hero) {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const heroContent = hero.querySelector('.hero-content');
+                if (heroContent && scrolled < hero.offsetHeight) {
+                    heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
+                    heroContent.style.opacity = 1 - (scrolled / hero.offsetHeight) * 0.5;
+                }
+            });
+        }
+
+        // Add entrance animation to hero elements
+        const heroElements = document.querySelectorAll('.hero h1, .hero-subtitle, .hero-description, .hero-cta, .social-links');
+        heroElements.forEach((el, index) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+                el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            }, 200 + (index * 100));
         });
     </script>
 </body>
