@@ -44,6 +44,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- HTML2PDF Library for PDF Export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
     {
@@ -1104,6 +1107,9 @@
             <div class="hero-cta">
                 <a href="#contact" class="cta-button" aria-label="Get in touch with Manoj Gadamsetty">Get In Touch</a>
                 <a href="#expertise" class="cta-button secondary" aria-label="Explore expertise and services">Explore My Expertise</a>
+                <button onclick="downloadResume()" class="cta-button secondary" aria-label="Download resume as PDF" style="border: none; background: inherit; padding: inherit; cursor: pointer; font-family: inherit; font-size: inherit; font-weight: inherit;">
+                    <i class="material-icons" style="font-size: 1.2rem; vertical-align: middle; margin-right: 0.5rem;">download</i>Download Resume
+                </button>
             </div>
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/manojgadamsetty/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Connect on LinkedIn">
@@ -1559,6 +1565,28 @@
                 el.style.transform = 'translateY(0)';
             }, 200 + (index * 100));
         });
+
+        // Download Resume Function
+        function downloadResume() {
+            try {
+                // Create a new window with resume content
+                const resumeWindow = window.open('resume-cv.html', '_blank');
+                
+                // Wait for the page to load, then trigger print to PDF
+                setTimeout(() => {
+                    if (resumeWindow) {
+                        resumeWindow.focus();
+                        resumeWindow.print();
+                    } else {
+                        alert('Please allow pop-ups to download the resume.');
+                    }
+                }, 1000);
+            } catch (error) {
+                console.error('Error downloading resume:', error);
+                alert('Unable to download resume. Opening in new tab instead.');
+                window.open('resume-cv.html', '_blank');
+            }
+        }
     </script>
 </body>
 </html>
