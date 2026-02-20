@@ -826,6 +826,176 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
+        /* Modal Styles */
+        .exp-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .exp-modal.active {
+            display: flex;
+            opacity: 1;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            margin: 2rem;
+            padding: 2.5rem;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 700px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.3s ease-out;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--gray-light);
+            padding-bottom: 1rem;
+        }
+
+        .modal-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .modal-company-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--gray-light);
+        }
+
+        .modal-company-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .modal-title-text h2 {
+            font-size: 1.5rem;
+            color: var(--black);
+            margin-bottom: 0.3rem;
+        }
+
+        .modal-title-text p {
+            color: var(--gray-text);
+            font-size: 0.95rem;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--gray-text);
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--black);
+            transform: rotate(90deg);
+        }
+
+        .modal-dates {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--gray-text);
+        }
+
+        .modal-date-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-date-label {
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 0.2rem;
+        }
+
+        .modal-description {
+            margin-bottom: 1.5rem;
+            color: var(--black);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .modal-bullets {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+
+        .modal-bullets li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--black);
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+
+        .modal-bullets li:before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .modal-bullets strong {
+            color: var(--black);
+        }
+
+        .exp-item.clickable {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .exp-item.clickable:hover {
+            transform: translateX(8px);
+        }
+
         /* Contact Section */
         .contact-section {
             text-align: center;
@@ -1225,7 +1395,7 @@
                 <h2 id="experience-heading" class="experience-title">Building Secure Solutions at Scale</h2>
             </div>
             <div class="experience-timeline">
-                <div class="exp-item">
+                <div class="exp-item clickable" onclick="openExperienceModal(event)" data-company="Palo Alto Networks" data-role="Staff Software Engineer" data-icon="https://cdn-1.webcatalog.io/catalog/palo-alto-networks/palo-alto-networks-icon-filled-256.webp?v=1714781699513" data-dates="Feb 2026 - Present" data-location="Hyderabad" data-description="Leading the development of Palo Alto Networks' enterprise next-generation identity platform with Workforce Password Manager, architecting secure, scalable solutions for SSO (Single Sign-On), IAM (Identity and Access Management), and advanced authentication in zero-trust environments with primary focus on security." data-bullets="Next-Generation Identity Platform Development|Leading the development of Palo Alto Networks' enterprise next-generation identity platform with Workforce Password Manager, architecting secure, scalable solutions for SSO (Single Sign-On), IAM (Identity and Access Management), and advanced authentication in zero-trust environments with primary focus on security.|Mobile Application Security & Password Management|Architecting secure mobile applications with advanced password management capabilities, implementing offline data management, autofill functionality, watch app integration, and comprehensive credential management features while maintaining enterprise-grade security standards.|Enterprise Security Architecture|Designing and implementing comprehensive security frameworks for mobile and web applications with focus on SSO and IAM integrations, ensuring compliance with enterprise security standards and industry best practices for identity and access management.|Cross-Platform Integration|Architecting seamless integration between mobile, web, and backend systems to deliver unified identity experiences across the Palo Alto Networks security platform.">
                     <div class="exp-main-row">
                         <div class="exp-company">
                             <div class="company-icon">
@@ -1237,7 +1407,7 @@
                         <div class="exp-role">Staff Software Engineer</div>
                     </div>
                 </div>
-                <div class="exp-item exp-company-group">
+                <div class="exp-item exp-company-group clickable" onclick="openExperienceModal(event)" data-company="CyberArk" data-role="Staff Software Engineer & Senior Software Engineer" data-icon="https://images.icon-icons.com/2699/PNG/512/cyberark_logo_icon_168315.png" data-dates="Jun 2021 - Jan 2026" data-location="Hyderabad" data-description="Architected and oversaw the evolution of CyberArk Mobile and CyberArk Identity platforms with Workforce Password Manager capabilities, implementing scalable solutions supporting 100,000+ concurrent mobile users with secure offline data management, autofill features, and watch app integration while maintaining 99.99% uptime and crash-free stability. Gained deep expertise in IAM, PVWA, Remote Access, PAM, Password Manager, and SSO implementations with primary focus on security." data-bullets="Technical Leadership and Architecture Design|Led high-impact mobile security initiatives with focus on Workforce Password Manager and established architectural standards for enterprise-grade applications while mentoring senior engineers.|Strategic Mobile Platform Enhancement|Architected the evolution of CyberArk Mobile and CyberArk Identity platforms with password management capabilities, implementing scalable solutions for 100,000+ concurrent mobile users with secure offline data management and autofill features.|Development of Secure Mobile Applications|Extensively worked on CyberArk Mobile (Remote Access management) and CyberArk Identity (SSO and MDM) applications, building secure, enterprise-grade mobile solutions with Workforce Password Manager capabilities.|Advanced Security Implementations|Implemented reCAPTCHA Integration, SSL Pinning, Secure Data Storage, Secure Offline Data Management, Autofill Security, Profile Management for MDM, OpenID and SAML Authentication, Secure Content Display, and Vulnerability Scanning.|Cross-Platform Backend APIs|Engineered advanced RESTful APIs supporting 100,000+ mobile users using Node.js and GraphQL with focus on PAM, IAM, and password management integrations.">
                     <div class="exp-main-row">
                         <div class="exp-company">
                             <div class="company-icon">
@@ -1259,7 +1429,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="exp-item">
+                <div class="exp-item clickable" onclick="openExperienceModal(event)" data-company="Frost Interactive" data-role="Senior iOS Developer" data-icon="https://media.licdn.com/dms/image/v2/C560BAQGubPLteIReDA/company-logo_200_200/company-logo_200_200/0/1649856150409/aceonline_logo?e=1773273600&v=beta&t=mnii1RDQFGWpVmRE6TXlFss0xmdsPx_uAPUEgBJ52K4" data-dates="May 2020 - May 2021" data-location="Bangalore" data-description="Developed a comprehensive video streaming application with custom video player using AVPlayer. Implemented advanced UI/UX features including gesture recognizers, custom controls, and video playback optimization for seamless user experience." data-bullets="Custom Video Player Development|Created customized video player with AVPlayer to meet specific UI requirements and enhance video playback functionality.|Video Streaming Optimization|Optimized video streaming for various network conditions and device capabilities.|Advanced UI Implementation|Implemented gesture recognizers, custom controls, and enhanced user interface for seamless video playback experience.">
                     <div class="exp-main-row">
                         <div class="exp-company">
                             <div class="company-icon">
@@ -1271,7 +1441,7 @@
                         <div class="exp-role">Senior iOS Developer</div>
                     </div>
                 </div>
-                <div class="exp-item">
+                <div class="exp-item clickable" onclick="openExperienceModal(event)" data-company="Edwisely" data-role="Senior iOS Developer" data-icon="https://media.licdn.com/dms/image/v2/C560BAQFkva1-sAMTiw/company-logo_200_200/company-logo_200_200/0/1630630171632/edwisely_logo?e=1773273600&v=beta&t=QVKK0d1it0IJCe4WMFvgutIZJpduQ9tJCyqyV9Rn0Fc" data-dates="Jan 2019 - May 2020" data-location="Bangalore" data-description="Developed and maintained an educational mobile application focusing on secure content delivery and user engagement. Worked on implementing robust architecture for e-learning platform with focus on user authentication and data protection." data-bullets="Educational App Development|Built comprehensive iOS application for online learning platform with secure content delivery and user management.|User Authentication|Implemented secure authentication mechanisms for educational platform users.|Data Security|Ensured secure handling of user data and learning progress tracking.">
                     <div class="exp-main-row">
                         <div class="exp-company">
                             <div class="company-icon">
@@ -1283,7 +1453,7 @@
                         <div class="exp-role">Senior iOS Developer</div>
                     </div>
                 </div>
-                <div class="exp-item">
+                <div class="exp-item clickable" onclick="openExperienceModal(event)" data-company="Proxim Quest IT Solutions" data-role="iOS App Developer" data-icon="https://media.licdn.com/dms/image/v2/C4E0BAQGxeuohsC8W1A/company-logo_200_200/company-logo_200_200/0/1631357660335?e=1773273600&v=beta&t=IkXN_o2gpF2Er0WXAeGzZcW0KC9NV1qrl2Gm3C6cKGM" data-dates="May 2018 - Jan 2019" data-location="Bangalore" data-description="Developed iOS applications for enterprise clients with focus on functionality and user experience. Contributed to multiple app projects with implementation of core features and bug fixes." data-bullets="iOS Application Development|Developed enterprise iOS applications meeting client requirements and specifications.|Feature Implementation|Implemented core features including networking, data management, and UI components.|Bug Resolution|Identified and resolved bugs to ensure app stability and performance.|Code Quality|Maintained high code quality standards and best practices throughout development.">
                     <div class="exp-main-row">
                         <div class="exp-company">
                             <div class="company-icon">
@@ -1295,7 +1465,7 @@
                         <div class="exp-role">iOS App Developer</div>
                     </div>
                 </div>
-                <div class="exp-item exp-company-group">
+                <div class="exp-item exp-company-group clickable" onclick="openExperienceModal(event)" data-company="BRN Infotech Private Limited" data-role="iOS App Developer & iOS Developer Intern" data-icon="https://play-lh.googleusercontent.com/NjRCG9ZIhydAwDy32FdfkvNVkFY7X8QVQlO73O16ShVKM4UtlhfJkDulVWnJb2zb4imd" data-dates="Apr 2016 - May 2018" data-location="Hyderabad" data-description="Started as an iOS Developer Intern and progressed to iOS App Developer. Gained foundational knowledge in iOS development using Swift and Objective-C. Worked on multiple projects implementing features from design to deployment." data-bullets="iOS Development Foundation|Built strong foundation in iOS development, learning Swift, Objective-C, and mobile best practices.|App Feature Development|Implemented various features including networking, data persistence, and UI components.|Project Collaboration|Worked with senior developers and design teams to deliver quality applications.|Career Growth|Progressed from intern to iOS App Developer demonstrating technical growth and responsibility.">
                     <div class="exp-main-row">
                         <div class="exp-company">
                             <div class="company-icon">
@@ -1368,6 +1538,36 @@
             </div>
         </div>
     </section>
+
+    <!-- Experience Modal -->
+    <div id="expModal" class="exp-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <div class="modal-company-icon">
+                        <img id="modalCompanyIcon" src="" alt="Company">
+                    </div>
+                    <div class="modal-title-text">
+                        <h2 id="modalCompanyName"></h2>
+                        <p id="modalRoleTitle"></p>
+                    </div>
+                </div>
+                <button class="modal-close" onclick="closeExperienceModal()">&times;</button>
+            </div>
+            <div class="modal-dates">
+                <div class="modal-date-item">
+                    <span class="modal-date-label">Duration</span>
+                    <span id="modalDateRange"></span>
+                </div>
+                <div class="modal-date-item">
+                    <span class="modal-date-label">Location</span>
+                    <span id="modalLocation"></span>
+                </div>
+            </div>
+            <div id="modalDescription" class="modal-description"></div>
+            <ul id="modalBullets" class="modal-bullets"></ul>
+        </div>
+    </div>
 
     <!-- Contact Section -->
     <section id="contact" aria-labelledby="contact-heading">
@@ -1568,6 +1768,71 @@
                 window.open('resume-cv.html', '_blank');
             }
         }
+
+        // Experience Modal Functions
+        function openExperienceModal(event) {
+            const item = event.currentTarget;
+            const modal = document.getElementById('expModal');
+            
+            // Get data from attributes
+            const company = item.getAttribute('data-company');
+            const role = item.getAttribute('data-role');
+            const icon = item.getAttribute('data-icon');
+            const dates = item.getAttribute('data-dates');
+            const location = item.getAttribute('data-location');
+            const description = item.getAttribute('data-description');
+            const bulletsData = item.getAttribute('data-bullets');
+            
+            // Populate modal
+            document.getElementById('modalCompanyName').textContent = company;
+            document.getElementById('modalRoleTitle').textContent = role;
+            document.getElementById('modalCompanyIcon').src = icon;
+            document.getElementById('modalDateRange').textContent = dates;
+            document.getElementById('modalLocation').textContent = location;
+            document.getElementById('modalDescription').textContent = description;
+            
+            // Populate bullets
+            const bulletsList = document.getElementById('modalBullets');
+            bulletsList.innerHTML = '';
+            
+            if (bulletsData) {
+                const bullets = bulletsData.split('|');
+                for (let i = 0; i < bullets.length; i += 2) {
+                    if (i + 1 < bullets.length) {
+                        const li = document.createElement('li');
+                        li.innerHTML = `<strong>${bullets[i]}</strong><br>${bullets[i + 1]}`;
+                        bulletsList.appendChild(li);
+                    }
+                }
+            }
+            
+            // Show modal
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeExperienceModal() {
+            const modal = document.getElementById('expModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside the content
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('expModal');
+            modal.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    closeExperienceModal();
+                }
+            });
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeExperienceModal();
+            }
+        });
     </script>
 </body>
 </html>
