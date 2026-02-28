@@ -1079,8 +1079,8 @@
         /* Projects Section */
         .projects-container {
             display: flex;
-            gap: 2rem;
-            margin-top: 3rem;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
             overflow-x: auto;
             scroll-behavior: smooth;
             padding-bottom: 1.5rem;
@@ -1088,53 +1088,27 @@
             -webkit-overflow-scrolling: touch;
         }
 
-        .projects-container::-webkit-scrollbar {
-            height: 6px;
-        }
-
-        .projects-container::-webkit-scrollbar-track {
-            background: var(--projects-track);
-            border-radius: 10px;
-        }
-
-        .projects-container::-webkit-scrollbar-thumb {
-            background: var(--accent);
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .projects-container::-webkit-scrollbar-thumb:hover {
-            background: var(--black);
-        }
+        .projects-container::-webkit-scrollbar { height: 5px; }
+        .projects-container::-webkit-scrollbar-track { background: transparent; }
+        .projects-container::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+        .projects-container::-webkit-scrollbar-thumb:hover { background: var(--black); }
 
         .project-card {
             background: var(--project-bg);
-            border: 1px solid rgba(0, 0, 0, 0.06);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(0,0,0,.07);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.35s cubic-bezier(.4,0,.2,1);
             cursor: pointer;
             animation: fadeInUp 0.8s ease-out both;
             position: relative;
-            overflow: hidden;
-            min-width: 340px;
-            max-width: 340px;
+            min-width: 320px;
+            max-width: 320px;
             flex-shrink: 0;
             scroll-snap-align: start;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent), transparent);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,.07);
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:nth-child(1) { animation-delay: 0.1s; }
@@ -1144,170 +1118,168 @@
         .project-card:nth-child(5) { animation-delay: 0.5s; }
 
         .project-card:hover {
-            border-color: var(--accent);
-            box-shadow: 0 12px 32px rgba(20, 184, 166, 0.15);
-            transform: translateY(-8px);
-            background: var(--project-bg-hover);
+            transform: translateY(-10px);
+            box-shadow: 0 22px 50px rgba(0,0,0,.14);
+            border-color: transparent;
         }
 
-        .project-card:hover::before {
-            transform: scaleX(1);
+        /* Colored header band */
+        .project-header {
+            padding: 1.5rem 1.5rem 1.25rem;
+            background: var(--card-accent, linear-gradient(135deg, var(--accent) 0%, rgba(20,184,166,.65) 100%));
+            position: relative;
+            overflow: hidden;
         }
 
-        .project-title {
-            flex: 1;
-        }
-
-        .project-title h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--black);
-            margin: 0 0 0.6rem 0;
-            font-family: 'Poppins', sans-serif;
-            letter-spacing: -0.5px;
-            line-height: 1.3;
+        .project-header::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle at 80% 20%, rgba(255,255,255,.18) 0%, transparent 60%);
+            pointer-events: none;
         }
 
         .project-company {
-            font-size: 0.75rem;
-            color: var(--accent);
-            margin-bottom: 0.8rem;
+            font-size: 0.7rem;
+            color: rgba(255,255,255,.80);
+            margin-bottom: 0.45rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.8px;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-header h3 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #fff;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: -0.4px;
+            line-height: 1.3;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Card body */
+        .project-body {
+            padding: 1.3rem 1.5rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
         }
 
         .project-description {
-            font-size: 0.9rem;
+            font-size: 0.875rem;
             color: var(--gray-text);
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
+            line-height: 1.65;
+            margin-bottom: 1.2rem;
             font-weight: 400;
+            flex: 1;
         }
 
         .project-tech {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
+            gap: 0.4rem;
+            margin-bottom: 1.2rem;
         }
 
         .tech-tag {
             display: inline-block;
-            background: linear-gradient(135deg, var(--accent), rgba(20, 184, 166, 0.85));
-            color: var(--white);
-            padding: 0.4rem 0.8rem;
+            background: rgba(20,184,166,.1);
+            color: var(--accent);
+            border: 1px solid rgba(20,184,166,.28);
+            padding: 0.3rem 0.7rem;
             border-radius: 20px;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: 700;
-            box-shadow: 0 2px 8px rgba(20, 184, 166, 0.15);
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
         }
 
         .tech-tag:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(20, 184, 166, 0.3);
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+            transform: translateY(-1px);
         }
 
         .project-link-btn {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            color: var(--accent);
+            gap: 0.45rem;
+            background: var(--accent);
+            color: #fff;
             text-decoration: none;
             font-weight: 700;
-            font-size: 0.85rem;
+            font-size: 0.78rem;
+            padding: 0.55rem 1.1rem;
+            border-radius: 999px;
             transition: all 0.3s ease;
-            position: relative;
-            letter-spacing: 0.2px;
-        }
-
-        .project-link-btn::before {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: width 0.3s ease;
+            align-self: flex-start;
+            letter-spacing: 0.3px;
         }
 
         .project-link-btn::after {
             content: '→';
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.3s cubic-bezier(.4,0,.2,1);
             display: inline-block;
         }
 
         .project-link-btn:hover {
-            color: var(--black);
-        }
-
-        .project-link-btn:hover::before {
-            width: 100%;
+            background: var(--black);
+            gap: 0.6rem;
         }
 
         .project-link-btn:hover::after {
             transform: translateX(3px);
         }
 
+        html[data-theme="dark"] .project-card { border-color: rgba(255,255,255,.06); }
+        html[data-theme="dark"] .project-card:hover { border-color: transparent; box-shadow: 0 22px 50px rgba(0,0,0,.40); }
+        html[data-theme="dark"] .tech-tag { background: rgba(20,184,166,.12); border-color: rgba(20,184,166,.22); }
+
         /* ── POC Section ─────────────────────────────────────── */
         .poc-scroll {
             display: flex;
             gap: 1.5rem;
-            margin-top: 1.5rem;
+            margin-top: 2rem;
             overflow-x: auto;
             scroll-behavior: smooth;
             padding-bottom: 1.5rem;
-            padding-left: 0.25rem;
-            padding-right: 0.25rem;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
         }
 
         .poc-scroll::-webkit-scrollbar { height: 5px; }
         .poc-scroll::-webkit-scrollbar-track { background: transparent; }
-        .poc-scroll::-webkit-scrollbar-thumb {
-            background: #6366f1;
-            border-radius: 10px;
-        }
+        .poc-scroll::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 10px; }
         .poc-scroll::-webkit-scrollbar-thumb:hover { background: #8b5cf6; }
 
         .poc-card {
             background: var(--project-bg);
-            border: 1px solid rgba(0,0,0,.06);
-            border-radius: 16px;
-            padding: 1.75rem 1.75rem 1.75rem 1.9rem;
-            position: relative;
+            border: 1px solid rgba(0,0,0,.07);
+            border-radius: 20px;
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(.4,0,.2,1);
-            box-shadow: 0 2px 12px rgba(0,0,0,.05);
+            position: relative;
+            transition: all 0.35s cubic-bezier(.4,0,.2,1);
+            box-shadow: 0 4px 20px rgba(0,0,0,.07);
             animation: fadeInUp 0.8s ease-out both;
-            min-width: 340px;
-            max-width: 340px;
+            min-width: 320px;
+            max-width: 320px;
             flex-shrink: 0;
             scroll-snap-align: start;
-        }
-
-        /* left accent stripe */
-        .poc-card::before {
-            content: '';
-            position: absolute;
-            left: 0; top: 0; bottom: 0;
-            width: 5px;
-            background: var(--poc-accent, linear-gradient(180deg,#6366f1,#8b5cf6));
-            border-radius: 16px 0 0 16px;
-            transition: width 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .poc-card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-10px);
             border-color: transparent;
-            box-shadow: 0 16px 40px rgba(0,0,0,.12);
-            background: var(--project-bg-hover);
+            box-shadow: 0 22px 50px rgba(0,0,0,.14);
         }
 
-        .poc-card:hover::before { width: 8px; }
         .poc-card:nth-child(1) { animation-delay: 0.1s; }
         .poc-card:nth-child(2) { animation-delay: 0.2s; }
         .poc-card:nth-child(3) { animation-delay: 0.3s; }
@@ -1315,28 +1287,71 @@
         .poc-card:nth-child(5) { animation-delay: 0.5s; }
         .poc-card:nth-child(6) { animation-delay: 0.6s; }
 
-        .poc-num {
-            font-size: 0.68rem;
-            font-weight: 800;
-            letter-spacing: 1.2px;
-            color: var(--poc-accent-text, #6366f1);
-            text-transform: uppercase;
+        /* Colored gradient header band */
+        .poc-header {
+            padding: 1.25rem 1.4rem 1.1rem;
+            background: var(--poc-accent, linear-gradient(135deg,#6366f1,#8b5cf6));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .poc-header::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle at 85% 15%, rgba(255,255,255,.22) 0%, transparent 55%);
+            pointer-events: none;
+        }
+
+        .poc-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
             margin-bottom: 0.55rem;
-            opacity: 0.75;
+            position: relative;
+            z-index: 1;
+        }
+
+        .poc-num {
+            font-size: 0.65rem;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            color: rgba(255,255,255,.7);
+            background: rgba(0,0,0,.18);
+            border-radius: 999px;
+            padding: 0.15rem 0.5rem;
+            line-height: 1.6;
+        }
+
+        .poc-category {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            color: rgba(255,255,255,.85);
+            text-transform: uppercase;
         }
 
         .poc-company {
             font-size: 0.75rem;
-            color: #6366f1;
+            color: rgba(255,255,255,.9);
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            margin-bottom: 0.4rem;
+            letter-spacing: 0.3px;
+            position: relative;
+            z-index: 1;
+            margin: 0;
+        }
+
+        /* Card body */
+        .poc-body {
+            padding: 1.25rem 1.4rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
         }
 
         .poc-name {
-            font-size: 1.2rem;
-            font-weight: 700;
+            font-size: 1.15rem;
+            font-weight: 800;
             color: var(--black);
             font-family: 'Poppins', sans-serif;
             letter-spacing: -0.4px;
@@ -1345,53 +1360,56 @@
         }
 
         .poc-description {
-            font-size: 0.88rem;
+            font-size: 0.875rem;
             color: var(--gray-text);
-            line-height: 1.6;
-            margin-bottom: 1.2rem;
+            line-height: 1.65;
+            margin-bottom: 1.1rem;
+            flex: 1;
         }
 
         .poc-tech {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.45rem;
-            margin-bottom: 1.1rem;
+            gap: 0.4rem;
+            margin-bottom: 1rem;
         }
 
         .poc-tag {
             display: inline-block;
-            background: linear-gradient(135deg, rgba(99,102,241,.14), rgba(139,92,246,.09));
-            color: #6366f1;
+            background: rgba(99,102,241,.1);
+            color: var(--poc-accent-text, #6366f1);
             border: 1px solid rgba(99,102,241,.22);
-            padding: 0.3rem 0.7rem;
+            padding: 0.28rem 0.65rem;
             border-radius: 20px;
-            font-size: 0.73rem;
+            font-size: 0.72rem;
             font-weight: 700;
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
         }
 
         .poc-tag:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(99,102,241,.2);
+            background: var(--poc-accent-text, #6366f1);
+            color: #fff;
+            border-color: transparent;
+            transform: translateY(-1px);
         }
 
         .poc-status {
             display: inline-flex;
             align-items: center;
             gap: 0.35rem;
-            font-size: 0.75rem;
+            font-size: 0.74rem;
             font-weight: 700;
             color: #10b981;
-            background: rgba(16,185,129,.08);
-            border: 1px solid rgba(16,185,129,.20);
+            background: rgba(16,185,129,.1);
+            border: 1px solid rgba(16,185,129,.25);
             border-radius: 999px;
-            padding: 0.28rem 0.65rem;
+            padding: 0.3rem 0.7rem;
+            align-self: flex-start;
         }
 
         .poc-status::before {
             content: '';
-            width: 6px;
-            height: 6px;
+            width: 6px; height: 6px;
             border-radius: 50%;
             background: #10b981;
             flex-shrink: 0;
@@ -1399,20 +1417,20 @@
 
         .poc-status--done {
             color: #6366f1;
-            background: rgba(99,102,241,.08);
-            border-color: rgba(99,102,241,.22);
+            background: rgba(99,102,241,.1);
+            border-color: rgba(99,102,241,.25);
         }
         .poc-status--done::before { background: #6366f1; }
 
         .poc-status--active {
             color: #f59e0b;
-            background: rgba(245,158,11,.08);
-            border-color: rgba(245,158,11,.25);
+            background: rgba(245,158,11,.1);
+            border-color: rgba(245,158,11,.28);
         }
         .poc-status--active::before { background: #f59e0b; }
 
         html[data-theme="dark"] .poc-card { border-color: rgba(255,255,255,.06); }
-        html[data-theme="dark"] .poc-card:hover { border-color: transparent; box-shadow: 0 16px 40px rgba(0,0,0,.35); }
+        html[data-theme="dark"] .poc-card:hover { border-color: transparent; box-shadow: 0 22px 50px rgba(0,0,0,.40); }
         html[data-theme="dark"] .poc-name { color: var(--white); }
 
         /* Contact Section */
@@ -1977,79 +1995,89 @@
                 <p style="margin-top:0.5rem;font-size:0.85rem;color:var(--gray-text);font-weight:500;">Live apps &amp; production work &mdash; scroll to explore &rarr;</p>
             </div>
             <div class="projects-container">
-                <div class="project-card">
-                    <div class="project-title">
+                <div class="project-card" style="--card-accent:linear-gradient(135deg,#0f766e 0%,#14b8a6 100%)">
+                    <div class="project-header">
                         <p class="project-company">CyberArk Software</p>
                         <h3>CyberArk Mobile</h3>
                     </div>
-                    <p class="project-description">Enterprise-grade remote access and credential management platform with advanced offline functionality, secure encryption, and seamless PAM integration for privileged access management.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Swift</span>
-                        <span class="tech-tag">iOS</span>
-                        <span class="tech-tag">Security</span>
-                        <span class="tech-tag">PAM</span>
+                    <div class="project-body">
+                        <p class="project-description">Enterprise-grade remote access and credential management platform with advanced offline functionality, secure encryption, and seamless PAM integration for privileged access management.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Swift</span>
+                            <span class="tech-tag">iOS</span>
+                            <span class="tech-tag">Security</span>
+                            <span class="tech-tag">PAM</span>
+                        </div>
+                        <a href="https://apps.apple.com/us/app/cyberark-mobile/id1470242558" target="_blank" rel="noopener noreferrer" class="project-link-btn">View App</a>
                     </div>
-                    <a href="https://apps.apple.com/us/app/cyberark-mobile/id1470242558" target="_blank" rel="noopener noreferrer" class="project-link-btn">View App</a>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-title">
+                <div class="project-card" style="--card-accent:linear-gradient(135deg,#1d4ed8 0%,#60a5fa 100%)">
+                    <div class="project-header">
                         <p class="project-company">CyberArk Software</p>
                         <h3>CyberArk Identity</h3>
                     </div>
-                    <p class="project-description">Comprehensive identity and SSO management platform enabling secure single sign-on, multi-factor authentication, and robust device management capabilities for enterprise environments.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Swift</span>
-                        <span class="tech-tag">iOS</span>
-                        <span class="tech-tag">SSO</span>
-                        <span class="tech-tag">MDM</span>
+                    <div class="project-body">
+                        <p class="project-description">Comprehensive identity and SSO management platform enabling secure single sign-on, multi-factor authentication, and robust device management capabilities for enterprise environments.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Swift</span>
+                            <span class="tech-tag">iOS</span>
+                            <span class="tech-tag">SSO</span>
+                            <span class="tech-tag">MDM</span>
+                        </div>
+                        <a href="https://apps.apple.com/us/app/cyberark-identity/id499910663" target="_blank" rel="noopener noreferrer" class="project-link-btn">View App</a>
                     </div>
-                    <a href="https://apps.apple.com/us/app/cyberark-identity/id499910663" target="_blank" rel="noopener noreferrer" class="project-link-btn">View App</a>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-title">
+                <div class="project-card" style="--card-accent:linear-gradient(135deg,#7c3aed 0%,#a78bfa 100%)">
+                    <div class="project-header">
                         <p class="project-company">Frost Interactive</p>
                         <h3>ACE Online</h3>
                     </div>
-                    <p class="project-description">Award-winning educational platform serving millions of students with live classes, custom gesture-based video player, interactive learning tools, and comprehensive course management.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Swift</span>
-                        <span class="tech-tag">AVPlayer</span>
-                        <span class="tech-tag">iOS</span>
-                        <span class="tech-tag">Education</span>
+                    <div class="project-body">
+                        <p class="project-description">Award-winning educational platform serving millions of students with live classes, custom gesture-based video player, interactive learning tools, and comprehensive course management.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Swift</span>
+                            <span class="tech-tag">AVPlayer</span>
+                            <span class="tech-tag">iOS</span>
+                            <span class="tech-tag">Education</span>
+                        </div>
+                        <a href="https://apps.apple.com/in/app/ace-online-by-ace-academy/id1512960642" target="_blank" rel="noopener noreferrer" class="project-link-btn">View App</a>
                     </div>
-                    <a href="https://apps.apple.com/in/app/ace-online-by-ace-academy/id1512960642" target="_blank" rel="noopener noreferrer" class="project-link-btn">View App</a>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-title">
+                <div class="project-card" style="--card-accent:linear-gradient(135deg,#b45309 0%,#f59e0b 100%)">
+                    <div class="project-header">
                         <p class="project-company">HAKATE Technologies</p>
                         <h3>Edwisely</h3>
                     </div>
-                    <p class="project-description">College-focused educational application featuring secure content delivery, personalized learning paths, comprehensive study resources, and collaborative tools for higher education students.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Swift</span>
-                        <span class="tech-tag">iOS</span>
-                        <span class="tech-tag">Education</span>
-                        <span class="tech-tag">Security</span>
+                    <div class="project-body">
+                        <p class="project-description">College-focused educational application featuring secure content delivery, personalized learning paths, comprehensive study resources, and collaborative tools for higher education students.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Swift</span>
+                            <span class="tech-tag">iOS</span>
+                            <span class="tech-tag">Education</span>
+                            <span class="tech-tag">Security</span>
+                        </div>
+                        <a href="https://apps.apple.com/us/app/edwisely-college-student/id1420569139" target="_blank" rel="noopener noreferrer" class="project-link-btn">View App</a>
                     </div>
-                    <a href="https://apps.apple.com/us/app/edwisely-college-student/id1420569139" target="_blank" rel="noopener noreferrer" class="project-link-btn">View App</a>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-title">
+                <div class="project-card" style="--card-accent:linear-gradient(135deg,#be185d 0%,#f472b6 100%)">
+                    <div class="project-header">
                         <p class="project-company">Proxim Quest IT</p>
                         <h3>Celebkonect</h3>
                     </div>
-                    <p class="project-description">Social networking platform enabling celebrity interactions, real-time messaging, curated content discovery, and robust community engagement with scalable backend infrastructure.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Objective-C</span>
-                        <span class="tech-tag">iOS</span>
-                        <span class="tech-tag">Networking</span>
-                        <span class="tech-tag">Social</span>
+                    <div class="project-body">
+                        <p class="project-description">Social networking platform enabling celebrity interactions, real-time messaging, curated content discovery, and robust community engagement with scalable backend infrastructure.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Objective-C</span>
+                            <span class="tech-tag">iOS</span>
+                            <span class="tech-tag">Networking</span>
+                            <span class="tech-tag">Social</span>
+                        </div>
+                        <a href="https://itunes.apple.com/in/app/celebkonect/id1328807931?mt=8" target="_blank" rel="noopener noreferrer" class="project-link-btn">View App</a>
                     </div>
-                    <a href="https://itunes.apple.com/in/app/celebkonect/id1328807931?mt=8" target="_blank" rel="noopener noreferrer" class="project-link-btn">View App</a>
                 </div>
             </div>
         </div>
@@ -2065,94 +2093,136 @@
             </div>
             <div class="poc-scroll">
 
-                <div class="poc-card" style="--poc-accent:linear-gradient(180deg,#6366f1,#818cf8);--poc-accent-text:#6366f1">
-                    <p class="poc-num">01 &mdash; Cross-Platform</p>
-                    <p class="poc-company">CyberArk &rarr; Palo Alto Networks</p>
-                    <h3 class="poc-name">React Native POC</h3>
-                    <p class="poc-description">Evaluated React Native as a cross-platform candidate for enterprise mobile app consolidation. Assessed feasibility of sharing business logic, UI components, and security modules across iOS and Android while maintaining enterprise-grade security standards.</p>
-                    <div class="poc-tech">
-                        <span class="poc-tag">React Native</span>
-                        <span class="poc-tag">iOS</span>
-                        <span class="poc-tag">Android</span>
-                        <span class="poc-tag">JavaScript</span>
-                        <span class="poc-tag">Enterprise Security</span>
+                <div class="poc-card" style="--poc-accent:linear-gradient(135deg,#6366f1,#818cf8);--poc-accent-text:#6366f1">
+                    <div class="poc-header">
+                        <div class="poc-meta">
+                            <span class="poc-num">01</span>
+                            <span class="poc-category">Cross-Platform</span>
+                        </div>
+                        <p class="poc-company">CyberArk &rarr; Palo Alto Networks</p>
                     </div>
-                    <span class="poc-status">Evaluated</span>
+                    <div class="poc-body">
+                        <h3 class="poc-name">React Native POC</h3>
+                        <p class="poc-description">Evaluated React Native as a cross-platform candidate for enterprise mobile app consolidation. Assessed feasibility of sharing business logic, UI components, and security modules across iOS and Android while maintaining enterprise-grade security standards.</p>
+                        <div class="poc-tech">
+                            <span class="poc-tag">React Native</span>
+                            <span class="poc-tag">iOS</span>
+                            <span class="poc-tag">Android</span>
+                            <span class="poc-tag">JavaScript</span>
+                            <span class="poc-tag">Enterprise Security</span>
+                        </div>
+                        <span class="poc-status">Evaluated</span>
+                    </div>
                 </div>
 
-                <div class="poc-card" style="--poc-accent:linear-gradient(180deg,#8b5cf6,#a78bfa);--poc-accent-text:#8b5cf6">
-                    <p class="poc-num">02 &mdash; Cross-Platform</p>
-                    <p class="poc-company">CyberArk &rarr; Palo Alto Networks</p>
-                    <h3 class="poc-name">Kotlin Multiplatform (KMM) POC</h3>
-                    <p class="poc-description">Prototyped KMM to share core business logic, network layers, and security utilities between iOS and Android. Evaluated integration with existing native Swift and Kotlin codebases and security module portability across platforms.</p>
-                    <div class="poc-tech">
-                        <span class="poc-tag">Kotlin Multiplatform</span>
-                        <span class="poc-tag">KMM</span>
-                        <span class="poc-tag">Swift</span>
-                        <span class="poc-tag">Kotlin</span>
-                        <span class="poc-tag">Shared Logic</span>
+                <div class="poc-card" style="--poc-accent:linear-gradient(135deg,#8b5cf6,#a78bfa);--poc-accent-text:#8b5cf6">
+                    <div class="poc-header">
+                        <div class="poc-meta">
+                            <span class="poc-num">02</span>
+                            <span class="poc-category">Cross-Platform</span>
+                        </div>
+                        <p class="poc-company">CyberArk &rarr; Palo Alto Networks</p>
                     </div>
-                    <span class="poc-status">Evaluated</span>
+                    <div class="poc-body">
+                        <h3 class="poc-name">Kotlin Multiplatform (KMM) POC</h3>
+                        <p class="poc-description">Prototyped KMM to share core business logic, network layers, and security utilities between iOS and Android. Evaluated integration with existing native Swift and Kotlin codebases and security module portability across platforms.</p>
+                        <div class="poc-tech">
+                            <span class="poc-tag">Kotlin Multiplatform</span>
+                            <span class="poc-tag">KMM</span>
+                            <span class="poc-tag">Swift</span>
+                            <span class="poc-tag">Kotlin</span>
+                            <span class="poc-tag">Shared Logic</span>
+                        </div>
+                        <span class="poc-status">Evaluated</span>
+                    </div>
                 </div>
 
-                <div class="poc-card" style="--poc-accent:linear-gradient(180deg,#0891b2,#22d3ee);--poc-accent-text:#0891b2">
-                    <p class="poc-num">03 &mdash; Cross-Platform</p>
-                    <p class="poc-company">Frost Interactive &mdash; ACE Online</p>
-                    <h3 class="poc-name">Kotlin Multiplatform (KMM) POC</h3>
-                    <p class="poc-description">Explored KMM for unifying shared business logic in the ACE Online educational platform. Focused on cross-platform data models, API layers, and caching strategies to reduce code duplication between the iOS and Android video learning apps.</p>
-                    <div class="poc-tech">
-                        <span class="poc-tag">Kotlin Multiplatform</span>
-                        <span class="poc-tag">KMM</span>
-                        <span class="poc-tag">iOS</span>
-                        <span class="poc-tag">Android</span>
-                        <span class="poc-tag">Video Streaming</span>
+                <div class="poc-card" style="--poc-accent:linear-gradient(135deg,#0891b2,#22d3ee);--poc-accent-text:#0891b2">
+                    <div class="poc-header">
+                        <div class="poc-meta">
+                            <span class="poc-num">03</span>
+                            <span class="poc-category">Cross-Platform</span>
+                        </div>
+                        <p class="poc-company">Frost Interactive &mdash; ACE Online</p>
                     </div>
-                    <span class="poc-status">Evaluated</span>
+                    <div class="poc-body">
+                        <h3 class="poc-name">Kotlin Multiplatform (KMM) POC</h3>
+                        <p class="poc-description">Explored KMM for unifying shared business logic in the ACE Online educational platform. Focused on cross-platform data models, API layers, and caching strategies to reduce code duplication between the iOS and Android video learning apps.</p>
+                        <div class="poc-tech">
+                            <span class="poc-tag">Kotlin Multiplatform</span>
+                            <span class="poc-tag">KMM</span>
+                            <span class="poc-tag">iOS</span>
+                            <span class="poc-tag">Android</span>
+                            <span class="poc-tag">Video Streaming</span>
+                        </div>
+                        <span class="poc-status">Evaluated</span>
+                    </div>
                 </div>
 
-                <div class="poc-card" style="--poc-accent:linear-gradient(180deg,#06b6d4,#67e8f9);--poc-accent-text:#0891b2">
-                    <p class="poc-num">04 &mdash; Cross-Platform</p>
-                    <p class="poc-company">HAKATE Technologies &mdash; Edwisely</p>
-                    <h3 class="poc-name">Flutter POC</h3>
-                    <p class="poc-description">Prototyped Flutter for the Edwisely student platform. Evaluated Dart-based widget rendering, performance on lower-end Android devices, and feasibility of migrating existing iOS-native features to a unified Flutter codebase.</p>
-                    <div class="poc-tech">
-                        <span class="poc-tag">Flutter</span>
-                        <span class="poc-tag">Dart</span>
-                        <span class="poc-tag">iOS</span>
-                        <span class="poc-tag">Android</span>
-                        <span class="poc-tag">Education</span>
+                <div class="poc-card" style="--poc-accent:linear-gradient(135deg,#06b6d4,#67e8f9);--poc-accent-text:#0891b2">
+                    <div class="poc-header">
+                        <div class="poc-meta">
+                            <span class="poc-num">04</span>
+                            <span class="poc-category">Cross-Platform</span>
+                        </div>
+                        <p class="poc-company">HAKATE Technologies &mdash; Edwisely</p>
                     </div>
-                    <span class="poc-status">Evaluated</span>
+                    <div class="poc-body">
+                        <h3 class="poc-name">Flutter POC</h3>
+                        <p class="poc-description">Prototyped Flutter for the Edwisely student platform. Evaluated Dart-based widget rendering, performance on lower-end Android devices, and feasibility of migrating existing iOS-native features to a unified Flutter codebase.</p>
+                        <div class="poc-tech">
+                            <span class="poc-tag">Flutter</span>
+                            <span class="poc-tag">Dart</span>
+                            <span class="poc-tag">iOS</span>
+                            <span class="poc-tag">Android</span>
+                            <span class="poc-tag">Education</span>
+                        </div>
+                        <span class="poc-status">Evaluated</span>
+                    </div>
                 </div>
 
-                <div class="poc-card" style="--poc-accent:linear-gradient(180deg,#ea580c,#fb923c);--poc-accent-text:#ea580c">
-                    <p class="poc-num">05 &mdash; Security</p>
-                    <p class="poc-company">CyberArk</p>
-                    <h3 class="poc-name">iXGuard Runtime Protection</h3>
-                    <p class="poc-description">Implemented iXGuard code obfuscation and Runtime Application Self-Protection (RASP) for enterprise iOS applications. Evaluated tamper detection, reverse-engineering resistance, and compatibility with existing security architecture to meet enterprise hardening requirements.</p>
-                    <div class="poc-tech">
-                        <span class="poc-tag">iXGuard</span>
-                        <span class="poc-tag">RASP</span>
-                        <span class="poc-tag">iOS</span>
-                        <span class="poc-tag">Obfuscation</span>
-                        <span class="poc-tag">App Hardening</span>
+                <div class="poc-card" style="--poc-accent:linear-gradient(135deg,#ea580c,#fb923c);--poc-accent-text:#ea580c">
+                    <div class="poc-header">
+                        <div class="poc-meta">
+                            <span class="poc-num">05</span>
+                            <span class="poc-category">Security</span>
+                        </div>
+                        <p class="poc-company">CyberArk</p>
                     </div>
-                    <span class="poc-status poc-status--done">Implemented</span>
+                    <div class="poc-body">
+                        <h3 class="poc-name">iXGuard Runtime Protection</h3>
+                        <p class="poc-description">Implemented iXGuard code obfuscation and Runtime Application Self-Protection (RASP) for enterprise iOS applications. Evaluated tamper detection, reverse-engineering resistance, and compatibility with existing security architecture to meet enterprise hardening requirements.</p>
+                        <div class="poc-tech">
+                            <span class="poc-tag">iXGuard</span>
+                            <span class="poc-tag">RASP</span>
+                            <span class="poc-tag">iOS</span>
+                            <span class="poc-tag">Obfuscation</span>
+                            <span class="poc-tag">App Hardening</span>
+                        </div>
+                        <span class="poc-status poc-status--done">Implemented</span>
+                    </div>
                 </div>
 
-                <div class="poc-card" style="--poc-accent:linear-gradient(180deg,#10b981,#34d399);--poc-accent-text:#059669">
-                    <p class="poc-num">06 &mdash; AI / LLMs</p>
-                    <p class="poc-company">Personal Exploration &mdash; Ongoing</p>
-                    <h3 class="poc-name">LLM &amp; RAG Systems</h3>
-                    <p class="poc-description">Building Retrieval-Augmented Generation (RAG) systems and exploring LLM integrations for developer productivity tools, intelligent security automation, and knowledge management pipelines. Actively learning prompt engineering and AI system design.</p>
-                    <div class="poc-tech">
-                        <span class="poc-tag">LLMs</span>
-                        <span class="poc-tag">RAG</span>
-                        <span class="poc-tag">Python</span>
-                        <span class="poc-tag">Vector DB</span>
-                        <span class="poc-tag">AI Tooling</span>
+                <div class="poc-card" style="--poc-accent:linear-gradient(135deg,#10b981,#34d399);--poc-accent-text:#059669">
+                    <div class="poc-header">
+                        <div class="poc-meta">
+                            <span class="poc-num">06</span>
+                            <span class="poc-category">AI / LLMs</span>
+                        </div>
+                        <p class="poc-company">Personal Exploration &mdash; Ongoing</p>
                     </div>
-                    <span class="poc-status poc-status--active">Active</span>
+                    <div class="poc-body">
+                        <h3 class="poc-name">LLM &amp; RAG Systems</h3>
+                        <p class="poc-description">Building Retrieval-Augmented Generation (RAG) systems and exploring LLM integrations for developer productivity tools, intelligent security automation, and knowledge management pipelines. Actively learning prompt engineering and AI system design.</p>
+                        <div class="poc-tech">
+                            <span class="poc-tag">LLMs</span>
+                            <span class="poc-tag">RAG</span>
+                            <span class="poc-tag">Python</span>
+                            <span class="poc-tag">Vector DB</span>
+                            <span class="poc-tag">AI Tooling</span>
+                        </div>
+                        <span class="poc-status poc-status--active">Active</span>
+                    </div>
                 </div>
 
             </div>
