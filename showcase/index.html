@@ -89,6 +89,20 @@
       --hint-color: #a1a1aa;
       --toggle-surface: rgba(255,255,255,.08);
       --toggle-border:  rgba(255,255,255,.15);
+
+      /* Chips */
+      --chip-color:      #e0e7ff;
+      --chip-bg-from:    rgba(99,102,241,.20);
+      --chip-bg-to:      rgba(139,92,246,.15);
+      --chip-border:     rgba(99,102,241,.40);
+      --chip-shadow:     rgba(99,102,241,.20);
+
+      /* KPI boxes */
+      --kpi-surface:     rgba(255,255,255,.05);
+      --kpi-overlay-from: rgba(99,102,241,.12);
+      --kpi-overlay-to:   rgba(139,92,246,.08);
+      --kpi-border:       rgba(99,102,241,.20);
+      --kpi-glow:         rgba(99,102,241,.15);
     }
 
     /* ══ Light Mode Overrides ══════════════════════ */
@@ -153,6 +167,20 @@
       --hint-color: #6c6c70;
       --toggle-surface: rgba(0,0,0,.05);
       --toggle-border:  rgba(0,0,0,.10);
+
+      /* Chips */
+      --chip-color:      #3730a3;
+      --chip-bg-from:    rgba(99,102,241,.12);
+      --chip-bg-to:      rgba(139,92,246,.08);
+      --chip-border:     rgba(99,102,241,.30);
+      --chip-shadow:     rgba(99,102,241,.12);
+
+      /* KPI boxes */
+      --kpi-surface:      rgba(255,255,255,.80);
+      --kpi-overlay-from: rgba(99,102,241,.08);
+      --kpi-overlay-to:   rgba(139,92,246,.04);
+      --kpi-border:       rgba(99,102,241,.18);
+      --kpi-glow:         rgba(99,102,241,.08);
     }
 
     * {
@@ -515,14 +543,14 @@
 
     .kpi {
       background: 
-        linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(139, 92, 246, 0.08) 100%),
-        rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(99, 102, 241, 0.2);
+        linear-gradient(135deg, var(--kpi-overlay-from) 0%, var(--kpi-overlay-to) 100%),
+        var(--kpi-surface);
+      border: 1px solid var(--kpi-border);
       border-radius: 16px;
       padding: 0.85rem 0.5rem;
       text-align: center;
-      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 4px 12px var(--kpi-glow);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.4s ease, border-color 0.4s ease;
     }
 
     .kpi:hover {
@@ -562,10 +590,11 @@
       padding: 0.32rem 0.65rem;
       font-size: 0.7rem;
       font-weight: 700;
-      background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.15));
-      border: 1px solid rgba(99, 102, 241, 0.4);
-      color: #e0e7ff;
-      box-shadow: 0 2px 8px rgba(99, 102, 241, 0.2);
+      background: linear-gradient(135deg, var(--chip-bg-from), var(--chip-bg-to));
+      border: 1px solid var(--chip-border);
+      color: var(--chip-color);
+      box-shadow: 0 2px 8px var(--chip-shadow);
+      transition: color 0.4s ease, background 0.4s ease, border-color 0.4s ease;
     }
 
     .actions {
