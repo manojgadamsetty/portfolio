@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manoj Gadamsetty - Showcase App</title>
+  <meta name="description" content="iOS-style portfolio showcase for Manoj Gadamsetty" />
+  <meta name="theme-color" content="#0b1220" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="apple-touch-icon" href="../favicon.svg" />
+  <style>
+    :root {
+      --bg-1: #07080d;
+      --bg-2: #0f1117;
+      --bg-3: #1a1d29;
+      --card: rgba(255, 255, 255, 0.07);
+      --card-2: rgba(255, 255, 255, 0.10);
+      --stroke: rgba(255, 255, 255, 0.12);
+      --text: #ffffff;
+      --muted: #a1a1aa;
+      --accent: #6366f1;
+      --accent-2: #8b5cf6;
+      --accent-3: #ec4899;
+      --success: #10b981;
+      --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --gradient-4: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+      --gradient-card: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100dvh;
+      display: grid;
+      place-items: center;
+      padding: 1rem;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(236, 72, 153, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+        linear-gradient(160deg, var(--bg-1) 0%, var(--bg-2) 50%, var(--bg-3) 100%);
+      overflow: auto;
+    }
+
+    .ambient {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.25), transparent 25%),
+        radial-gradient(circle at 80% 70%, rgba(236, 72, 153, 0.20), transparent 25%),
+        radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.15), transparent 35%);
+      animation: breathe 10s ease-in-out infinite;
+    }
+
+    .iphone-stage {
+      position: relative;
+      width: min(92vw, 430px, calc((100dvh - 2rem) * 0.462));
+      z-index: 1;
+      animation: stageIn 900ms cubic-bezier(.2, .8, .2, 1) both;
+    }
+
+    .iphone {
+      width: 100%;
+      aspect-ratio: 390 / 844;
+      border-radius: 48px;
+      background: linear-gradient(150deg, #0f1726, #151f2f);
+      padding: 12px;
+      box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.48),
+        0 6px 18px rgba(15, 23, 42, 0.45),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+      transform-style: flat;
+      animation: none;
+      position: relative;
+    }
+
+    .iphone::before {
+      content: "";
+      position: absolute;
+      left: -3px;
+      top: 110px;
+      width: 3px;
+      height: 32px;
+      border-radius: 4px;
+      background: #253245;
+      box-shadow: 0 52px 0 #253245, 0 94px 0 #253245;
+    }
+
+    .iphone::after {
+      content: "";
+      position: absolute;
+      right: -3px;
+      top: 152px;
+      width: 3px;
+      height: 84px;
+      border-radius: 4px;
+      background: #253245;
+    }
+
+    .screen {
+      height: 100%;
+      border-radius: 38px;
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(180deg, #0a0b0f 0%, #12141a 50%, #1a1d29 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+    }
+
+    .screen::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: calc(8px + env(safe-area-inset-bottom));
+      width: 124px;
+      height: 5px;
+      border-radius: 999px;
+      background: rgba(226, 232, 240, 0.55);
+      z-index: 6;
+      pointer-events: none;
+    }
+
+    .dynamic-island {
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 34%;
+      height: 26px;
+      border-radius: 18px;
+      background: #02040a;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+      z-index: 5;
+    }
+
+    .status {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: calc(10px + env(safe-area-inset-top)) 18px 8px;
+      margin-top: 18px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .status .icons {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--text);
+      opacity: 0.8;
+    }
+
+    .battery {
+      width: 22px;
+      height: 10px;
+      border: 1.5px solid var(--text);
+      border-radius: 3px;
+      position: relative;
+    }
+
+    .battery::after {
+      content: "";
+      position: absolute;
+      right: -4px;
+      top: 2px;
+      width: 2px;
+      height: 4px;
+      border-radius: 1px;
+      background: var(--text);
+    }
+
+    .battery span {
+      position: absolute;
+      left: 1px;
+      top: 1px;
+      width: 68%;
+      height: 6px;
+      border-radius: 1px;
+      background: #10b981;
+    }
+
+    .topbar {
+      padding: 0.3rem 1rem 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(10, 11, 15, 0.60);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border: 2px solid rgba(102, 126, 234, 0.4);
+      display: grid;
+      place-items: center;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    }
+
+    .name {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.1;
+    }
+
+    .role {
+      font-size: 0.68rem;
+      color: #a1a1aa;
+      font-weight: 500;
+    }
+
+    .live-dot {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: #ffffff;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(16, 185, 129, 0.1));
+      padding: 0.28rem 0.55rem;
+      border-radius: 999px;
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
+    }
+
+    .live-dot::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+      animation: pulse 1.8s infinite;
+    }
+
+    .views {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .view {
+      position: absolute;
+      inset: 0;
+      overflow-y: auto;
+      padding: 1rem 1.05rem calc(1.35rem + env(safe-area-inset-bottom));
+      opacity: 0;
+      transform: translateX(22px) scale(0.985);
+      pointer-events: none;
+      transition: opacity 260ms ease, transform 320ms ease;
+      scrollbar-width: none;
+    }
+
+    .view::-webkit-scrollbar {
+      display: none;
+    }
+
+    .view.active {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+      pointer-events: auto;
+    }
+
+    .section-label {
+      font-size: 1.75rem;
+      color: #ffffff;
+      letter-spacing: -0.6px;
+      margin-bottom: 0.85rem;
+      font-weight: 800;
+      line-height: 1.1;
+      background: linear-gradient(135deg, #ffffff 0%, #e4e4e7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .card {
+      background: 
+        linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.04) 100%),
+        rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 1.2rem;
+      margin-bottom: 1rem;
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      box-shadow: 
+        0 8px 16px rgba(0, 0, 0, 0.2),
+        0 2px 4px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      animation: cardIn 460ms ease both;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 
+        0 12px 24px rgba(0, 0, 0, 0.3),
+        0 4px 8px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.3;
+      letter-spacing: -0.3px;
+    }
+
+    .card p,
+    .card li {
+      color: #b4b4b8;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    .muted {
+      color: #a1a1aa;
+      font-size: 0.74rem;
+      margin-top: 0.3rem;
+      font-weight: 500;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.55rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .kpi {
+      background: 
+        linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(139, 92, 246, 0.08) 100%),
+        rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      border-radius: 16px;
+      padding: 0.85rem 0.5rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .kpi:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(99, 102, 241, 0.25);
+    }
+
+    .kpi strong {
+      display: block;
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: 1.1rem;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 0.2rem;
+    }
+
+    .kpi span {
+      color: #d4d4d8;
+      font-size: 0.68rem;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.44rem;
+      margin-top: 0.55rem;
+    }
+
+    .chip {
+      border-radius: 999px;
+      padding: 0.32rem 0.65rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.15));
+      border: 1px solid rgba(99, 102, 241, 0.4);
+      color: #e0e7ff;
+      box-shadow: 0 2px 8px rgba(99, 102, 241, 0.2);
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.55rem;
+      margin-top: 0.7rem;
+    }
+
+    .btn {
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.68rem 0.75rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(99, 102, 241, 0.5);
+      background: rgba(255, 255, 255, 0.12);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      border-color: transparent;
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+    }
+
+    .btn.primary:hover {
+      box-shadow: 0 6px 16px rgba(99, 102, 241, 0.5);
+    }
+
+    .list {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: 
+        linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.03) 100%),
+        rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .list-row {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 1.05rem 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .list-row:last-child {
+      border-bottom: 0;
+    }
+
+    .list-row:hover {
+      background: rgba(99, 102, 241, 0.08);
+    }
+
+    .list-row:active {
+      background: rgba(99, 102, 241, 0.15);
+      transform: scale(0.998);
+    }
+
+    .list-title {
+      font-size: 0.94rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.3;
+      margin-bottom: 0.2rem;
+      letter-spacing: -0.2px;
+    }
+
+    .list-sub {
+      font-size: 0.78rem;
+      color: #a1a1aa;
+      line-height: 1.45;
+      font-weight: 500;
+    }
+
+    .chev {
+      color: #a78bfa;
+      font-size: 0.95rem;
+      opacity: 0.9;
+      flex-shrink: 0;
+    }
+
+    .segmented {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.35rem;
+      padding: 0.35rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      margin-bottom: 1rem;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(16px) saturate(160%);
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    .segment {
+      border: 0;
+      background: transparent;
+      color: #a1a1aa;
+      font-size: 0.76rem;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 0.58rem 0.4rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .segment.active {
+      color: #ffffff;
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      box-shadow: 
+        0 2px 8px rgba(99, 102, 241, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    .journey-panel {
+      display: none;
+    }
+
+    .journey-panel.active {
+      display: block;
+      animation: fadeUp 0.28s ease;
+    }
+
+    .tabbar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.35rem;
+      padding: 0.7rem 0.8rem calc(0.9rem + env(safe-area-inset-bottom));
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(10, 11, 15, 0.85);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .tab {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font-size: 0.66rem;
+      font-weight: 600;
+      display: grid;
+      gap: 0.2rem;
+      justify-items: center;
+      padding: 0.24rem 0;
+      border-radius: 8px;
+      transition: all 0.24s ease;
+      cursor: pointer;
+    }
+
+    .tab .ico {
+      width: auto;
+      height: auto;
+      border-radius: 0;
+      border: 0;
+      display: grid;
+      place-items: center;
+      font-size: 0.96rem;
+      letter-spacing: 0.1px;
+    }
+
+    .tab.active {
+      color: #ffffff;
+    }
+
+    .tab.active .ico {
+      color: #a78bfa;
+    }
+
+    .sheet-backdrop {
+      position: absolute;
+      inset: 0;
+      z-index: 20;
+      background: rgba(2, 6, 23, 0.55);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.26s ease;
+    }
+
+    .sheet {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 21;
+      border-top-left-radius: 24px;
+      border-top-right-radius: 24px;
+      background: 
+        linear-gradient(180deg, rgba(15, 15, 20, 0.98), rgba(25, 25, 35, 0.98)),
+        rgba(10, 11, 15, 0.95);
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+      transform: translateY(100%);
+      transition: transform 0.35s cubic-bezier(.2, .8, .2, 1);
+      padding: 0.8rem 1.1rem calc(1.2rem + env(safe-area-inset-bottom));
+      max-height: 60%;
+      overflow-y: auto;
+      scrollbar-width: none;
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+    }
+
+    .sheet::-webkit-scrollbar {
+      display: none;
+    }
+
+    .sheet-handle {
+      width: 42px;
+      height: 5px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.4);
+      margin: 0 auto 0.9rem;
+    }
+
+    .sheet h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.45rem;
+      color: #ffffff;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .sheet p,
+    .sheet li {
+      color: #b4b4b8;
+      font-size: 0.82rem;
+      line-height: 1.55;
+      font-weight: 400;
+    }
+
+    .sheet ul {
+      padding-left: 1rem;
+      margin-top: 0.45rem;
+      display: grid;
+      gap: 0.25rem;
+    }
+
+    .screen.sheet-open .sheet-backdrop {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .screen.sheet-open .sheet {
+      transform: translateY(0);
+    }
+
+    .hint {
+      position: fixed;
+      bottom: 18px;
+      text-align: center;
+      color: #a1a1aa;
+      font-size: 0.78rem;
+      letter-spacing: 0.3px;
+      opacity: 0.85;
+      font-weight: 500;
+    }
+
+    @keyframes stageIn {
+      from {
+        opacity: 0;
+        transform: translateY(16px) scale(0.94);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes floatPhone {
+      from { transform: none; }
+      to { transform: none; }
+    }
+
+    @keyframes breathe {
+      0%,
+      100% {
+        opacity: 0.85;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes cardIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 7px rgba(16, 185, 129, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 500px) {
+      body {
+        padding: 0.5rem;
+      }
+
+      .iphone-stage {
+        width: min(96vw, calc((100dvh - 1rem) * 0.462));
+      }
+
+      .hint {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"></div>
+
+  <main class="iphone-stage" aria-label="Mobile portfolio showcase">
+    <div class="iphone">
+      <div class="screen" id="screen">
+        <div class="dynamic-island" aria-hidden="true"></div>
+
+        <div class="status">
+          <span id="status-time">9:41</span>
+          <div class="icons">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <div class="battery"><span></span></div>
+          </div>
+        </div>
+
+        <header class="topbar">
+          <div class="profile">
+            <div class="avatar">MG</div>
+            <div>
+              <p class="name">Manoj Gadamsetty</p>
+              <p class="role">Staff Software Engineer</p>
+            </div>
+          </div>
+          <span class="live-dot">Online</span>
+        </header>
+
+        <section class="views" aria-live="polite">
+          <article class="view active" data-view="home">
+            <p class="section-label">Overview</p>
+            <div class="kpi-grid">
+              <div class="kpi"><strong>10+</strong><span>Years</span></div>
+              <div class="kpi"><strong>99.99%</strong><span>Stability</span></div>
+              <div class="kpi"><strong>150+</strong><span>RCAs</span></div>
+            </div>
+
+            <div class="card">
+              <h3>Mobile App Security Specialist</h3>
+              <p>I design secure, scalable mobile products across iOS and Android for global enterprises, focusing on identity, authentication, and privacy-by-design.</p>
+              <div class="chips">
+                <span class="chip">iOS</span>
+                <span class="chip">Android</span>
+                <span class="chip">OWASP</span>
+                <span class="chip">IAM/SSO</span>
+                <span class="chip">DevSecOps</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3>About</h3>
+              <p>Based in Hyderabad, India. Currently leading mobile security initiatives at Palo Alto Networks for Workforce Password Manager and enterprise identity platform capabilities including offline data, autofill, and secure integrations.</p>
+            </div>
+
+            <div class="card">
+              <h3>Technical Stack</h3>
+              <p>Swift, Objective-C, Kotlin, Java, Python, .NET, Golang, secure API design, threat modeling, and secure SDLC implementation.</p>
+            </div>
+          </article>
+
+          <article class="view" data-view="journey">
+            <p class="section-label">Career Journey</p>
+            <div class="segmented" role="tablist" aria-label="Journey category">
+              <button class="segment active" data-panel="work" role="tab">Work</button>
+              <button class="segment" data-panel="education" role="tab">Education</button>
+              <button class="segment" data-panel="skills" role="tab">Skills</button>
+            </div>
+
+            <div class="journey-panel active" data-panel="work">
+              <div class="list">
+                <button class="list-row" data-sheet-title="Palo Alto Networks · Staff Software Engineer" data-sheet-subtitle="Feb 2026 - Present · Hyderabad" data-sheet-body="Leading development for next-generation enterprise identity platform and Workforce Password Manager with strong focus on secure architecture, IAM/SSO, and advanced authentication." data-sheet-points="Architect secure mobile identity experiences|Drive cross-platform security architecture|Implement enterprise-grade password management capabilities">
+                  <div>
+                    <p class="list-title">Palo Alto Networks</p>
+                    <p class="list-sub">Staff Software Engineer · Feb 2026 - Present</p>
+                  </div>
+                  <span class="chev">›</span>
+                </button>
+                <button class="list-row" data-sheet-title="CyberArk · Senior/Staff Software Engineer" data-sheet-subtitle="Jun 2021 - Jan 2026 · Hyderabad" data-sheet-body="Led high-impact mobile and identity initiatives for CyberArk Mobile and CyberArk Identity with 100,000+ users, focusing on security, reliability, and Workforce Password Manager features." data-sheet-points="Implemented secure offline data and autofill|Built IAM/PAM aligned architectures|Maintained high uptime and crash-free stability">
+                  <div>
+                    <p class="list-title">CyberArk</p>
+                    <p class="list-sub">Senior/Staff Software Engineer · 4.5+ Years</p>
+                  </div>
+                  <span class="chev">›</span>
+                </button>
+                <button class="list-row" data-sheet-title="Frost Interactive · Senior iOS Developer" data-sheet-subtitle="May 2020 - May 2021 · Bangalore" data-sheet-body="Built a production video platform with custom AVPlayer controls, gesture-driven interactions, and optimized playback for network and device variance." data-sheet-points="Custom video player architecture|Advanced gesture-based UX|Streaming performance tuning">
+                  <div>
+                    <p class="list-title">Frost Interactive</p>
+                    <p class="list-sub">Senior iOS Developer · 2020 - 2021</p>
+                  </div>
+                  <span class="chev">›</span>
+                </button>
+                <button class="list-row" data-sheet-title="Edwisely · Senior iOS Developer" data-sheet-subtitle="Jan 2019 - May 2020 · Bangalore" data-sheet-body="Developed secure educational experiences with robust architecture for authentication, content delivery, and user data protection." data-sheet-points="Secure user authentication|Protected content delivery|High-quality app experience">
+                  <div>
+                    <p class="list-title">Edwisely</p>
+                    <p class="list-sub">Senior iOS Developer · 2019 - 2020</p>
+                  </div>
+                  <span class="chev">›</span>
+                </button>
+                <button class="list-row" data-sheet-title="Proxim Quest IT Solutions · iOS App Developer" data-sheet-subtitle="May 2018 - Jan 2019 · Bangalore" data-sheet-body="Developed enterprise iOS applications with strong emphasis on maintainable architecture, core feature delivery, and production stability." data-sheet-points="Feature implementation and bug resolution|Networking and data management|Code quality best practices">
+                  <div>
+                    <p class="list-title">Proxim Quest IT Solutions</p>
+                    <p class="list-sub">iOS App Developer · 2018 - 2019</p>
+                  </div>
+                  <span class="chev">›</span>
+                </button>
+                <button class="list-row" data-sheet-title="BRN Infotech · Intern to iOS App Developer" data-sheet-subtitle="Apr 2016 - May 2018 · Hyderabad" data-sheet-body="Started as an iOS intern and progressed to app developer role while building a strong foundation in Swift, Objective-C, and mobile development best practices." data-sheet-points="Built foundational iOS skills|Delivered production app features|Grew from intern to developer">
+                  <div>
+                    <p class="list-title">BRN Infotech</p>
+                    <p class="list-sub">Intern → iOS App Developer · 2016 - 2018</p>
+                  </div>
+                  <span class="chev">›</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="journey-panel" data-panel="education">
+              <div class="list">
+                <button class="list-row" data-sheet-title="BITS Pilani" data-sheet-subtitle="Master's Degree, Software Systems · Jul 2025 - Jul 2027" data-sheet-body="Advanced curriculum focused on software systems design, architecture, and scalable engineering practices." data-sheet-points="Software Systems Master's Program|Architecture and engineering focus">
+                  <div>
+                    <p class="list-title">BITS Pilani</p>
+                    <p class="list-sub">M.S. Software Systems · 2025 - 2027</p>
+                  </div>
+                  <span class="chev">›</span>
+                </button>
+                <button class="list-row" data-sheet-title="QIS College of Engineering and Technology" data-sheet-subtitle="B.Tech, EEE · 2013 - 2016" data-sheet-body="Undergraduate engineering studies that strengthened analytical and systems thinking foundations." data-sheet-points="B.Tech in EEE|Strong engineering fundamentals">
+                  <div>
+                    <p class="list-title">QIS College of Engineering and Technology</p>
+                    <p class="list-sub">B.Tech (EEE) · 2013 - 2016</p>
+                  </div>
+                  <span class="chev">›</span>
+                </button>
+                <button class="list-row" data-sheet-title="St. Ann's College of Engineering and Technology" data-sheet-subtitle="Diploma, EEE · 2010 - 2013" data-sheet-body="Diploma education establishing practical engineering and technical problem-solving skills." data-sheet-points="Diploma in EEE|Practical technical foundation">
+                  <div>
+                    <p class="list-title">St. Ann's College of Engineering and Technology</p>
+                    <p class="list-sub">Diploma (EEE) · 2010 - 2013</p>
+                  </div>
+                  <span class="chev">›</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="journey-panel" data-panel="skills">
+              <div class="card">
+                <h3>Core Skills</h3>
+                <div class="chips">
+                  <span class="chip">Swift</span>
+                  <span class="chip">Objective-C</span>
+                  <span class="chip">Kotlin</span>
+                  <span class="chip">Java</span>
+                  <span class="chip">Python</span>
+                  <span class="chip">.NET</span>
+                  <span class="chip">Golang</span>
+                  <span class="chip">IAM</span>
+                  <span class="chip">SSO</span>
+                  <span class="chip">PAM</span>
+                  <span class="chip">OWASP Mobile</span>
+                  <span class="chip">Threat Modeling</span>
+                </div>
+              </div>
+
+              <div class="card">
+                <h3>Leadership & Delivery</h3>
+                <p>Mentoring engineers, cross-functional execution, incident response, stakeholder communication, and secure architecture reviews in enterprise environments.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="view" data-view="projects">
+            <p class="section-label">Selected Projects</p>
+            <div class="list">
+              <button class="list-row" data-sheet-title="CyberArk Mobile" data-sheet-subtitle="Enterprise iOS App" data-sheet-body="Remote access and credential management platform with secure offline behavior, encryption, and PAM integration for enterprise access workflows." data-sheet-points="Built for enterprise scale|Focused on secure access and credential workflows|High reliability in production">
+                <div>
+                  <p class="list-title">CyberArk Mobile</p>
+                  <p class="list-sub">Remote access + credential management</p>
+                </div>
+                <span class="chev">›</span>
+              </button>
+              <button class="list-row" data-sheet-title="CyberArk Identity" data-sheet-subtitle="Identity & SSO Platform" data-sheet-body="Comprehensive identity and SSO app experience with secure authentication, enterprise policy support, and robust mobile architecture." data-sheet-points="SSO + MFA enablement|Enterprise identity UX|Strong security-first engineering">
+                <div>
+                  <p class="list-title">CyberArk Identity</p>
+                  <p class="list-sub">Identity, SSO, MFA, device management</p>
+                </div>
+                <span class="chev">›</span>
+              </button>
+              <button class="list-row" data-sheet-title="ACE Online" data-sheet-subtitle="Education Streaming App" data-sheet-body="Video-first educational product featuring custom AVPlayer UX, smooth playback controls, and optimized streaming performance." data-sheet-points="Custom player controls|Streaming optimization|Interactive learning experience">
+                <div>
+                  <p class="list-title">ACE Online</p>
+                  <p class="list-sub">Video learning platform</p>
+                </div>
+                <span class="chev">›</span>
+              </button>
+              <button class="list-row" data-sheet-title="Edwisely" data-sheet-subtitle="College Learning Application" data-sheet-body="Mobile learning app for students with secure content access, structured study journeys, and strong engagement-focused design." data-sheet-points="Secure educational content delivery|Personalized learning support|Production-grade mobile UX">
+                <div>
+                  <p class="list-title">Edwisely</p>
+                  <p class="list-sub">Higher-ed student app</p>
+                </div>
+                <span class="chev">›</span>
+              </button>
+              <button class="list-row" data-sheet-title="Celebkonect" data-sheet-subtitle="Social Networking App" data-sheet-body="Social platform enabling celebrity interactions and community engagement with scalable backend communication patterns." data-sheet-points="Messaging and content interactions|Community-focused UX|Scalable networking integration">
+                <div>
+                  <p class="list-title">Celebkonect</p>
+                  <p class="list-sub">Social networking product</p>
+                </div>
+                <span class="chev">›</span>
+              </button>
+            </div>
+
+            <div class="actions">
+              <a class="btn" href="https://github.com/manojgadamsetty" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a class="btn" href="https://medium.com/@manojgadamsetty" target="_blank" rel="noopener noreferrer">Medium</a>
+            </div>
+          </article>
+
+          <article class="view" data-view="contact">
+            <p class="section-label">Contact & Links</p>
+            <div class="card">
+              <h3>Let’s Connect</h3>
+              <p>Open to mobile security discussions, architecture consulting, and collaboration opportunities.</p>
+              <div class="actions">
+                <a class="btn primary" href="https://calendly.com/manojgadamsetty/from-website" target="_blank" rel="noopener noreferrer">Schedule</a>
+                <a class="btn" href="mailto:manojgadamsetty@zohomail.in">Email</a>
+              </div>
+            </div>
+
+            <div class="list">
+              <a class="list-row" href="mailto:manojgadamsetty@zohomail.in">
+                <div>
+                  <p class="list-title">Email</p>
+                  <p class="list-sub">manojgadamsetty@zohomail.in</p>
+                </div>
+                <span class="chev">↗</span>
+              </a>
+              <a class="list-row" href="https://www.linkedin.com/in/manojgadamsetty/" target="_blank" rel="noopener noreferrer">
+                <div>
+                  <p class="list-title">LinkedIn</p>
+                  <p class="list-sub">Professional profile and updates</p>
+                </div>
+                <span class="chev">↗</span>
+              </a>
+              <a class="list-row" href="https://github.com/manojgadamsetty" target="_blank" rel="noopener noreferrer">
+                <div>
+                  <p class="list-title">GitHub</p>
+                  <p class="list-sub">Code repositories and experiments</p>
+                </div>
+                <span class="chev">↗</span>
+              </a>
+              <a class="list-row" href="../resume-cv.html" target="_blank" rel="noopener noreferrer">
+                <div>
+                  <p class="list-title">Resume</p>
+                  <p class="list-sub">Printable CV and complete timeline</p>
+                </div>
+                <span class="chev">↗</span>
+              </a>
+              <a class="list-row" href="../index.html">
+                <div>
+                  <p class="list-title">Full Website</p>
+                  <p class="list-sub">Open complete desktop portfolio view</p>
+                </div>
+                <span class="chev">↗</span>
+              </a>
+            </div>
+          </article>
+        </section>
+
+        <nav class="tabbar" aria-label="App tabs">
+          <button class="tab active" data-tab="home"><span class="ico">⌂</span><span>Home</span></button>
+          <button class="tab" data-tab="journey"><span class="ico">◷</span><span>Journey</span></button>
+          <button class="tab" data-tab="projects"><span class="ico">▦</span><span>Projects</span></button>
+          <button class="tab" data-tab="contact"><span class="ico">✉</span><span>Contact</span></button>
+        </nav>
+
+        <div class="sheet-backdrop" id="sheet-backdrop"></div>
+        <aside class="sheet" id="detail-sheet" aria-live="polite">
+          <div class="sheet-handle"></div>
+          <h3 id="sheet-title"></h3>
+          <p class="muted" id="sheet-subtitle"></p>
+          <p id="sheet-body" style="margin-top:0.5rem;"></p>
+          <ul id="sheet-points"></ul>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <p class="hint">Tap cards for details · Swipe-like transitions · URL: /showcase</p>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    const views = document.querySelectorAll('.view');
+    const segments = document.querySelectorAll('.segment');
+    const panels = document.querySelectorAll('.journey-panel');
+    const statusTime = document.getElementById('status-time');
+    const screen = document.getElementById('screen');
+    const detailSheet = document.getElementById('detail-sheet');
+    const sheetBackdrop = document.getElementById('sheet-backdrop');
+    const sheetTitle = document.getElementById('sheet-title');
+    const sheetSubtitle = document.getElementById('sheet-subtitle');
+    const sheetBody = document.getElementById('sheet-body');
+    const sheetPoints = document.getElementById('sheet-points');
+    const tabOrder = ['home', 'journey', 'projects', 'contact'];
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    function updateStatusTime() {
+      const now = new Date();
+      statusTime.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    }
+
+    function animateCards(view) {
+      const cards = view.querySelectorAll('.card, .list');
+      cards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 70}ms`;
+        card.style.animationName = 'none';
+        requestAnimationFrame(() => {
+          card.style.animationName = 'cardIn';
+        });
+      });
+    }
+
+    function setActiveTab(name) {
+      const currentTab = document.querySelector('.tab.active')?.dataset.tab || tabOrder[0];
+      const currentIndex = tabOrder.indexOf(currentTab);
+      const nextIndex = tabOrder.indexOf(name);
+      const movingForward = nextIndex >= currentIndex;
+
+      tabs.forEach((tab) => tab.classList.toggle('active', tab.dataset.tab === name));
+
+      views.forEach((view) => {
+        const isActive = view.dataset.view === name;
+        if (!isActive) {
+          view.style.transform = movingForward ? 'translateX(-22px) scale(0.985)' : 'translateX(22px) scale(0.985)';
+        }
+        view.classList.toggle('active', isActive);
+        if (isActive) {
+          view.scrollTop = 0;
+          view.style.transform = 'translateX(0) scale(1)';
+          animateCards(view);
+        }
+      });
+
+      closeSheet();
+    }
+
+    function setJourneyPanel(name) {
+      segments.forEach((segment) => segment.classList.toggle('active', segment.dataset.panel === name));
+      panels.forEach((panel) => panel.classList.toggle('active', panel.dataset.panel === name));
+      closeSheet();
+    }
+
+    function openSheet(trigger) {
+      const title = trigger.getAttribute('data-sheet-title');
+      const subtitle = trigger.getAttribute('data-sheet-subtitle');
+      const body = trigger.getAttribute('data-sheet-body');
+      const pointsRaw = trigger.getAttribute('data-sheet-points') || '';
+
+      sheetTitle.textContent = title || '';
+      sheetSubtitle.textContent = subtitle || '';
+      sheetBody.textContent = body || '';
+      sheetPoints.innerHTML = '';
+
+      pointsRaw.split('|').filter(Boolean).forEach((point) => {
+        const item = document.createElement('li');
+        item.textContent = point;
+        sheetPoints.appendChild(item);
+      });
+
+      screen.classList.add('sheet-open');
+    }
+
+    function closeSheet() {
+      screen.classList.remove('sheet-open');
+    }
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => setActiveTab(tab.dataset.tab));
+    });
+
+    segments.forEach((segment) => {
+      segment.addEventListener('click', () => setJourneyPanel(segment.dataset.panel));
+    });
+
+    document.querySelectorAll('.list-row[data-sheet-title]').forEach((row) => {
+      row.addEventListener('click', () => openSheet(row));
+    });
+
+    sheetBackdrop.addEventListener('click', closeSheet);
+
+    document.addEventListener('keydown', (event) => {
+      const active = document.querySelector('.tab.active')?.dataset.tab || tabOrder[0];
+      const index = tabOrder.indexOf(active);
+
+      if (event.key === 'ArrowRight') {
+        setActiveTab(tabOrder[(index + 1) % tabOrder.length]);
+      }
+
+      if (event.key === 'ArrowLeft') {
+        setActiveTab(tabOrder[(index - 1 + tabOrder.length) % tabOrder.length]);
+      }
+
+      if (event.key === 'Escape') {
+        closeSheet();
+      }
+    });
+
+    const swipeTarget = document.querySelector('.views');
+    swipeTarget.addEventListener('touchstart', (event) => {
+      touchStartX = event.changedTouches[0].screenX;
+    }, { passive: true });
+
+    swipeTarget.addEventListener('touchend', (event) => {
+      touchEndX = event.changedTouches[0].screenX;
+      const deltaX = touchEndX - touchStartX;
+      const threshold = 45;
+
+      if (Math.abs(deltaX) < threshold) {
+        return;
+      }
+
+      const active = document.querySelector('.tab.active')?.dataset.tab || tabOrder[0];
+      const index = tabOrder.indexOf(active);
+
+      if (deltaX < 0) {
+        setActiveTab(tabOrder[(index + 1) % tabOrder.length]);
+      } else {
+        setActiveTab(tabOrder[(index - 1 + tabOrder.length) % tabOrder.length]);
+      }
+    }, { passive: true });
+
+    updateStatusTime();
+    setInterval(updateStatusTime, 30000);
+    setActiveTab('home');
+  </script>
+</body>
+</html>
