@@ -1323,6 +1323,8 @@
         .poc-card:nth-child(4) { animation-delay: 0.4s; }
         .poc-card:nth-child(5) { animation-delay: 0.5s; }
         .poc-card:nth-child(6) { animation-delay: 0.6s; }
+        .poc-card:nth-child(7) { animation-delay: 0.7s; }
+        .poc-card:nth-child(8) { animation-delay: 0.8s; }
 
         /* Colored gradient header band */
         .poc-header {
@@ -2031,7 +2033,7 @@
                     <span class="experience-label">Portfolio</span>
                     <h2 id="projects-heading" class="experience-title">Featured Projects</h2>
                 </div>
-                <span class="scroll-hint">Live apps &amp; production work &mdash; scroll &rarr;</span>
+                <span class="scroll-hint">Live apps &amp; production work - scroll &rarr;</span>
             </div>
             <div class="projects-container">
                 <div class="project-card" style="--card-accent:linear-gradient(135deg,#0f766e 0%,#14b8a6 100%)">
@@ -2130,7 +2132,7 @@
                     <span class="experience-label">Research &amp; Exploration</span>
                     <h2 id="pocs-heading" class="experience-title">Proof of Concepts</h2>
                 </div>
-                <span class="scroll-hint">Cross-platform, security &amp; AI &mdash; scroll &rarr;</span>
+                <span class="scroll-hint">Cross-platform, security &amp; AI - scroll &rarr;</span>
             </div>
             <div class="poc-scroll">
 
@@ -2184,7 +2186,7 @@
                             <span class="poc-num">03</span>
                             <span class="poc-category">Cross-Platform</span>
                         </div>
-                        <p class="poc-company">Frost Interactive &mdash; ACE Online</p>
+                        <p class="poc-company">Frost Interactive - ACE Online</p>
                     </div>
                     <div class="poc-body">
                         <h3 class="poc-name">Kotlin Multiplatform (KMM) POC</h3>
@@ -2206,7 +2208,7 @@
                             <span class="poc-num">04</span>
                             <span class="poc-category">Cross-Platform</span>
                         </div>
-                        <p class="poc-company">HAKATE Technologies &mdash; Edwisely</p>
+                        <p class="poc-company">HAKATE Technologies - Edwisely</p>
                     </div>
                     <div class="poc-body">
                         <h3 class="poc-name">Flutter POC</h3>
@@ -2250,7 +2252,7 @@
                             <span class="poc-num">06</span>
                             <span class="poc-category">AI / LLMs</span>
                         </div>
-                        <p class="poc-company">Personal Exploration &mdash; Ongoing</p>
+                        <p class="poc-company">Personal Exploration - Ongoing</p>
                     </div>
                     <div class="poc-body">
                         <h3 class="poc-name">LLM &amp; RAG Systems</h3>
@@ -2263,6 +2265,53 @@
                             <span class="poc-tag">AI Tooling</span>
                         </div>
                         <span class="poc-status poc-status--active">Active</span>
+                    </div>
+                </div>
+
+                <div class="poc-card" style="--poc-accent:linear-gradient(135deg,#d97706,#fbbf24);--poc-accent-text:#b45309">
+                    <div class="poc-header">
+                        <div class="poc-meta">
+                            <span class="poc-num">07</span>
+                            <span class="poc-category">Rich Content</span>
+                        </div>
+                        <p class="poc-company">HAKATE Technologies - Edwisely</p>
+                    </div>
+                    <div class="poc-body">
+                        <h3 class="poc-name">LaTeX &amp; KaTeX Rendering</h3>
+                        <p class="poc-description">Implemented native LaTeX and KaTeX mathematical expression rendering inside the Edwisely iOS app. Built a hybrid rendering pipeline that parses LaTeX strings from server responses and renders complex equations, matrices, and scientific notation inline within study content - enabling a seamless exam-ready experience without web views.</p>
+                        <div class="poc-tech">
+                            <span class="poc-tag">KaTeX</span>
+                            <span class="poc-tag">LaTeX</span>
+                            <span class="poc-tag">iOS</span>
+                            <span class="poc-tag">Swift</span>
+                            <span class="poc-tag">WKWebView</span>
+                            <span class="poc-tag">Math Rendering</span>
+                        </div>
+                        <span class="poc-status poc-status--done">Implemented</span>
+                    </div>
+                </div>
+
+                <div class="poc-card" style="--poc-accent:linear-gradient(135deg,#0f172a,#334155);--poc-accent-text:#475569">
+                    <div class="poc-header">
+                        <div class="poc-meta">
+                            <span class="poc-num">08</span>
+                            <span class="poc-category">DRM &amp; Media</span>
+                        </div>
+                        <p class="poc-company">Frost Interactive - ACE Online</p>
+                    </div>
+                    <div class="poc-body">
+                        <h3 class="poc-name">DRM Licensing &amp; Custom Media Player</h3>
+                        <p class="poc-description">Designed and implemented FairPlay Streaming (FPS) DRM licensing for protected video delivery in the ACE Online iOS app. Built a custom AVPlayer-based media player with gesture controls, adaptive bitrate playback, and chapter navigation. Also explored the backend media server architecture - including HLS packaging, key server integration, and encrypted stream delivery - to align client-side DRM with server-side license issuance.</p>
+                        <div class="poc-tech">
+                            <span class="poc-tag">FairPlay DRM</span>
+                            <span class="poc-tag">AVPlayer</span>
+                            <span class="poc-tag">HLS</span>
+                            <span class="poc-tag">iOS</span>
+                            <span class="poc-tag">Swift</span>
+                            <span class="poc-tag">Media Server</span>
+                            <span class="poc-tag">Key Server</span>
+                        </div>
+                        <span class="poc-status poc-status--done">Implemented</span>
                     </div>
                 </div>
 
