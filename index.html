@@ -454,7 +454,7 @@
 
         /* About Section */
         section {
-            padding: 7rem 2rem;
+            padding: 5rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
             width: 100%;
@@ -470,6 +470,11 @@
             color: var(--black);
             animation: fadeInUp 0.8s ease-out;
             line-height: 1.2;
+        }
+
+        .scroll-section-header .experience-title {
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            margin-bottom: 0;
         }
 
         .about-intro {
@@ -1074,6 +1079,38 @@
 
         .exp-item.clickable:hover {
             transform: translateX(8px);
+        }
+
+        /* Stacked section layout (header above scroll track) */
+        .scroll-section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .scroll-section-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1.75rem;
+            flex-wrap: wrap;
+        }
+
+        .scroll-section-header .experience-label {
+            margin-bottom: 0.4rem;
+        }
+
+        .scroll-section-header .experience-title {
+            margin-bottom: 0;
+        }
+
+        .scroll-hint {
+            font-size: 0.82rem;
+            color: var(--gray-text);
+            font-weight: 500;
+            white-space: nowrap;
+            padding-bottom: 0.15rem;
         }
 
         /* Projects Section */
@@ -1988,11 +2025,13 @@
 
     <!-- Projects Section -->
     <section id="projects" aria-labelledby="projects-heading">
-        <div class="experience-container">
-            <div class="experience-header">
-                <span class="experience-label">Portfolio</span>
-                <h2 id="projects-heading" class="experience-title">Featured Projects</h2>
-                <p style="margin-top:0.5rem;font-size:0.85rem;color:var(--gray-text);font-weight:500;">Live apps &amp; production work &mdash; scroll to explore &rarr;</p>
+        <div class="scroll-section-inner">
+            <div class="scroll-section-header">
+                <div>
+                    <span class="experience-label">Portfolio</span>
+                    <h2 id="projects-heading" class="experience-title">Featured Projects</h2>
+                </div>
+                <span class="scroll-hint">Live apps &amp; production work &mdash; scroll &rarr;</span>
             </div>
             <div class="projects-container">
                 <div class="project-card" style="--card-accent:linear-gradient(135deg,#0f766e 0%,#14b8a6 100%)">
@@ -2085,11 +2124,13 @@
 
     <!-- POCs Section -->
     <section id="pocs" aria-labelledby="pocs-heading">
-        <div class="experience-container">
-            <div class="experience-header">
-                <span class="experience-label">Research &amp; Exploration</span>
-                <h2 id="pocs-heading" class="experience-title">Proof of Concepts</h2>
-                <p style="margin-top:0.5rem;font-size:0.85rem;color:var(--gray-text);font-weight:500;">Cross-platform, security tooling &amp; AI evaluations &mdash; scroll to explore &rarr;</p>
+        <div class="scroll-section-inner">
+            <div class="scroll-section-header">
+                <div>
+                    <span class="experience-label">Research &amp; Exploration</span>
+                    <h2 id="pocs-heading" class="experience-title">Proof of Concepts</h2>
+                </div>
+                <span class="scroll-hint">Cross-platform, security &amp; AI &mdash; scroll &rarr;</span>
             </div>
             <div class="poc-scroll">
 
