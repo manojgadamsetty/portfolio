@@ -169,7 +169,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 - **Portfolio**: [https://manojgadamsetty.github.io/portfolio/](https://manojgadamsetty.github.io/portfolio/)
 - **LinkedIn**: [linkedin.com/in/manojgadamsetty](https://www.linkedin.com/in/manojgadamsetty/)
-- **Email**: manojgadamsetty@gmail.com
+- **Email**: manojgadamsetty@zohomail.in
 - **GitHub**: [github.com/manojgadamsetty](https://github.com/manojgadamsetty)
 - **Medium**: [medium.com/@manojgadamsetty](https://medium.com/@manojgadamsetty)
 
