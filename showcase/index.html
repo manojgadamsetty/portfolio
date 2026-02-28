@@ -10,23 +10,149 @@
   <link rel="apple-touch-icon" href="../favicon.svg" />
   <style>
     :root {
-      --bg-1: #07080d;
-      --bg-2: #0f1117;
-      --bg-3: #1a1d29;
-      --card: rgba(255, 255, 255, 0.07);
-      --card-2: rgba(255, 255, 255, 0.10);
-      --stroke: rgba(255, 255, 255, 0.12);
-      --text: #ffffff;
-      --muted: #a1a1aa;
-      --accent: #6366f1;
+      /* ── Accents (same in both modes) ──────────── */
+      --accent:   #6366f1;
       --accent-2: #8b5cf6;
       --accent-3: #ec4899;
-      --success: #10b981;
-      --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-      --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-      --gradient-4: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-      --gradient-card: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
+      --success:  #10b981;
+
+      /* ── Dark-mode defaults ────────────────────── */
+      /* Body backdrop */
+      --body-start: #07080d;
+      --body-mid:   #0f1117;
+      --body-end:   #1a1d29;
+      --ambient-c1: rgba(99,102,241,.25);
+      --ambient-c2: rgba(236,72,153,.20);
+      --ambient-c3: rgba(139,92,246,.15);
+
+      /* Phone screen */
+      --screen-start:  #0a0b0f;
+      --screen-mid:    #12141a;
+      --screen-end:    #1a1d29;
+      --screen-border: rgba(255,255,255,.10);
+
+      /* Bars */
+      --topbar-bg:     rgba(10,11,15,.60);
+      --topbar-border: rgba(255,255,255,.06);
+      --tabbar-bg:     rgba(10,11,15,.85);
+      --tabbar-border: rgba(255,255,255,.08);
+
+      /* Sheet */
+      --sheet-start:        rgba(15,15,20,.98);
+      --sheet-end:          rgba(25,25,35,.98);
+      --sheet-border:       rgba(255,255,255,.15);
+      --sheet-handle:       rgba(255,255,255,.40);
+      --sheet-backdrop:     rgba(2,6,23,.55);
+
+      /* Typography */
+      --text-primary:   #ffffff;
+      --text-secondary: #a1a1aa;
+      --text-tertiary:  #b4b4b8;
+      --text-dim:       #d4d4d8;
+
+      /* Cards */
+      --card-surface:      rgba(255,255,255,.06);
+      --card-overlay-1:    rgba(99,102,241,.08);
+      --card-overlay-2:    rgba(139,92,246,.04);
+      --card-border:       rgba(255,255,255,.10);
+      --card-shadow:       0 8px 16px rgba(0,0,0,.20),0 2px 4px rgba(0,0,0,.10),inset 0 1px 0 rgba(255,255,255,.10);
+      --card-hover-shadow: 0 12px 24px rgba(0,0,0,.30),0 4px 8px rgba(0,0,0,.15),inset 0 1px 0 rgba(255,255,255,.15);
+
+      /* Lists */
+      --list-surface:  rgba(255,255,255,.05);
+      --list-overlay:  rgba(99,102,241,.06);
+      --list-border:   rgba(255,255,255,.10);
+      --row-separator: rgba(255,255,255,.06);
+      --row-hover:     rgba(99,102,241,.08);
+      --row-active:    rgba(99,102,241,.15);
+
+      /* Buttons */
+      --btn-surface: rgba(255,255,255,.08);
+      --btn-border:  rgba(255,255,255,.15);
+
+      /* Segmented control */
+      --seg-bg:     rgba(0,0,0,.30);
+      --seg-border: rgba(255,255,255,.10);
+      --seg-text:   #a1a1aa;
+      --seg-shadow: inset 0 1px 3px rgba(0,0,0,.20);
+
+      /* Status bar */
+      --status-text: #a1a1aa;
+      --status-icon: #ffffff;
+
+      /* Section label gradient */
+      --label-from: #ffffff;
+      --label-to:   #e4e4e7;
+
+      /* Misc */
+      --kpi-span: #d4d4d8;
+      --hint-color: #a1a1aa;
+      --toggle-surface: rgba(255,255,255,.08);
+      --toggle-border:  rgba(255,255,255,.15);
+    }
+
+    /* ══ Light Mode Overrides ══════════════════════ */
+    [data-theme="light"] {
+      --body-start: #eef0ff;
+      --body-mid:   #f0ebff;
+      --body-end:   #ffe8f5;
+      --ambient-c1: rgba(99,102,241,.12);
+      --ambient-c2: rgba(236,72,153,.10);
+      --ambient-c3: rgba(139,92,246,.08);
+
+      --screen-start:  #f8f8fc;
+      --screen-mid:    #f0eff8;
+      --screen-end:    #e9e8f4;
+      --screen-border: rgba(0,0,0,.07);
+
+      --topbar-bg:     rgba(252,252,255,.90);
+      --topbar-border: rgba(0,0,0,.06);
+      --tabbar-bg:     rgba(252,252,255,.95);
+      --tabbar-border: rgba(0,0,0,.07);
+
+      --sheet-start:    rgba(252,252,255,.98);
+      --sheet-end:      rgba(244,244,252,.98);
+      --sheet-border:   rgba(0,0,0,.08);
+      --sheet-handle:   rgba(0,0,0,.20);
+      --sheet-backdrop: rgba(0,0,0,.30);
+
+      --text-primary:   #1c1c1e;
+      --text-secondary: #6c6c70;
+      --text-tertiary:  #6c6c70;
+      --text-dim:       #8e8e93;
+
+      --card-surface:      rgba(255,255,255,.88);
+      --card-overlay-1:    rgba(99,102,241,.04);
+      --card-overlay-2:    rgba(139,92,246,.02);
+      --card-border:       rgba(0,0,0,.07);
+      --card-shadow:       0 4px 12px rgba(0,0,0,.07),0 1px 3px rgba(0,0,0,.05),inset 0 1px 0 rgba(255,255,255,.90);
+      --card-hover-shadow: 0 8px 20px rgba(0,0,0,.10),0 3px 6px rgba(0,0,0,.07),inset 0 1px 0 rgba(255,255,255,1);
+
+      --list-surface:  rgba(255,255,255,.82);
+      --list-overlay:  rgba(99,102,241,.02);
+      --list-border:   rgba(0,0,0,.06);
+      --row-separator: rgba(0,0,0,.05);
+      --row-hover:     rgba(99,102,241,.05);
+      --row-active:    rgba(99,102,241,.10);
+
+      --btn-surface: rgba(0,0,0,.04);
+      --btn-border:  rgba(0,0,0,.10);
+
+      --seg-bg:     rgba(0,0,0,.06);
+      --seg-border: rgba(0,0,0,.08);
+      --seg-text:   #6c6c70;
+      --seg-shadow: inset 0 1px 3px rgba(0,0,0,.06);
+
+      --status-text: #6c6c70;
+      --status-icon: #1c1c1e;
+
+      --label-from: #1c1c1e;
+      --label-to:   #3a3a3c;
+
+      --kpi-span: #6c6c70;
+      --hint-color: #6c6c70;
+      --toggle-surface: rgba(0,0,0,.05);
+      --toggle-border:  rgba(0,0,0,.10);
     }
 
     * {
@@ -41,13 +167,14 @@
       place-items: center;
       padding: 1rem;
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
-      color: var(--text);
+      color: var(--text-primary);
       background:
-        radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
-        radial-gradient(circle at 85% 85%, rgba(236, 72, 153, 0.12) 0%, transparent 40%),
-        radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
-        linear-gradient(160deg, var(--bg-1) 0%, var(--bg-2) 50%, var(--bg-3) 100%);
+        radial-gradient(circle at 15% 15%, var(--ambient-c1) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, var(--ambient-c2) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, var(--ambient-c3) 0%, transparent 50%),
+        linear-gradient(160deg, var(--body-start) 0%, var(--body-mid) 50%, var(--body-end) 100%);
       overflow: auto;
+      transition: background 0.4s ease;
     }
 
     .ambient {
@@ -55,10 +182,11 @@
       inset: 0;
       pointer-events: none;
       background:
-        radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.25), transparent 25%),
-        radial-gradient(circle at 80% 70%, rgba(236, 72, 153, 0.20), transparent 25%),
-        radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.15), transparent 35%);
+        radial-gradient(circle at 20% 30%, var(--ambient-c1), transparent 25%),
+        radial-gradient(circle at 80% 70%, var(--ambient-c2), transparent 25%),
+        radial-gradient(circle at 50% 50%, var(--ambient-c3), transparent 35%);
       animation: breathe 10s ease-in-out infinite;
+      transition: opacity 0.4s ease;
     }
 
     .iphone-stage {
@@ -111,10 +239,11 @@
       border-radius: 38px;
       overflow: hidden;
       position: relative;
-      background: linear-gradient(180deg, #0a0b0f 0%, #12141a 50%, #1a1d29 100%);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: linear-gradient(180deg, var(--screen-start) 0%, var(--screen-mid) 50%, var(--screen-end) 100%);
+      border: 1px solid var(--screen-border);
       display: grid;
       grid-template-rows: auto auto 1fr auto;
+      transition: background 0.4s ease, border-color 0.4s ease;
     }
 
     .screen::after {
@@ -152,7 +281,7 @@
       margin-top: 18px;
       font-size: 0.78rem;
       font-weight: 600;
-      color: var(--muted);
+      color: var(--status-text);
     }
 
     .status .icons {
@@ -165,14 +294,14 @@
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: var(--text);
+      background: var(--status-icon);
       opacity: 0.8;
     }
 
     .battery {
       width: 22px;
       height: 10px;
-      border: 1.5px solid var(--text);
+      border: 1.5px solid var(--status-icon);
       border-radius: 3px;
       position: relative;
     }
@@ -185,7 +314,7 @@
       width: 2px;
       height: 4px;
       border-radius: 1px;
-      background: var(--text);
+      background: var(--status-icon);
     }
 
     .battery span {
@@ -203,10 +332,11 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      background: rgba(10, 11, 15, 0.60);
+      border-bottom: 1px solid var(--topbar-border);
+      background: var(--topbar-bg);
       backdrop-filter: blur(20px) saturate(180%);
       -webkit-backdrop-filter: blur(20px) saturate(180%);
+      transition: background 0.4s ease, border-color 0.4s ease;
     }
 
     .profile {
@@ -233,14 +363,20 @@
     .name {
       font-size: 0.88rem;
       font-weight: 700;
-      color: #ffffff;
+      color: var(--text-primary);
       line-height: 1.1;
     }
 
     .role {
       font-size: 0.68rem;
-      color: #a1a1aa;
+      color: var(--text-secondary);
       font-weight: 500;
+    }
+
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
     .live-dot {
@@ -249,12 +385,32 @@
       gap: 0.35rem;
       font-size: 0.68rem;
       font-weight: 700;
-      color: #ffffff;
+      color: var(--text-primary);
       border: 1px solid rgba(16, 185, 129, 0.4);
       background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(16, 185, 129, 0.1));
       padding: 0.28rem 0.55rem;
       border-radius: 999px;
       box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
+    }
+
+    /* ── Theme Toggle ──────────────────────── */
+    .theme-toggle {
+      background: var(--toggle-surface);
+      border: 1px solid var(--toggle-border);
+      border-radius: 8px;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      font-size: 0.82rem;
+      color: var(--text-primary);
+      transition: all 0.25s ease;
+      flex-shrink: 0;
+    }
+
+    .theme-toggle:active {
+      transform: scale(0.90);
     }
 
     .live-dot::before {
@@ -296,62 +452,55 @@
 
     .section-label {
       font-size: 1.75rem;
-      color: #ffffff;
       letter-spacing: -0.6px;
       margin-bottom: 0.85rem;
       font-weight: 800;
       line-height: 1.1;
-      background: linear-gradient(135deg, #ffffff 0%, #e4e4e7 100%);
+      background: linear-gradient(135deg, var(--label-from) 0%, var(--label-to) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
     .card {
-      background: 
-        linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.04) 100%),
-        rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background:
+        linear-gradient(135deg, var(--card-overlay-1) 0%, var(--card-overlay-2) 100%),
+        var(--card-surface);
+      border: 1px solid var(--card-border);
       border-radius: 20px;
       padding: 1.2rem;
       margin-bottom: 1rem;
       backdrop-filter: blur(24px) saturate(180%);
       -webkit-backdrop-filter: blur(24px) saturate(180%);
-      box-shadow: 
-        0 8px 16px rgba(0, 0, 0, 0.2),
-        0 2px 4px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      box-shadow: var(--card-shadow);
       animation: cardIn 460ms ease both;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.4s ease, border-color 0.4s ease;
     }
 
     .card:hover {
       transform: translateY(-2px);
-      box-shadow: 
-        0 12px 24px rgba(0, 0, 0, 0.3),
-        0 4px 8px rgba(0, 0, 0, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      box-shadow: var(--card-hover-shadow);
     }
 
     .card h3 {
       font-size: 1.1rem;
       margin-bottom: 0.5rem;
       font-weight: 800;
-      color: #ffffff;
+      color: var(--text-primary);
       line-height: 1.3;
       letter-spacing: -0.3px;
     }
 
     .card p,
     .card li {
-      color: #b4b4b8;
+      color: var(--text-tertiary);
       font-size: 0.88rem;
       line-height: 1.6;
       font-weight: 400;
     }
 
     .muted {
-      color: #a1a1aa;
+      color: var(--text-secondary);
       font-size: 0.74rem;
       margin-top: 0.3rem;
       font-weight: 500;
@@ -394,7 +543,7 @@
     }
 
     .kpi span {
-      color: #d4d4d8;
+      color: var(--kpi-span);
       font-size: 0.68rem;
       letter-spacing: 0.4px;
       text-transform: uppercase;
@@ -427,24 +576,23 @@
     }
 
     .btn {
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      border: 1px solid var(--btn-border);
       border-radius: 12px;
-      background: rgba(255, 255, 255, 0.08);
-      color: #ffffff;
+      background: var(--btn-surface);
+      color: var(--text-primary);
       text-decoration: none;
       font-size: 0.8rem;
       font-weight: 700;
       padding: 0.68rem 0.75rem;
       text-align: center;
       transition: all 0.3s ease;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     }
 
     .btn:hover {
       transform: translateY(-2px);
       border-color: rgba(99, 102, 241, 0.5);
-      background: rgba(255, 255, 255, 0.12);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
     .btn.primary {
@@ -461,14 +609,15 @@
     .list {
       border-radius: 18px;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: 
-        linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.03) 100%),
-        rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--list-border);
+      background:
+        linear-gradient(135deg, var(--list-overlay) 0%, transparent 100%),
+        var(--list-surface);
       backdrop-filter: blur(20px) saturate(180%);
       -webkit-backdrop-filter: blur(20px) saturate(180%);
       margin-bottom: 1rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+      transition: background 0.4s ease, border-color 0.4s ease;
     }
 
     .list-row {
@@ -482,9 +631,9 @@
       align-items: center;
       gap: 0.8rem;
       padding: 1.05rem 1rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      border-bottom: 1px solid var(--row-separator);
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: background 0.2s ease;
     }
 
     .list-row:last-child {
@@ -492,18 +641,18 @@
     }
 
     .list-row:hover {
-      background: rgba(99, 102, 241, 0.08);
+      background: var(--row-hover);
     }
 
     .list-row:active {
-      background: rgba(99, 102, 241, 0.15);
+      background: var(--row-active);
       transform: scale(0.998);
     }
 
     .list-title {
       font-size: 0.94rem;
       font-weight: 700;
-      color: #ffffff;
+      color: var(--text-primary);
       line-height: 1.3;
       margin-bottom: 0.2rem;
       letter-spacing: -0.2px;
@@ -511,7 +660,7 @@
 
     .list-sub {
       font-size: 0.78rem;
-      color: #a1a1aa;
+      color: var(--text-secondary);
       line-height: 1.45;
       font-weight: 500;
     }
@@ -528,18 +677,19 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 0.35rem;
       padding: 0.35rem;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--seg-border);
       border-radius: 14px;
       margin-bottom: 1rem;
-      background: rgba(0, 0, 0, 0.3);
+      background: var(--seg-bg);
       backdrop-filter: blur(16px) saturate(160%);
-      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+      box-shadow: var(--seg-shadow);
+      transition: background 0.4s ease, border-color 0.4s ease;
     }
 
     .segment {
       border: 0;
       background: transparent;
-      color: #a1a1aa;
+      color: var(--seg-text);
       font-size: 0.76rem;
       font-weight: 700;
       border-radius: 10px;
@@ -570,17 +720,18 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 0.35rem;
       padding: 0.7rem 0.8rem calc(0.9rem + env(safe-area-inset-bottom));
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(10, 11, 15, 0.85);
+      border-top: 1px solid var(--tabbar-border);
+      background: var(--tabbar-bg);
       backdrop-filter: blur(24px) saturate(180%);
       -webkit-backdrop-filter: blur(24px) saturate(180%);
-      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.12);
+      transition: background 0.4s ease, border-color 0.4s ease;
     }
 
     .tab {
       border: 0;
       background: transparent;
-      color: var(--muted);
+      color: var(--text-secondary);
       font-size: 0.66rem;
       font-weight: 600;
       display: grid;
@@ -604,7 +755,7 @@
     }
 
     .tab.active {
-      color: #ffffff;
+      color: var(--text-primary);
     }
 
     .tab.active .ico {
@@ -615,7 +766,7 @@
       position: absolute;
       inset: 0;
       z-index: 20;
-      background: rgba(2, 6, 23, 0.55);
+      background: var(--sheet-backdrop);
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.26s ease;
@@ -629,13 +780,11 @@
       z-index: 21;
       border-top-left-radius: 24px;
       border-top-right-radius: 24px;
-      background: 
-        linear-gradient(180deg, rgba(15, 15, 20, 0.98), rgba(25, 25, 35, 0.98)),
-        rgba(10, 11, 15, 0.95);
-      border-top: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(180deg, var(--sheet-start), var(--sheet-end));
+      border-top: 1px solid var(--sheet-border);
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.20);
       transform: translateY(100%);
-      transition: transform 0.35s cubic-bezier(.2, .8, .2, 1);
+      transition: transform 0.35s cubic-bezier(.2, .8, .2, 1), background 0.4s ease;
       padding: 0.8rem 1.1rem calc(1.2rem + env(safe-area-inset-bottom));
       max-height: 60%;
       overflow-y: auto;
@@ -652,21 +801,21 @@
       width: 42px;
       height: 5px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.4);
+      background: var(--sheet-handle);
       margin: 0 auto 0.9rem;
     }
 
     .sheet h3 {
       font-size: 1.05rem;
       margin-bottom: 0.45rem;
-      color: #ffffff;
+      color: var(--text-primary);
       font-weight: 800;
       letter-spacing: -0.3px;
     }
 
     .sheet p,
     .sheet li {
-      color: #b4b4b8;
+      color: var(--text-tertiary);
       font-size: 0.82rem;
       line-height: 1.55;
       font-weight: 400;
@@ -692,7 +841,7 @@
       position: fixed;
       bottom: 18px;
       text-align: center;
-      color: #a1a1aa;
+      color: var(--hint-color);
       font-size: 0.78rem;
       letter-spacing: 0.3px;
       opacity: 0.85;
@@ -808,7 +957,10 @@
               <p class="role">Staff Software Engineer</p>
             </div>
           </div>
-          <span class="live-dot">Online</span>
+          <div class="topbar-right">
+            <span class="live-dot">Online</span>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode" title="Toggle theme">🌙</button>
+          </div>
         </header>
 
         <section class="views" aria-live="polite">
@@ -1069,6 +1221,30 @@
   <p class="hint">Tap cards for details · Swipe-like transitions · URL: /showcase</p>
 
   <script>
+    /* ── Theme Toggle ─────────────────────────────── */
+    const htmlEl = document.documentElement;
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeMetaTag = document.querySelector('meta[name="theme-color"]');
+
+    function applyTheme(theme, save) {
+      const isDark = theme === 'dark';
+      htmlEl.setAttribute('data-theme', theme);
+      themeToggleBtn.textContent = isDark ? '🌙' : '☀️';
+      themeToggleBtn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+      if (themeMetaTag) themeMetaTag.setAttribute('content', isDark ? '#07080d' : '#f0ebff');
+      if (save) localStorage.setItem('showcase-theme', theme);
+    }
+
+    const savedTheme = localStorage.getItem('showcase-theme') ||
+      (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    applyTheme(savedTheme, false);
+
+    themeToggleBtn.addEventListener('click', () => {
+      const current = htmlEl.getAttribute('data-theme') || 'dark';
+      applyTheme(current === 'dark' ? 'light' : 'dark', true);
+    });
+
+    /* ── App Logic ────────────────────────────────── */
     const tabs = document.querySelectorAll('.tab');
     const views = document.querySelectorAll('.view');
     const segments = document.querySelectorAll('.segment');
