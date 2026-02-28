@@ -5,7 +5,7 @@
 
 A modern, responsive portfolio website showcasing my professional experience as a Staff Software Engineer specializing in mobile app security, iOS/Android development, and cybersecurity.
 
-## 🌐 Live Website
+## Live Website
 
 **Portfolio URL**: [https://manojgadamsetty.github.io/portfolio/](https://manojgadamsetty.github.io/portfolio/)
 
@@ -13,7 +13,7 @@ A modern, responsive portfolio website showcasing my professional experience as 
 
 > **Note**: If the GitHub Pages URL is not working, please ensure GitHub Pages is enabled in repository settings → Pages → Source: GitHub Actions
 
-## 🌟 Features
+## Features
 
 - **Mobile App Security Specialist**: Comprehensive portfolio showcasing 9+ years of experience
 - **Responsive Design**: Optimized for all devices and screen sizes
@@ -25,7 +25,7 @@ A modern, responsive portfolio website showcasing my professional experience as 
 - **Performance Optimized**: Fast loading times and smooth scrolling
 - **GitHub Pages Deployment**: Automated deployment with GitHub Actions
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - **HTML5**: Semantic markup and structure
 - **CSS3**: Modern styling with Flexbox and Grid
@@ -33,26 +33,26 @@ A modern, responsive portfolio website showcasing my professional experience as 
 - **Font Awesome**: Icon library
 - **Google Fonts**: Typography (Inter font family)
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 portfolio/
-├── 📁 .github/workflows/    # GitHub Actions for automated deployment
-├── 📁 assets/              # Professional images and documents
-│   ├── 📁 documents/       # Resume PDF
-│   └── 📁 images/          # Profile, about, and project images
-├── 📄 index.html           # Main portfolio website
-├── 🎨 styles.css           # Complete responsive styling
-├── ⚡ script.js            # Interactive functionality
-├── 🚀 deploy.sh            # Deployment automation script
-├── 📋 package.json         # Project configuration
-├── 📖 README.md            # Project documentation
-├── 🔧 DEPLOYMENT.md        # Deployment instructions
-├── 🌐 favicon.ico          # Website icon
-└── 📝 .gitignore           # Git ignore rules
+├── .github/workflows/    # GitHub Actions for automated deployment
+├── assets/               # Professional images and documents
+│   ├── documents/        # Resume PDF
+│   └── images/           # Profile, about, and project images
+├── index.html            # Main portfolio website
+├── styles.css            # Complete responsive styling
+├── script.js             # Interactive functionality
+├── deploy.sh             # Deployment automation script
+├── package.json          # Project configuration
+├── README.md             # Project documentation
+├── DEPLOYMENT.md         # Deployment instructions
+├── favicon.ico           # Website icon
+└── .gitignore            # Git ignore rules
 ```
 
-## 🔧 Setup and Deployment
+## Setup and Deployment
 
 ### Local Development
 
@@ -105,7 +105,7 @@ git push origin main
 - Verify the workflow has run successfully in the Actions tab
 - It may take 5-10 minutes for changes to appear
 
-## 📝 Customization
+## Customization
 
 ### Personal Information
 Update the following sections in `index.html`:
@@ -133,7 +133,7 @@ Enhance `script.js` to add:
 - **Performance**: Add lazy loading for images
 - **SEO**: Implement structured data and meta tags
 
-## 🎨 Design Features
+## Design Features
 
 - **Modern Color Scheme**: Professional blue and purple gradient
 - **Typography**: Clean Inter font for excellent readability
@@ -141,7 +141,7 @@ Enhance `script.js` to add:
 - **Mobile-First**: Responsive design starting from mobile
 - **Accessibility**: Semantic HTML and keyboard navigation
 
-## 📱 Browser Support
+## Browser Support
 
 - Chrome (latest)
 - Firefox (latest)
@@ -149,7 +149,7 @@ Enhance `script.js` to add:
 - Edge (latest)
 - Mobile browsers (iOS Safari, Chrome Mobile)
 
-## 🤝 Contributing
+## Contributing
 
 If you'd like to contribute to this project:
 
@@ -159,11 +159,11 @@ If you'd like to contribute to this project:
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📄 License
+## License
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## 📞 Contact
+## Contact
 
 **Manoj Gadamsetty** - Staff Software Engineer | Mobile App Security Specialist
 

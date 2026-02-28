@@ -1251,6 +1251,170 @@
             transform: translateX(3px);
         }
 
+        /* ── POC Section ─────────────────────────────────────── */
+        .poc-scroll {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding-bottom: 1.5rem;
+            padding-left: 0.25rem;
+            padding-right: 0.25rem;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .poc-scroll::-webkit-scrollbar { height: 5px; }
+        .poc-scroll::-webkit-scrollbar-track { background: transparent; }
+        .poc-scroll::-webkit-scrollbar-thumb {
+            background: #6366f1;
+            border-radius: 10px;
+        }
+        .poc-scroll::-webkit-scrollbar-thumb:hover { background: #8b5cf6; }
+
+        .poc-card {
+            background: var(--project-bg);
+            border: 1px solid rgba(0,0,0,.06);
+            border-radius: 16px;
+            padding: 1.75rem 1.75rem 1.75rem 1.9rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(.4,0,.2,1);
+            box-shadow: 0 2px 12px rgba(0,0,0,.05);
+            animation: fadeInUp 0.8s ease-out both;
+            min-width: 340px;
+            max-width: 340px;
+            flex-shrink: 0;
+            scroll-snap-align: start;
+        }
+
+        /* left accent stripe */
+        .poc-card::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 5px;
+            background: var(--poc-accent, linear-gradient(180deg,#6366f1,#8b5cf6));
+            border-radius: 16px 0 0 16px;
+            transition: width 0.3s ease;
+        }
+
+        .poc-card:hover {
+            transform: translateY(-6px);
+            border-color: transparent;
+            box-shadow: 0 16px 40px rgba(0,0,0,.12);
+            background: var(--project-bg-hover);
+        }
+
+        .poc-card:hover::before { width: 8px; }
+        .poc-card:nth-child(1) { animation-delay: 0.1s; }
+        .poc-card:nth-child(2) { animation-delay: 0.2s; }
+        .poc-card:nth-child(3) { animation-delay: 0.3s; }
+        .poc-card:nth-child(4) { animation-delay: 0.4s; }
+        .poc-card:nth-child(5) { animation-delay: 0.5s; }
+        .poc-card:nth-child(6) { animation-delay: 0.6s; }
+
+        .poc-num {
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 1.2px;
+            color: var(--poc-accent-text, #6366f1);
+            text-transform: uppercase;
+            margin-bottom: 0.55rem;
+            opacity: 0.75;
+        }
+
+        .poc-company {
+            font-size: 0.75rem;
+            color: #6366f1;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 0.4rem;
+        }
+
+        .poc-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--black);
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: -0.4px;
+            line-height: 1.3;
+            margin-bottom: 0.7rem;
+        }
+
+        .poc-description {
+            font-size: 0.88rem;
+            color: var(--gray-text);
+            line-height: 1.6;
+            margin-bottom: 1.2rem;
+        }
+
+        .poc-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+            margin-bottom: 1.1rem;
+        }
+
+        .poc-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(99,102,241,.14), rgba(139,92,246,.09));
+            color: #6366f1;
+            border: 1px solid rgba(99,102,241,.22);
+            padding: 0.3rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.73rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .poc-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(99,102,241,.2);
+        }
+
+        .poc-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #10b981;
+            background: rgba(16,185,129,.08);
+            border: 1px solid rgba(16,185,129,.20);
+            border-radius: 999px;
+            padding: 0.28rem 0.65rem;
+        }
+
+        .poc-status::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #10b981;
+            flex-shrink: 0;
+        }
+
+        .poc-status--done {
+            color: #6366f1;
+            background: rgba(99,102,241,.08);
+            border-color: rgba(99,102,241,.22);
+        }
+        .poc-status--done::before { background: #6366f1; }
+
+        .poc-status--active {
+            color: #f59e0b;
+            background: rgba(245,158,11,.08);
+            border-color: rgba(245,158,11,.25);
+        }
+        .poc-status--active::before { background: #f59e0b; }
+
+        html[data-theme="dark"] .poc-card { border-color: rgba(255,255,255,.06); }
+        html[data-theme="dark"] .poc-card:hover { border-color: transparent; box-shadow: 0 16px 40px rgba(0,0,0,.35); }
+        html[data-theme="dark"] .poc-name { color: var(--white); }
+
         /* Contact Section */
         .contact-section {
             text-align: center;
@@ -1549,6 +1713,7 @@
                 <a href="#skills" class="nav-link">Skills</a>
                 <a href="#experience" class="nav-link">Experience</a>
                 <a href="#education" class="nav-link">Education</a>
+                <a href="#pocs" class="nav-link">POCs</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
             <div class="nav-actions">
@@ -1606,7 +1771,7 @@
             Currently at Palo Alto Networks, I lead mobile security initiatives for the next-generation enterprise identity platform with Workforce Password Manager, pioneering secure architectures for password management with offline data management, autofill capabilities, and watch app integration. I specialize in advanced authentication, zero-trust access, IAM, SSO, and enterprise-grade security with primary focus on secure credential management. My work directly powers enterprise rollouts and reduces risk exposure for high-value customers. With a customer-first approach, I excel in enterprise product environments where SLA management and rapid issue resolution are critical. I've mastered navigating complex policy landscapes and configuration challenges to adapt applications for diverse enterprise needs. My expertise includes conducting over 150 root cause analyses (RCAs) for reported issues, ensuring robust solutions that maintain service reliability and user trust. Over the course of my career, I've led the development and successful launch of several high-impact iOS applications that have collectively served millions of users. These apps have maintained an impressive 99.99% crash-free stability rate through comprehensive testing strategies, performance optimization, and proactive monitoring. This reliability, combined with intuitive user interfaces and robust functionality, has resulted in consistently high app store ratings and positive user feedback.
         </p>
         <p class="about-intro">
-            My technical toolkit spans iOS (Swift, Objective-C), Android (Kotlin, Java), secure backend development (.NET, Python, Golang), and full-stack DevSecOps. I specialize in threat modeling, security architecture design, code reviews, and incident response. I'm deeply committed to secure software development lifecycle (SSDLC) best practices and regularly mentor senior engineers on security-first development approaches.
+            My technical toolkit spans iOS (Swift, Objective-C), Android (Kotlin, Java), macOS, secure backend development (.NET, Python, Golang), and full-stack DevSecOps. I have hands-on experience implementing iXGuard obfuscation and runtime app self-protection (RASP) for enterprise iOS apps. I've also conducted cross-platform POCs using React Native, Kotlin Multiplatform (KMM), and Flutter for enterprise evaluation. I specialize in threat modeling, security architecture design, code reviews, identifying and resolving critical security vulnerabilities, and incident response. I'm deeply committed to secure software development lifecycle (SSDLC) best practices and regularly mentor senior engineers on security-first development approaches. Currently exploring LLMs and building RAG systems for intelligent developer tooling.
         </p>
         <p class="about-intro">
             Beyond coding, I value open communication, believe in lifelong learning, and thrive on solving complex problems that matter. I'm passionate about mentoring talented teams, driving innovation in mobile security, and creating products that users can trust. Whether guiding technical deep-dives, presenting to business stakeholders, or collaborating with cross-functional teams, I bring clarity, passion, and an unwavering commitment to user safety and privacy.
@@ -1650,6 +1815,16 @@
                 <h3>Team Leadership</h3>
                 <p>Mentor senior developers, lead security initiatives, and architect enterprise-level solutions at scale.</p>
             </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="material-icons">devices</i></div>
+                <h3>Cross-Platform &amp; macOS</h3>
+                <p>Delivered macOS applications alongside mobile. Evaluated React Native, KMM, and Flutter for enterprise adoption through hands-on POCs and architectural assessments.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="material-icons">psychology</i></div>
+                <h3>AI &amp; LLM Engineering</h3>
+                <p>Building RAG (Retrieval-Augmented Generation) systems and exploring LLM integrations for intelligent developer tooling, security automation, and knowledge management.</p>
+            </div>
         </div>
     </section>
 
@@ -1676,10 +1851,14 @@
                 <ul class="skills-list">
                     <li>iOS Development (Swift, Objective-C)</li>
                     <li>Android Development (Kotlin, Java)</li>
-                    <li>Mobile Security Architecture</li>
-                    <li>Threat Modeling & Security Design</li>
-                    <li>DevSecOps & CI/CD Pipeline</li>
+                    <li>macOS App Development</li>
+                    <li>React Native · KMM · Flutter (Cross-Platform POCs)</li>
+                    <li>iXGuard &amp; Runtime App Self-Protection (RASP)</li>
+                    <li>Mobile Security Architecture &amp; Vulnerability Identification</li>
+                    <li>Threat Modeling &amp; Security Design</li>
+                    <li>DevSecOps &amp; CI/CD Pipeline</li>
                     <li>Backend (.NET, Python, Golang)</li>
+                    <li>LLMs &amp; RAG Systems (Active Learning)</li>
                 </ul>
             </div>
         </div>
@@ -1693,7 +1872,7 @@
                 <h2 id="experience-heading" class="experience-title">Building Secure Solutions at Scale</h2>
             </div>
             <div class="experience-timeline">
-                <div class="exp-item clickable" onclick="openExperienceModal(event)" data-company="Palo Alto Networks" data-role="Staff Software Engineer" data-icon="https://cdn-1.webcatalog.io/catalog/palo-alto-networks/palo-alto-networks-icon-filled-256.webp?v=1714781699513" data-dates="Feb 2026 - Present" data-location="Hyderabad" data-description="Leading the development of Palo Alto Networks' enterprise next-generation identity platform with Workforce Password Manager, architecting secure, scalable solutions for SSO (Single Sign-On), IAM (Identity and Access Management), and advanced authentication in zero-trust environments with primary focus on security." data-bullets="Next-Generation Identity Platform Development|Leading the development of Palo Alto Networks' enterprise next-generation identity platform with Workforce Password Manager, architecting secure, scalable solutions for SSO (Single Sign-On), IAM (Identity and Access Management), and advanced authentication in zero-trust environments with primary focus on security.|Mobile Application Security & Password Management|Architecting secure mobile applications with advanced password management capabilities, implementing offline data management, autofill functionality, watch app integration, and comprehensive credential management features while maintaining enterprise-grade security standards.|Enterprise Security Architecture|Designing and implementing comprehensive security frameworks for mobile and web applications with focus on SSO and IAM integrations, ensuring compliance with enterprise security standards and industry best practices for identity and access management.|Cross-Platform Integration|Architecting seamless integration between mobile, web, and backend systems to deliver unified identity experiences across the Palo Alto Networks security platform.">
+                <div class="exp-item clickable" onclick="openExperienceModal(event)" data-company="Palo Alto Networks" data-role="Staff Software Engineer" data-icon="https://cdn-1.webcatalog.io/catalog/palo-alto-networks/palo-alto-networks-icon-filled-256.webp?v=1714781699513" data-dates="Feb 2026 - Present" data-location="Hyderabad" data-description="Leading the development of Palo Alto Networks' enterprise next-generation identity platform with Workforce Password Manager, architecting secure, scalable solutions for SSO (Single Sign-On), IAM (Identity and Access Management), and advanced authentication in zero-trust environments with primary focus on security." data-bullets="Next-Generation Identity Platform Development|Leading the development of Palo Alto Networks' enterprise next-generation identity platform with Workforce Password Manager, architecting secure, scalable solutions for SSO (Single Sign-On), IAM (Identity and Access Management), and advanced authentication in zero-trust environments with primary focus on security.|Mobile Application Security & Password Management|Architecting secure mobile applications with advanced password management capabilities, implementing offline data management, autofill functionality, watch app integration, and comprehensive credential management features while maintaining enterprise-grade security standards.|Enterprise Security Architecture|Designing and implementing comprehensive security frameworks for mobile and web applications with focus on SSO and IAM integrations, ensuring compliance with enterprise security standards and industry best practices for identity and access management.|Cross-Platform Integration|Architecting seamless integration between mobile, web, and backend systems to deliver unified identity experiences across the Palo Alto Networks security platform.|React Native & KMM POCs|Conducted proof-of-concept evaluations for React Native and Kotlin Multiplatform (KMM) to assess cross-platform feasibility for enterprise-grade identity and security applications.">
                     <div class="exp-main-row">
                         <div class="exp-company">
                             <div class="company-icon">
@@ -1705,7 +1884,7 @@
                         <div class="exp-role">Staff Software Engineer</div>
                     </div>
                 </div>
-                <div class="exp-item exp-company-group clickable" onclick="openExperienceModal(event)" data-company="CyberArk" data-role="Staff Software Engineer & Senior Software Engineer" data-icon="https://images.icon-icons.com/2699/PNG/512/cyberark_logo_icon_168315.png" data-dates="Jun 2021 - Jan 2026" data-location="Hyderabad" data-description="Architected and oversaw the evolution of CyberArk Mobile and CyberArk Identity platforms with Workforce Password Manager capabilities, implementing scalable solutions supporting 100,000+ concurrent mobile users with secure offline data management, autofill features, and watch app integration while maintaining 99.99% uptime and crash-free stability. Gained deep expertise in IAM, PVWA, Remote Access, PAM, Password Manager, and SSO implementations with primary focus on security." data-bullets="Technical Leadership and Architecture Design|Led high-impact mobile security initiatives with focus on Workforce Password Manager and established architectural standards for enterprise-grade applications while mentoring senior engineers.|Strategic Mobile Platform Enhancement|Architected the evolution of CyberArk Mobile and CyberArk Identity platforms with password management capabilities, implementing scalable solutions for 100,000+ concurrent mobile users with secure offline data management and autofill features.|Development of Secure Mobile Applications|Extensively worked on CyberArk Mobile (Remote Access management) and CyberArk Identity (SSO and MDM) applications, building secure, enterprise-grade mobile solutions with Workforce Password Manager capabilities.|Advanced Security Implementations|Implemented reCAPTCHA Integration, SSL Pinning, Secure Data Storage, Secure Offline Data Management, Autofill Security, Profile Management for MDM, OpenID and SAML Authentication, Secure Content Display, and Vulnerability Scanning.|Cross-Platform Backend APIs|Engineered advanced RESTful APIs supporting 100,000+ mobile users using Node.js and GraphQL with focus on PAM, IAM, and password management integrations.">
+                <div class="exp-item exp-company-group clickable" onclick="openExperienceModal(event)" data-company="CyberArk" data-role="Staff Software Engineer & Senior Software Engineer" data-icon="https://images.icon-icons.com/2699/PNG/512/cyberark_logo_icon_168315.png" data-dates="Jun 2021 - Jan 2026" data-location="Hyderabad" data-description="Architected and oversaw the evolution of CyberArk Mobile and CyberArk Identity platforms with Workforce Password Manager capabilities, implementing scalable solutions supporting 100,000+ concurrent mobile users with secure offline data management, autofill features, and watch app integration while maintaining 99.99% uptime and crash-free stability. Gained deep expertise in IAM, PVWA, Remote Access, PAM, Password Manager, and SSO implementations with primary focus on security." data-bullets="Technical Leadership and Architecture Design|Led high-impact mobile security initiatives with focus on Workforce Password Manager and established architectural standards for enterprise-grade applications while mentoring senior engineers.|Strategic Mobile Platform Enhancement|Architected the evolution of CyberArk Mobile and CyberArk Identity platforms with password management capabilities, implementing scalable solutions for 100,000+ concurrent mobile users with secure offline data management and autofill features.|Development of Secure Mobile Applications|Extensively worked on CyberArk Mobile (Remote Access management) and CyberArk Identity (SSO and MDM) applications, building secure, enterprise-grade mobile solutions with Workforce Password Manager capabilities.|Advanced Security Implementations|Implemented reCAPTCHA Integration, SSL Pinning, Secure Data Storage, Secure Offline Data Management, Autofill Security, Profile Management for MDM, OpenID and SAML Authentication, Secure Content Display, and Vulnerability Scanning.|Cross-Platform Backend APIs|Engineered advanced RESTful APIs supporting 100,000+ mobile users using Node.js and GraphQL with focus on PAM, IAM, and password management integrations.|React Native & KMM POCs|Conducted React Native and Kotlin Multiplatform (KMM) proof-of-concept evaluations to assess cross-platform feasibility for enterprise mobile security applications.">
                     <div class="exp-main-row">
                         <div class="exp-company">
                             <div class="company-icon">
@@ -1727,7 +1906,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="exp-item clickable" onclick="openExperienceModal(event)" data-company="Frost Interactive" data-role="Senior iOS Developer" data-icon="https://media.licdn.com/dms/image/v2/C560BAQGubPLteIReDA/company-logo_200_200/company-logo_200_200/0/1649856150409/aceonline_logo?e=1773273600&v=beta&t=mnii1RDQFGWpVmRE6TXlFss0xmdsPx_uAPUEgBJ52K4" data-dates="May 2020 - May 2021" data-location="Bangalore" data-description="Developed a comprehensive video streaming application with custom video player using AVPlayer. Implemented advanced UI/UX features including gesture recognizers, custom controls, and video playback optimization for seamless user experience." data-bullets="Custom Video Player Development|Created customized video player with AVPlayer to meet specific UI requirements and enhance video playback functionality.|Video Streaming Optimization|Optimized video streaming for various network conditions and device capabilities.|Advanced UI Implementation|Implemented gesture recognizers, custom controls, and enhanced user interface for seamless video playback experience.">
+                <div class="exp-item clickable" onclick="openExperienceModal(event)" data-company="Frost Interactive" data-role="Senior iOS Developer" data-icon="https://media.licdn.com/dms/image/v2/C560BAQGubPLteIReDA/company-logo_200_200/company-logo_200_200/0/1649856150409/aceonline_logo?e=1773273600&v=beta&t=mnii1RDQFGWpVmRE6TXlFss0xmdsPx_uAPUEgBJ52K4" data-dates="May 2020 - May 2021" data-location="Bangalore" data-description="Developed a comprehensive video streaming application with custom video player using AVPlayer. Implemented advanced UI/UX features including gesture recognizers, custom controls, and video playback optimization for seamless user experience." data-bullets="Custom Video Player Development|Created customized video player with AVPlayer to meet specific UI requirements and enhance video playback functionality.|Video Streaming Optimization|Optimized video streaming for various network conditions and device capabilities.|Advanced UI Implementation|Implemented gesture recognizers, custom controls, and enhanced user interface for seamless video playback experience.|KMM POC|Conducted a Kotlin Multiplatform (KMM) proof-of-concept to evaluate shared business logic across iOS and Android for the ACE Online platform.">
                     <div class="exp-main-row">
                         <div class="exp-company">
                             <div class="company-icon">
@@ -1739,7 +1918,7 @@
                         <div class="exp-role">Senior iOS Developer</div>
                     </div>
                 </div>
-                <div class="exp-item clickable" onclick="openExperienceModal(event)" data-company="Edwisely" data-role="Senior iOS Developer" data-icon="https://media.licdn.com/dms/image/v2/C560BAQFkva1-sAMTiw/company-logo_200_200/company-logo_200_200/0/1630630171632/edwisely_logo?e=1773273600&v=beta&t=QVKK0d1it0IJCe4WMFvgutIZJpduQ9tJCyqyV9Rn0Fc" data-dates="Jan 2019 - May 2020" data-location="Bangalore" data-description="Developed and maintained an educational mobile application focusing on secure content delivery and user engagement. Worked on implementing robust architecture for e-learning platform with focus on user authentication and data protection." data-bullets="Educational App Development|Built comprehensive iOS application for online learning platform with secure content delivery and user management.|User Authentication|Implemented secure authentication mechanisms for educational platform users.|Data Security|Ensured secure handling of user data and learning progress tracking.">
+                <div class="exp-item clickable" onclick="openExperienceModal(event)" data-company="Edwisely" data-role="Senior iOS Developer" data-icon="https://media.licdn.com/dms/image/v2/C560BAQFkva1-sAMTiw/company-logo_200_200/company-logo_200_200/0/1630630171632/edwisely_logo?e=1773273600&v=beta&t=QVKK0d1it0IJCe4WMFvgutIZJpduQ9tJCyqyV9Rn0Fc" data-dates="Jan 2019 - May 2020" data-location="Bangalore" data-description="Developed and maintained an educational mobile application focusing on secure content delivery and user engagement. Worked on implementing robust architecture for e-learning platform with focus on user authentication and data protection." data-bullets="Educational App Development|Built comprehensive iOS application for online learning platform with secure content delivery and user management.|User Authentication|Implemented secure authentication mechanisms for educational platform users.|Data Security|Ensured secure handling of user data and learning progress tracking.|Flutter POC|Conducted a Flutter proof-of-concept to evaluate cross-platform capabilities for the Edwisely learning platform.">
                     <div class="exp-main-row">
                         <div class="exp-company">
                             <div class="company-icon">
@@ -1795,6 +1974,7 @@
             <div class="experience-header">
                 <span class="experience-label">Portfolio</span>
                 <h2 id="projects-heading" class="experience-title">Featured Projects</h2>
+                <p style="margin-top:0.5rem;font-size:0.85rem;color:var(--gray-text);font-weight:500;">Live apps &amp; production work &mdash; scroll to explore &rarr;</p>
             </div>
             <div class="projects-container">
                 <div class="project-card">
@@ -1871,6 +2051,110 @@
                     </div>
                     <a href="https://itunes.apple.com/in/app/celebkonect/id1328807931?mt=8" target="_blank" rel="noopener noreferrer" class="project-link-btn">View App</a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POCs Section -->
+    <section id="pocs" aria-labelledby="pocs-heading">
+        <div class="experience-container">
+            <div class="experience-header">
+                <span class="experience-label">Research &amp; Exploration</span>
+                <h2 id="pocs-heading" class="experience-title">Proof of Concepts</h2>
+                <p style="margin-top:0.5rem;font-size:0.85rem;color:var(--gray-text);font-weight:500;">Cross-platform, security tooling &amp; AI evaluations &mdash; scroll to explore &rarr;</p>
+            </div>
+            <div class="poc-scroll">
+
+                <div class="poc-card" style="--poc-accent:linear-gradient(180deg,#6366f1,#818cf8);--poc-accent-text:#6366f1">
+                    <p class="poc-num">01 &mdash; Cross-Platform</p>
+                    <p class="poc-company">CyberArk &rarr; Palo Alto Networks</p>
+                    <h3 class="poc-name">React Native POC</h3>
+                    <p class="poc-description">Evaluated React Native as a cross-platform candidate for enterprise mobile app consolidation. Assessed feasibility of sharing business logic, UI components, and security modules across iOS and Android while maintaining enterprise-grade security standards.</p>
+                    <div class="poc-tech">
+                        <span class="poc-tag">React Native</span>
+                        <span class="poc-tag">iOS</span>
+                        <span class="poc-tag">Android</span>
+                        <span class="poc-tag">JavaScript</span>
+                        <span class="poc-tag">Enterprise Security</span>
+                    </div>
+                    <span class="poc-status">Evaluated</span>
+                </div>
+
+                <div class="poc-card" style="--poc-accent:linear-gradient(180deg,#8b5cf6,#a78bfa);--poc-accent-text:#8b5cf6">
+                    <p class="poc-num">02 &mdash; Cross-Platform</p>
+                    <p class="poc-company">CyberArk &rarr; Palo Alto Networks</p>
+                    <h3 class="poc-name">Kotlin Multiplatform (KMM) POC</h3>
+                    <p class="poc-description">Prototyped KMM to share core business logic, network layers, and security utilities between iOS and Android. Evaluated integration with existing native Swift and Kotlin codebases and security module portability across platforms.</p>
+                    <div class="poc-tech">
+                        <span class="poc-tag">Kotlin Multiplatform</span>
+                        <span class="poc-tag">KMM</span>
+                        <span class="poc-tag">Swift</span>
+                        <span class="poc-tag">Kotlin</span>
+                        <span class="poc-tag">Shared Logic</span>
+                    </div>
+                    <span class="poc-status">Evaluated</span>
+                </div>
+
+                <div class="poc-card" style="--poc-accent:linear-gradient(180deg,#0891b2,#22d3ee);--poc-accent-text:#0891b2">
+                    <p class="poc-num">03 &mdash; Cross-Platform</p>
+                    <p class="poc-company">Frost Interactive &mdash; ACE Online</p>
+                    <h3 class="poc-name">Kotlin Multiplatform (KMM) POC</h3>
+                    <p class="poc-description">Explored KMM for unifying shared business logic in the ACE Online educational platform. Focused on cross-platform data models, API layers, and caching strategies to reduce code duplication between the iOS and Android video learning apps.</p>
+                    <div class="poc-tech">
+                        <span class="poc-tag">Kotlin Multiplatform</span>
+                        <span class="poc-tag">KMM</span>
+                        <span class="poc-tag">iOS</span>
+                        <span class="poc-tag">Android</span>
+                        <span class="poc-tag">Video Streaming</span>
+                    </div>
+                    <span class="poc-status">Evaluated</span>
+                </div>
+
+                <div class="poc-card" style="--poc-accent:linear-gradient(180deg,#06b6d4,#67e8f9);--poc-accent-text:#0891b2">
+                    <p class="poc-num">04 &mdash; Cross-Platform</p>
+                    <p class="poc-company">HAKATE Technologies &mdash; Edwisely</p>
+                    <h3 class="poc-name">Flutter POC</h3>
+                    <p class="poc-description">Prototyped Flutter for the Edwisely student platform. Evaluated Dart-based widget rendering, performance on lower-end Android devices, and feasibility of migrating existing iOS-native features to a unified Flutter codebase.</p>
+                    <div class="poc-tech">
+                        <span class="poc-tag">Flutter</span>
+                        <span class="poc-tag">Dart</span>
+                        <span class="poc-tag">iOS</span>
+                        <span class="poc-tag">Android</span>
+                        <span class="poc-tag">Education</span>
+                    </div>
+                    <span class="poc-status">Evaluated</span>
+                </div>
+
+                <div class="poc-card" style="--poc-accent:linear-gradient(180deg,#ea580c,#fb923c);--poc-accent-text:#ea580c">
+                    <p class="poc-num">05 &mdash; Security</p>
+                    <p class="poc-company">CyberArk</p>
+                    <h3 class="poc-name">iXGuard Runtime Protection</h3>
+                    <p class="poc-description">Implemented iXGuard code obfuscation and Runtime Application Self-Protection (RASP) for enterprise iOS applications. Evaluated tamper detection, reverse-engineering resistance, and compatibility with existing security architecture to meet enterprise hardening requirements.</p>
+                    <div class="poc-tech">
+                        <span class="poc-tag">iXGuard</span>
+                        <span class="poc-tag">RASP</span>
+                        <span class="poc-tag">iOS</span>
+                        <span class="poc-tag">Obfuscation</span>
+                        <span class="poc-tag">App Hardening</span>
+                    </div>
+                    <span class="poc-status poc-status--done">Implemented</span>
+                </div>
+
+                <div class="poc-card" style="--poc-accent:linear-gradient(180deg,#10b981,#34d399);--poc-accent-text:#059669">
+                    <p class="poc-num">06 &mdash; AI / LLMs</p>
+                    <p class="poc-company">Personal Exploration &mdash; Ongoing</p>
+                    <h3 class="poc-name">LLM &amp; RAG Systems</h3>
+                    <p class="poc-description">Building Retrieval-Augmented Generation (RAG) systems and exploring LLM integrations for developer productivity tools, intelligent security automation, and knowledge management pipelines. Actively learning prompt engineering and AI system design.</p>
+                    <div class="poc-tech">
+                        <span class="poc-tag">LLMs</span>
+                        <span class="poc-tag">RAG</span>
+                        <span class="poc-tag">Python</span>
+                        <span class="poc-tag">Vector DB</span>
+                        <span class="poc-tag">AI Tooling</span>
+                    </div>
+                    <span class="poc-status poc-status--active">Active</span>
+                </div>
+
             </div>
         </div>
     </section>
