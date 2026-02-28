@@ -694,6 +694,34 @@
       font-weight: 500;
     }
 
+    .list-row > div {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .list-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.4px;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,.20);
+      text-transform: uppercase;
+      user-select: none;
+    }
+
+    .list-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: #ffffff;
+      fill: none;
+    }
+
     .chev {
       color: #a78bfa;
       font-size: 0.95rem;
@@ -1035,6 +1063,7 @@
             <div class="journey-panel active" data-panel="work">
               <div class="list">
                 <button class="list-row" data-sheet-title="Palo Alto Networks · Staff Software Engineer" data-sheet-subtitle="Feb 2026 - Present · Hyderabad" data-sheet-body="Leading development for next-generation enterprise identity platform and Workforce Password Manager with strong focus on secure architecture, IAM/SSO, and advanced authentication." data-sheet-points="Architect secure mobile identity experiences|Drive cross-platform security architecture|Implement enterprise-grade password management capabilities">
+                  <span class="list-icon" style="background:linear-gradient(135deg,#fa582d,#ff7043)">PA</span>
                   <div>
                     <p class="list-title">Palo Alto Networks</p>
                     <p class="list-sub">Staff Software Engineer · Feb 2026 - Present</p>
@@ -1042,6 +1071,7 @@
                   <span class="chev">›</span>
                 </button>
                 <button class="list-row" data-sheet-title="CyberArk · Senior/Staff Software Engineer" data-sheet-subtitle="Jun 2021 - Jan 2026 · Hyderabad" data-sheet-body="Led high-impact mobile and identity initiatives for CyberArk Mobile and CyberArk Identity with 100,000+ users, focusing on security, reliability, and Workforce Password Manager features." data-sheet-points="Implemented secure offline data and autofill|Built IAM/PAM aligned architectures|Maintained high uptime and crash-free stability">
+                  <span class="list-icon" style="background:linear-gradient(135deg,#0046ad,#1d6fe8)">CA</span>
                   <div>
                     <p class="list-title">CyberArk</p>
                     <p class="list-sub">Senior/Staff Software Engineer · 4.5+ Years</p>
@@ -1049,6 +1079,7 @@
                   <span class="chev">›</span>
                 </button>
                 <button class="list-row" data-sheet-title="Frost Interactive · Senior iOS Developer" data-sheet-subtitle="May 2020 - May 2021 · Bangalore" data-sheet-body="Built a production video platform with custom AVPlayer controls, gesture-driven interactions, and optimized playback for network and device variance." data-sheet-points="Custom video player architecture|Advanced gesture-based UX|Streaming performance tuning">
+                  <span class="list-icon" style="background:linear-gradient(135deg,#0891b2,#06b6d4)">FI</span>
                   <div>
                     <p class="list-title">Frost Interactive</p>
                     <p class="list-sub">Senior iOS Developer · 2020 - 2021</p>
@@ -1056,6 +1087,7 @@
                   <span class="chev">›</span>
                 </button>
                 <button class="list-row" data-sheet-title="Edwisely · Senior iOS Developer" data-sheet-subtitle="Jan 2019 - May 2020 · Bangalore" data-sheet-body="Developed secure educational experiences with robust architecture for authentication, content delivery, and user data protection." data-sheet-points="Secure user authentication|Protected content delivery|High-quality app experience">
+                  <span class="list-icon" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)">EW</span>
                   <div>
                     <p class="list-title">Edwisely</p>
                     <p class="list-sub">Senior iOS Developer · 2019 - 2020</p>
@@ -1063,6 +1095,7 @@
                   <span class="chev">›</span>
                 </button>
                 <button class="list-row" data-sheet-title="Proxim Quest IT Solutions · iOS App Developer" data-sheet-subtitle="May 2018 - Jan 2019 · Bangalore" data-sheet-body="Developed enterprise iOS applications with strong emphasis on maintainable architecture, core feature delivery, and production stability." data-sheet-points="Feature implementation and bug resolution|Networking and data management|Code quality best practices">
+                  <span class="list-icon" style="background:linear-gradient(135deg,#059669,#10b981)">PQ</span>
                   <div>
                     <p class="list-title">Proxim Quest IT Solutions</p>
                     <p class="list-sub">iOS App Developer · 2018 - 2019</p>
@@ -1070,6 +1103,7 @@
                   <span class="chev">›</span>
                 </button>
                 <button class="list-row" data-sheet-title="BRN Infotech · Intern to iOS App Developer" data-sheet-subtitle="Apr 2016 - May 2018 · Hyderabad" data-sheet-body="Started as an iOS intern and progressed to app developer role while building a strong foundation in Swift, Objective-C, and mobile development best practices." data-sheet-points="Built foundational iOS skills|Delivered production app features|Grew from intern to developer">
+                  <span class="list-icon" style="background:linear-gradient(135deg,#475569,#64748b)">BR</span>
                   <div>
                     <p class="list-title">BRN Infotech</p>
                     <p class="list-sub">Intern → iOS App Developer · 2016 - 2018</p>
@@ -1082,6 +1116,7 @@
             <div class="journey-panel" data-panel="education">
               <div class="list">
                 <button class="list-row" data-sheet-title="BITS Pilani" data-sheet-subtitle="Master's Degree, Software Systems · Jul 2025 - Jul 2027" data-sheet-body="Advanced curriculum focused on software systems design, architecture, and scalable engineering practices." data-sheet-points="Software Systems Master's Program|Architecture and engineering focus">
+                  <span class="list-icon" style="background:linear-gradient(135deg,#b91c1c,#ef4444)">BP</span>
                   <div>
                     <p class="list-title">BITS Pilani</p>
                     <p class="list-sub">M.S. Software Systems · 2025 - 2027</p>
@@ -1089,6 +1124,7 @@
                   <span class="chev">›</span>
                 </button>
                 <button class="list-row" data-sheet-title="QIS College of Engineering and Technology" data-sheet-subtitle="B.Tech, EEE · 2013 - 2016" data-sheet-body="Undergraduate engineering studies that strengthened analytical and systems thinking foundations." data-sheet-points="B.Tech in EEE|Strong engineering fundamentals">
+                  <span class="list-icon" style="background:linear-gradient(135deg,#c2410c,#f97316)">QC</span>
                   <div>
                     <p class="list-title">QIS College of Engineering and Technology</p>
                     <p class="list-sub">B.Tech (EEE) · 2013 - 2016</p>
@@ -1096,6 +1132,7 @@
                   <span class="chev">›</span>
                 </button>
                 <button class="list-row" data-sheet-title="St. Ann's College of Engineering and Technology" data-sheet-subtitle="Diploma, EEE · 2010 - 2013" data-sheet-body="Diploma education establishing practical engineering and technical problem-solving skills." data-sheet-points="Diploma in EEE|Practical technical foundation">
+                  <span class="list-icon" style="background:linear-gradient(135deg,#6d28d9,#8b5cf6)">SA</span>
                   <div>
                     <p class="list-title">St. Ann's College of Engineering and Technology</p>
                     <p class="list-sub">Diploma (EEE) · 2010 - 2013</p>
@@ -1135,6 +1172,7 @@
             <p class="section-label">Selected Projects</p>
             <div class="list">
               <button class="list-row" data-sheet-title="CyberArk Mobile" data-sheet-subtitle="Enterprise iOS App" data-sheet-body="Remote access and credential management platform with secure offline behavior, encryption, and PAM integration for enterprise access workflows." data-sheet-points="Built for enterprise scale|Focused on secure access and credential workflows|High reliability in production">
+                <span class="list-icon" style="background:linear-gradient(135deg,#0046ad,#1d6fe8)">CM</span>
                 <div>
                   <p class="list-title">CyberArk Mobile</p>
                   <p class="list-sub">Remote access + credential management</p>
@@ -1142,6 +1180,7 @@
                 <span class="chev">›</span>
               </button>
               <button class="list-row" data-sheet-title="CyberArk Identity" data-sheet-subtitle="Identity & SSO Platform" data-sheet-body="Comprehensive identity and SSO app experience with secure authentication, enterprise policy support, and robust mobile architecture." data-sheet-points="SSO + MFA enablement|Enterprise identity UX|Strong security-first engineering">
+                <span class="list-icon" style="background:linear-gradient(135deg,#1d4ed8,#3b82f6)">CI</span>
                 <div>
                   <p class="list-title">CyberArk Identity</p>
                   <p class="list-sub">Identity, SSO, MFA, device management</p>
@@ -1149,6 +1188,7 @@
                 <span class="chev">›</span>
               </button>
               <button class="list-row" data-sheet-title="ACE Online" data-sheet-subtitle="Education Streaming App" data-sheet-body="Video-first educational product featuring custom AVPlayer UX, smooth playback controls, and optimized streaming performance." data-sheet-points="Custom player controls|Streaming optimization|Interactive learning experience">
+                <span class="list-icon" style="background:linear-gradient(135deg,#dc2626,#f97316)">AO</span>
                 <div>
                   <p class="list-title">ACE Online</p>
                   <p class="list-sub">Video learning platform</p>
@@ -1156,6 +1196,7 @@
                 <span class="chev">›</span>
               </button>
               <button class="list-row" data-sheet-title="Edwisely" data-sheet-subtitle="College Learning Application" data-sheet-body="Mobile learning app for students with secure content access, structured study journeys, and strong engagement-focused design." data-sheet-points="Secure educational content delivery|Personalized learning support|Production-grade mobile UX">
+                <span class="list-icon" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)">EW</span>
                 <div>
                   <p class="list-title">Edwisely</p>
                   <p class="list-sub">Higher-ed student app</p>
@@ -1163,6 +1204,7 @@
                 <span class="chev">›</span>
               </button>
               <button class="list-row" data-sheet-title="Celebkonect" data-sheet-subtitle="Social Networking App" data-sheet-body="Social platform enabling celebrity interactions and community engagement with scalable backend communication patterns." data-sheet-points="Messaging and content interactions|Community-focused UX|Scalable networking integration">
+                <span class="list-icon" style="background:linear-gradient(135deg,#be185d,#ec4899)">CK</span>
                 <div>
                   <p class="list-title">Celebkonect</p>
                   <p class="list-sub">Social networking product</p>
@@ -1190,6 +1232,7 @@
 
             <div class="list">
               <a class="list-row" href="mailto:manojgadamsetty@zohomail.in">
+                <span class="list-icon" style="background:linear-gradient(135deg,#ea580c,#fb923c)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg></span>
                 <div>
                   <p class="list-title">Email</p>
                   <p class="list-sub">manojgadamsetty@zohomail.in</p>
@@ -1197,6 +1240,7 @@
                 <span class="chev">↗</span>
               </a>
               <a class="list-row" href="https://www.linkedin.com/in/manojgadamsetty/" target="_blank" rel="noopener noreferrer">
+                <span class="list-icon" style="background:linear-gradient(135deg,#0077b5,#0ea5e9)"><svg width="18" height="18" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span>
                 <div>
                   <p class="list-title">LinkedIn</p>
                   <p class="list-sub">Professional profile and updates</p>
@@ -1204,6 +1248,7 @@
                 <span class="chev">↗</span>
               </a>
               <a class="list-row" href="https://github.com/manojgadamsetty" target="_blank" rel="noopener noreferrer">
+                <span class="list-icon" style="background:linear-gradient(135deg,#24292e,#4a5568)"><svg width="18" height="18" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg></span>
                 <div>
                   <p class="list-title">GitHub</p>
                   <p class="list-sub">Code repositories and experiments</p>
@@ -1211,6 +1256,7 @@
                 <span class="chev">↗</span>
               </a>
               <a class="list-row" href="../resume-cv.html" target="_blank" rel="noopener noreferrer">
+                <span class="list-icon" style="background:linear-gradient(135deg,#4f46e5,#818cf8)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></span>
                 <div>
                   <p class="list-title">Resume</p>
                   <p class="list-sub">Printable CV and complete timeline</p>
@@ -1218,6 +1264,7 @@
                 <span class="chev">↗</span>
               </a>
               <a class="list-row" href="../index.html">
+                <span class="list-icon" style="background:linear-gradient(135deg,#7c3aed,#c084fc)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
                 <div>
                   <p class="list-title">Full Website</p>
                   <p class="list-sub">Open complete desktop portfolio view</p>
@@ -1229,10 +1276,10 @@
         </section>
 
         <nav class="tabbar" aria-label="App tabs">
-          <button class="tab active" data-tab="home"><span class="ico">⌂</span><span>Home</span></button>
-          <button class="tab" data-tab="journey"><span class="ico">◷</span><span>Journey</span></button>
-          <button class="tab" data-tab="projects"><span class="ico">▦</span><span>Projects</span></button>
-          <button class="tab" data-tab="contact"><span class="ico">✉</span><span>Contact</span></button>
+          <button class="tab active" data-tab="home"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span><span>Home</span></button>
+          <button class="tab" data-tab="journey"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><span>Journey</span></button>
+          <button class="tab" data-tab="projects"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span><span>Projects</span></button>
+          <button class="tab" data-tab="contact"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span>Contact</span></button>
         </nav>
 
         <div class="sheet-backdrop" id="sheet-backdrop"></div>
