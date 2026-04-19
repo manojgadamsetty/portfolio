@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manoj Gadamsetty — Resume & CV</title>
+    <meta name="description" content="Staff Software Engineer Resume - 10+ years in mobile security, iOS/Android development, enterprise identity platforms.">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .resume-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .resume-section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .resume-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .resume-header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .resume-header p {
+            color: var(--text-secondary);
+            margin-bottom: 0.25rem;
+        }
+
+        .resume-contacts {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .resume-contacts a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .resume-entry {
+            margin-bottom: 2rem;
+        }
+
+        .resume-entry h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .resume-entry-meta {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .resume-entry-desc {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background-color: var(--bg-secondary);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .download-button {
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: opacity 0.3s ease;
+        }
+
+        .download-button:hover {
+            opacity: 0.9;
+        }
+
+        @media print {
+            .header, footer, .nav-menu, .theme-toggle {
+                display: none;
+            }
+            body {
+                background: white;
+            }
+            main { padding: 0; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="header">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">MANOJ GADAMSETTY</a>
+            <ul class="nav-menu">
+                <li><a href="/">HOME</a></li>
+                <li><a href="/v2/experience.html">EXPERIENCE</a></li>
+                <li><a href="/v2/work.html">WORK</a></li>
+                <li><a href="/v2/education.html">EDUCATION</a></li>
+                <li><a href="/v2/about.html">ABOUT</a></li>
+                <li><a href="/v2/contact.html">CONTACT</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle">☀</button>
+        </div>
+    </nav>
+
+    <main>
+        <div class="resume-container">
+            <div class="resume-header">
+                <h1>Manoj Gadamsetty</h1>
+                <p>Staff Software Engineer | Mobile Security Specialist</p>
+                <div class="resume-contacts">
+                    <a href="mailto:manojgadamsetty@zohomail.in">manojgadamsetty@zohomail.in</a>
+                    <a href="https://linkedin.com/in/manojgadamsetty" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/manojgadamsetty" target="_blank">GitHub</a>
+                    <a href="https://medium.com/@manojgadamsetty" target="_blank">Medium</a>
+                </div>
+            </div>
+
+            <a href="/resume-cv.html" target="_blank" class="download-button">📄 Download Full Resume PDF</a>
+
+            <!-- Professional Summary -->
+            <section class="resume-section">
+                <h2 style="font-size: 1.3rem; margin-bottom: 1rem;">Professional Summary</h2>
+                <p style="color: var(--text-secondary); line-height: 1.7;">
+                    Staff Software Engineer with 10+ years of specialized experience in mobile development and cybersecurity. 
+                    Currently leading mobile security initiatives at Palo Alto Networks on next-generation enterprise identity platforms, 
+                    building secure architectures with advanced authentication, zero-trust access, and enterprise-grade security. 
+                    Expert in identity and access management protocols (OAuth 2.0, OpenID Connect, SAML 2.0), multi-factor authentication 
+                    (FIDO2, U2F, WebAuthn), and enterprise directory integrations (Entra ID, Active Directory). Proven track record of 
+                    delivering enterprise-grade solutions with 99.99% crash-free stability, 150+ successful RCAs, and millions of users served.
+                </p>
+            </section>
+
+            <!-- Core Expertise -->
+            <section class="resume-section">
+                <h2 style="font-size: 1.3rem; margin-bottom: 1rem;">Core Expertise</h2>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <h4 style="color: var(--accent); font-weight: 700; margin-bottom: 0.5rem;">Mobile Development</h4>
+                    <p style="color: var(--text-secondary);">iOS (Swift, Objective-C) • Android (Kotlin, Java) • macOS • React Native • KMM • Flutter</p>
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <h4 style="color: var(--accent); font-weight: 700; margin-bottom: 0.5rem;">Identity & Authentication</h4>
+                    <p style="color: var(--text-secondary);">OAuth 2.0 • OIDC • SAML 2.0 • FIDO2/U2F • WebAuthn • Enterprise SSO • Zero-Trust Architecture</p>
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <h4 style="color: var(--accent); font-weight: 700; margin-bottom: 0.5rem;">Security & DevSecOps</h4>
+                    <p style="color: var(--text-secondary);">Threat Modeling • Security Architecture • RASP • iXGuard • Code Scanning • Vulnerability Management</p>
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <h4 style="color: var(--accent); font-weight: 700; margin-bottom: 0.5rem;">Backend & Cloud</h4>
+                    <p style="color: var(--text-secondary);">.NET • Python • Golang • Database Design • Distributed Systems • Microservices • LLM/RAG</p>
+                </div>
+            </section>
+
+            <!-- Experience -->
+            <section class="resume-section">
+                <h2 style="font-size: 1.3rem; margin-bottom: 1.5rem;">Work Experience</h2>
+
+                <div class="resume-entry">
+                    <h3>Palo Alto Networks</h3>
+                    <div class="resume-entry-meta">
+                        <span style="font-weight: 600;">Staff Software Engineer</span>
+                        <span>Aug 2021 - Present</span>
+                    </div>
+                    <p class="resume-entry-desc">
+                        Leading development of enterprise next-generation identity platform with Workforce Password Manager. 
+                        Architecting advanced authentication (OAuth 2.0, OIDC, SAML 2.0, FIDO2/WebAuthn), secure mobile applications, 
+                        enterprise SSO integration (Entra ID, Active Directory), and zero-trust access strategies.
+                    </p>
+                    <div class="tag-list">
+                        <span class="tag">Identity Platform</span>
+                        <span class="tag">OAuth 2.0</span>
+                        <span class="tag">FIDO2</span>
+                        <span class="tag">Zero-Trust</span>
+                        <span class="tag">iOS</span>
+                    </div>
+                </div>
+
+                <div class="resume-entry">
+                    <h3>CyberArk</h3>
+                    <div class="resume-entry-meta">
+                        <span style="font-weight: 600;">Senior Engineer, Identity & Access Management</span>
+                        <span>Jul 2019 - Aug 2021</span>
+                    </div>
+                    <p class="resume-entry-desc">
+                        Designed and implemented privilege access management (PAM) solutions. Built iOS applications for secure 
+                        credential management and MFA. Architected privilege session recording, audit trails, and enterprise integrations.
+                    </p>
+                    <div class="tag-list">
+                        <span class="tag">PAM</span>
+                        <span class="tag">iOS</span>
+                        <span class="tag">Security</span>
+                        <span class="tag">MFA</span>
+                    </div>
+                </div>
+
+                <div class="resume-entry">
+                    <h3>VMware</h3>
+                    <div class="resume-entry-meta">
+                        <span style="font-weight: 600;">Senior iOS Engineer</span>
+                        <span>Jan 2018 - Jun 2019</span>
+                    </div>
+                    <p class="resume-entry-desc">
+                        Built enterprise mobile device management (MDM) solutions with advanced security hardening. 
+                        Implemented enterprise authentication integrations (SAML, OAuth). Architected secure mobile architecture.
+                    </p>
+                    <div class="tag-list">
+                        <span class="tag">MDM</span>
+                        <span class="tag">iOS</span>
+                        <span class="tag">SAML</span>
+                        <span class="tag">Security</span>
+                    </div>
+                </div>
+
+                <div class="resume-entry">
+                    <h3>Flipkart / Walmart</h3>
+                    <div class="resume-entry-meta">
+                        <span style="font-weight: 600;">Senior iOS Developer</span>
+                        <span>May 2015 - Dec 2017</span>
+                    </div>
+                    <p class="resume-entry-desc">
+                        Developed iOS applications serving 100M+ users with 99.99% crash-free stability. 
+                        Optimized performance and implemented secure payment integration.
+                    </p>
+                    <div class="tag-list">
+                        <span class="tag">iOS</span>
+                        <span class="tag">Performance</span>
+                        <span class="tag">Scale</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education -->
+            <section class="resume-section">
+                <h2 style="font-size: 1.3rem; margin-bottom: 1.5rem;">Education</h2>
+
+                <div class="resume-entry">
+                    <h3>Master's in Software Systems (In Progress)</h3>
+                    <div class="resume-entry-meta">
+                        <span>Birla Institute of Technology and Science (BITS), Pilani</span>
+                        <span>2025 - 2027</span>
+                    </div>
+                </div>
+
+                <div class="resume-entry">
+                    <h3>B.Tech in Electrical and Electronics Engineering</h3>
+                    <div class="resume-entry-meta">
+                        <span>QIS College of Engineering and Technology</span>
+                        <span>2013 - 2016</span>
+                    </div>
+                </div>
+
+                <div class="resume-entry">
+                    <h3>Diploma in Electrical and Electronics Engineering</h3>
+                    <div class="resume-entry-meta">
+                        <span>St. Ann's College of Engineering and Technology</span>
+                        <span>2010 - 2013</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Certifications -->
+            <section class="resume-section">
+                <h2 style="font-size: 1.3rem; margin-bottom: 1.5rem;">Certifications</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                    <div>
+                        <h4 style="color: var(--accent); font-weight: 700; margin-bottom: 0.5rem;">Generative AI</h4>
+                        <ul style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">
+                            <li>• Introduction to Generative AI</li>
+                            <li>• Introduction to LLMs</li>
+                            <li>• Responsible AI</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--accent); font-weight: 700; margin-bottom: 0.5rem;">Security</h4>
+                        <ul style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">
+                            <li>• CompTIA Security+</li>
+                            <li>• OWASP Top 10</li>
+                            <li>• Cryptography</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--accent); font-weight: 700; margin-bottom: 0.5rem;">Mobile</h4>
+                        <ul style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">
+                            <li>• Cisco iOS Security</li>
+                            <li>• Mobile App Security</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Professional Practices -->
+            <section class="resume-section">
+                <h2 style="font-size: 1.3rem; margin-bottom: 1.5rem;">Professional Practices</h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                    <div>
+                        <h4 style="color: var(--accent); font-weight: 700; margin-bottom: 0.5rem;">Development</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Agile • Scrum • PI Planning • Code Reviews • Testing & QA • CI/CD • DevOps</p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--accent); font-weight: 700; margin-bottom: 0.5rem;">Security</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Threat Modeling • Code Reviews • DREAD • SAST • Penetration Testing • Compliance</p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--accent); font-weight: 700; margin-bottom: 0.5rem;">Incident Response</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">On-Call • Incident Tracking • RCA (150+) • Post-Mortems • SLA Management</p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--accent); font-weight: 700; margin-bottom: 0.5rem;">Architecture</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">System Design • API Design • Database • Microservices • Event-Driven</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>Manoj Gadamsetty &copy; 2026 | <a href="/">Back to home</a></p>
+    </footer>
+
+    <script src="theme.js"></script>
+</body>
+</html>
