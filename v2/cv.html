@@ -89,8 +89,8 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 2rem;
-            font-size: 0.95rem;
+            gap: 1.5rem;
+            font-size: 0.9rem;
             color: var(--gray);
         }
 
@@ -101,21 +101,21 @@
 
         /* Section */
         .cv-section {
-            margin-bottom: 2.5rem;
+            margin-bottom: 1.8rem;
         }
 
         .cv-section h2 {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.4rem;
             border-bottom: 2px solid var(--primary);
             color: var(--dark);
         }
 
         /* Entry */
         .cv-entry {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .entry-header {
@@ -150,8 +150,8 @@
         .entry-description {
             font-size: 0.9rem;
             color: #374151;
-            line-height: 1.7;
-            margin-bottom: 0.5rem;
+            line-height: 1.5;
+            margin-bottom: 0.4rem;
         }
 
         .entry-points {
@@ -161,18 +161,18 @@
         }
 
         .entry-points li {
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.2rem;
         }
 
         /* Skills Grid */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
+            gap: 1rem;
         }
 
         .skill-category {
-            padding: 1rem;
+            padding: 0.8rem;
             background: var(--light);
             border-radius: 6px;
         }
@@ -180,14 +180,15 @@
         .skill-category h4 {
             font-weight: 700;
             color: var(--dark);
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
+            margin-bottom: 0.4rem;
+            font-size: 0.9rem;
         }
 
         .skill-category p {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--gray);
-            line-height: 1.6;
+            line-height: 1.5;
+            margin: 0;
         }
 
         /* Metrics */
@@ -195,31 +196,51 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1rem;
-            margin: 1.5rem 0;
+            margin: 1rem 0;
         }
 
         .metric {
             text-align: center;
-            padding: 1rem;
+            padding: 0.75rem;
             background: var(--light);
             border-radius: 6px;
         }
 
         .metric-value {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: var(--primary);
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.2rem;
         }
 
         .metric-label {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--gray);
+            line-height: 1.3;
+        }
+
+        /* ATS-friendly hidden text for metrics */
+        .ats-metrics {
+            font-size: 0.9rem;
+            color: #374151;
+            line-height: 1.5;
+            margin: 0.8rem 0;
+            display: none;
         }
 
         @media print {
+            .ats-metrics {
+                display: block;
+            }
+
+            .metrics-grid {
+                display: none;
+            }
+
             body {
                 background: white;
+                font-size: 10pt;
+                line-height: 1.4;
             }
 
             .no-print {
@@ -228,12 +249,90 @@
 
             .cv-container {
                 max-width: 100%;
-                padding: 0;
+                padding: 0.5in;
                 margin: 0;
+            }
+
+            .cv-header {
+                margin-bottom: 0.8rem;
+                padding-bottom: 0.8rem;
+            }
+
+            .cv-header h1 {
+                font-size: 1.8rem;
+                margin-bottom: 0.2rem;
+            }
+
+            .cv-header .title {
+                font-size: 1rem;
+                margin-bottom: 0.4rem;
+            }
+
+            .cv-header .contact {
+                gap: 1rem;
+                font-size: 0.85rem;
             }
 
             .cv-section {
                 page-break-inside: avoid;
+                margin-bottom: 1.2rem;
+            }
+
+            .cv-section h2 {
+                font-size: 1rem;
+                margin-bottom: 0.6rem;
+                padding-bottom: 0.3rem;
+            }
+
+            .cv-entry {
+                page-break-inside: avoid;
+                margin-bottom: 0.8rem;
+            }
+
+            .entry-header h3 {
+                font-size: 1rem;
+                margin-bottom: 0.1rem;
+            }
+
+            .entry-date {
+                font-size: 0.9rem;
+            }
+
+            .entry-subtitle {
+                font-size: 0.9rem;
+                margin-bottom: 0.3rem;
+            }
+
+            .entry-description {
+                font-size: 0.9rem;
+                line-height: 1.4;
+                margin-bottom: 0.3rem;
+            }
+
+            .entry-points {
+                font-size: 0.9rem;
+                margin-left: 1.5rem;
+            }
+
+            .entry-points li {
+                margin-bottom: 0.15rem;
+            }
+
+            .skills-grid {
+                gap: 0.8rem;
+            }
+
+            .skill-category {
+                padding: 0.6rem;
+            }
+
+            .skill-category h4 {
+                font-size: 0.85rem;
+                margin-bottom: 0.3rem;
+            }
+
+            .skill-category p {
+                font-size: 0.75rem;
             }
 
             a {
@@ -278,22 +377,18 @@
             <h1>Manoj Gadamsetty</h1>
             <div class="title">Staff Software Engineer | Mobile Security & Identity Platform Specialist</div>
             <div class="contact">
-                <span><i class="fas fa-envelope"></i> <a href="mailto:manojgadamsetty@zohomail.in">manojgadamsetty@zohomail.in</a></span>
-                <span><i class="fas fa-link"></i> <a href="https://linkedin.com/in/manojgadamsetty" target="_blank">LinkedIn</a></span>
-                <span><i class="fas fa-code"></i> <a href="https://github.com/manojgadamsetty" target="_blank">GitHub</a></span>
-                <span><i class="fas fa-pen"></i> <a href="https://medium.com/@manojgadamsetty" target="_blank">Medium</a></span>
+                <span><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:manojgadamsetty@zohomail.in">manojgadamsetty@zohomail.in</a></span>
+                <span><i class="fas fa-link" aria-hidden="true"></i> <a href="https://linkedin.com/in/manojgadamsetty" target="_blank">LinkedIn</a></span>
+                <span><i class="fas fa-code" aria-hidden="true"></i> <a href="https://github.com/manojgadamsetty" target="_blank">GitHub</a></span>
+                <span><i class="fas fa-pen" aria-hidden="true"></i> <a href="https://medium.com/@manojgadamsetty" target="_blank">Medium</a></span>
             </div>
         </div>
 
         <!-- Professional Summary -->
         <div class="cv-section">
             <h2>Professional Summary</h2>
-            <p style="line-height: 1.8; color: #374151;">
-                Staff Software Engineer with 10+ years of specialized experience in mobile development and cybersecurity. 
-                Currently leading mobile security initiatives at Palo Alto Networks on next-generation enterprise identity platforms. 
-                Expert in OAuth 2.0, OIDC, SAML 2.0, FIDO2/WebAuthn, and zero-trust architecture. Proven track record of delivering 
-                enterprise-grade solutions with 99.99% crash-free stability, 150+ successful RCAs, and serving millions of users globally. 
-                Passionate about building secure, scalable systems and mentoring engineering teams.
+            <p style="line-height: 1.6; color: #374151; margin-bottom: 0;">
+                Staff Software Engineer with 10+ years of specialized experience in mobile app development, mobile security, and enterprise identity platforms. Subject matter expert in OAuth 2.0, OIDC, SAML 2.0, FIDO2, WebAuthn, and zero-trust architecture. Currently leading mobile security initiatives at Palo Alto Networks, building secure enterprise identity solutions. Proven track record: 99.99% production stability, 150+ incident RCAs, 100+ million users served globally. Expert in iOS and Android development, enterprise authentication, PAM/IAM systems, and DevSecOps. Skilled mentor with 15+ engineers developed into senior roles. Passionate about secure system design, compliance frameworks, and building high-performing engineering teams.
             </p>
         </div>
 
@@ -313,6 +408,9 @@
                     <div class="metric-value">100M+</div>
                     <div class="metric-label">Users Served</div>
                 </div>
+            </div>
+            <div class="ats-metrics">
+                <strong>Key Metrics:</strong> 99.99% crash-free stability across production systems | 150+ root cause analyses conducted for enterprise incidents | Supported 100+ million users globally | 15+ engineers mentored and developed into senior roles | 4.5+ years at CyberArk driving platform initiatives | 10+ years total experience in mobile and enterprise systems
             </div>
         </div>
 
