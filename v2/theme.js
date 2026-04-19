@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Update theme icon
     function updateThemeIcon(theme) {
-        themeToggle.textContent = theme === 'light' ? '🌙' : '☀';
+        themeToggle.innerHTML = theme === 'light' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
     }
 });
 
