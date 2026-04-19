@@ -17,21 +17,21 @@
         }
 
         .resume-section {
-            margin-bottom: 3rem;
-            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
             border-bottom: 1px solid var(--border);
         }
 
         .resume-header {
             text-align: center;
-            margin-bottom: 3rem;
-            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
             border-bottom: 2px solid var(--accent);
         }
 
         .resume-header h1 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.8rem;
+            margin-bottom: 0.4rem;
         }
 
         .resume-header p {
@@ -115,8 +115,45 @@
             }
             body {
                 background: white;
+                font-size: 10pt;
+                line-height: 1.3;
             }
-            main { padding: 0; }
+            main { 
+                padding: 0.5in;
+                margin: 0;
+            }
+            .resume-container {
+                max-width: 100%;
+                padding: 0;
+                margin: 0;
+            }
+            .resume-section {
+                page-break-inside: avoid;
+                margin-bottom: 1rem;
+                padding-bottom: 0.8rem;
+            }
+            .resume-header {
+                margin-bottom: 1rem;
+                padding-bottom: 0.8rem;
+            }
+            .resume-header h1 {
+                font-size: 1.4rem;
+                margin-bottom: 0.2rem;
+            }
+            .resume-header p {
+                font-size: 0.85rem;
+                margin-bottom: 0.1rem;
+            }
+            .resume-contacts {
+                gap: 1rem;
+                font-size: 0.8rem;
+                margin-top: 0.5rem;
+            }
+            .download-button {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+                margin: 0 0.3rem;
+            }
         }
     </style>
 </head>
@@ -151,45 +188,40 @@
             </div>
 
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;">
-                <a href="./cv.html" class="download-button"><i class="fas fa-file-alt"></i> Professional CV</a>
-                <a href="../resume-cv.html" target="_blank" class="download-button"><i class="fas fa-file-pdf"></i> Download Full Resume PDF</a>
+                <a href="./cv.html" class="download-button"><i class="fas fa-file-alt" aria-hidden="true"></i> Professional CV</a>
+                <a href="../resume-cv.html" target="_blank" class="download-button"><i class="fas fa-file-pdf" aria-hidden="true"></i> Download Full Resume PDF</a>
             </div>
 
             <!-- Professional Summary -->
             <section class="resume-section">
                 <h2 style="font-size: 1.3rem; margin-bottom: 1rem;">Professional Summary</h2>
-                <p style="color: var(--text-secondary); line-height: 1.7;">
-                    Staff Software Engineer with 10+ years of specialized experience in mobile development and cybersecurity. 
-                    Currently leading mobile security initiatives at Palo Alto Networks on next-generation enterprise identity platforms, 
-                    building secure architectures with advanced authentication, zero-trust access, and enterprise-grade security. 
-                    Expert in identity and access management protocols (OAuth 2.0, OpenID Connect, SAML 2.0), multi-factor authentication 
-                    (FIDO2, U2F, WebAuthn), and enterprise directory integrations (Entra ID, Active Directory). Proven track record of 
-                    delivering enterprise-grade solutions with 99.99% crash-free stability, 150+ successful RCAs, and millions of users served.
+                <p style="color: var(--text-secondary); line-height: 1.5; margin: 0;">
+                    Staff Software Engineer with 10+ years of expertise in mobile app development, mobile security, and enterprise identity platforms. Currently leading mobile security initiatives at Palo Alto Networks, building next-generation secure identity solutions. Expert in authentication protocols (OAuth 2.0, OIDC, SAML 2.0, FIDO2, WebAuthn), enterprise directory integrations (Entra ID, Active Directory), and zero-trust security architectures. Proven track record: 99.99% production stability, 150+ incident RCAs, 100+ million users served, 15+ engineers mentored. Specialized in iOS/Android development, PAM/IAM systems, and enterprise compliance frameworks.
                 </p>
             </section>
 
             <!-- Core Expertise -->
             <section class="resume-section">
-                <h2 style="font-size: 1.3rem; margin-bottom: 1rem;">Core Expertise</h2>
+                <h2 style="font-size: 1.3rem; margin-bottom: 0.8rem;">Core Expertise</h2>
                 
-                <div style="margin-bottom: 1.5rem;">
-                    <h4 style="color: var(--accent); font-weight: 700; margin-bottom: 0.5rem;">Mobile Development</h4>
-                    <p style="color: var(--text-secondary);">iOS (Swift, Objective-C) • Android (Kotlin, Java) • macOS • React Native • KMM • Flutter</p>
+                <div style="margin-bottom: 1rem;">
+                    <h4 style="color: var(--accent); font-weight: 700; margin-bottom: 0.4rem;">Mobile Development</h4>
+                    <p style="color: var(--text-secondary); margin: 0;">iOS (Swift, Objective-C) • Android (Kotlin, Java) • macOS • React Native • KMM • Flutter</p>
                 </div>
 
-                <div style="margin-bottom: 1.5rem;">
-                    <h4 style="color: var(--accent); font-weight: 700; margin-bottom: 0.5rem;">Identity & Authentication</h4>
-                    <p style="color: var(--text-secondary);">OAuth 2.0 • OIDC • SAML 2.0 • FIDO2/U2F • WebAuthn • Enterprise SSO • Zero-Trust Architecture</p>
+                <div style="margin-bottom: 1rem;">
+                    <h4 style="color: var(--accent); font-weight: 700; margin-bottom: 0.4rem;">Identity & Authentication</h4>
+                    <p style="color: var(--text-secondary); margin: 0;">OAuth 2.0 • OIDC • SAML 2.0 • FIDO2/U2F • WebAuthn • Enterprise SSO • Zero-Trust Architecture</p>
                 </div>
 
-                <div style="margin-bottom: 1.5rem;">
-                    <h4 style="color: var(--accent); font-weight: 700; margin-bottom: 0.5rem;">Security & DevSecOps</h4>
-                    <p style="color: var(--text-secondary);">Threat Modeling • Security Architecture • RASP • iXGuard • Code Scanning • Vulnerability Management</p>
+                <div style="margin-bottom: 1rem;">
+                    <h4 style="color: var(--accent); font-weight: 700; margin-bottom: 0.4rem;">Security & DevSecOps</h4>
+                    <p style="color: var(--text-secondary); margin: 0;">Threat Modeling • Security Architecture • RASP • iXGuard • Code Scanning • Vulnerability Management</p>
                 </div>
 
-                <div style="margin-bottom: 1.5rem;">
-                    <h4 style="color: var(--accent); font-weight: 700; margin-bottom: 0.5rem;">Backend & Cloud</h4>
-                    <p style="color: var(--text-secondary);">.NET • Python • Golang • Database Design • Distributed Systems • Microservices • LLM/RAG</p>
+                <div style="margin-bottom: 0;">
+                    <h4 style="color: var(--accent); font-weight: 700; margin-bottom: 0.4rem;">Backend & Cloud</h4>
+                    <p style="color: var(--text-secondary); margin: 0;">.NET • Python • Golang • Database Design • Distributed Systems • Microservices • LLM/RAG</p>
                 </div>
             </section>
 
