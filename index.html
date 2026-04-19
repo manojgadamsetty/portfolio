@@ -2768,16 +2768,21 @@
         // Smooth scrolling and active link highlighting
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
-                e.preventDefault();
                 const targetId = link.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
                 
-                if (targetSection) {
-                    window.scrollTo({
-                        top: targetSection.offsetTop - 60,
-                        behavior: 'smooth'
-                    });
+                // Only handle internal anchor links with preventDefault
+                if (targetId.startsWith('#')) {
+                    e.preventDefault();
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        window.scrollTo({
+                            top: targetSection.offsetTop - 60,
+                            behavior: 'smooth'
+                        });
+                    }
                 }
+                // External links (like './v2/') will navigate normally
             });
         });
 
