@@ -196,11 +196,7 @@
       padding: 1rem;
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
       color: var(--text-primary);
-      background:
-        radial-gradient(circle at 15% 15%, var(--ambient-c1) 0%, transparent 40%),
-        radial-gradient(circle at 85% 85%, var(--ambient-c2) 0%, transparent 40%),
-        radial-gradient(circle at 50% 50%, var(--ambient-c3) 0%, transparent 50%),
-        linear-gradient(160deg, var(--body-start) 0%, var(--body-mid) 50%, var(--body-end) 100%);
+      background: #0f1117;
       overflow: auto;
       transition: background 0.4s ease;
     }
@@ -209,10 +205,7 @@
       position: fixed;
       inset: 0;
       pointer-events: none;
-      background:
-        radial-gradient(circle at 20% 30%, var(--ambient-c1), transparent 25%),
-        radial-gradient(circle at 80% 70%, var(--ambient-c2), transparent 25%),
-        radial-gradient(circle at 50% 50%, var(--ambient-c3), transparent 35%);
+      background: transparent;
       animation: breathe 10s ease-in-out infinite;
       transition: opacity 0.4s ease;
     }
@@ -228,7 +221,7 @@
       width: 100%;
       aspect-ratio: 390 / 844;
       border-radius: 48px;
-      background: linear-gradient(150deg, #0f1726, #151f2f);
+      background: #0f1726;
       padding: 12px;
       box-shadow:
         0 30px 60px rgba(0, 0, 0, 0.48),
@@ -267,7 +260,7 @@
       border-radius: 38px;
       overflow: hidden;
       position: relative;
-      background: linear-gradient(180deg, var(--screen-start) 0%, var(--screen-mid) 50%, var(--screen-end) 100%);
+      background: var(--screen-start);
       border: 1px solid var(--screen-border);
       display: grid;
       grid-template-rows: auto auto 1fr auto;
@@ -377,7 +370,7 @@
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: #667eea;
       border: 2px solid rgba(102, 126, 234, 0.4);
       display: grid;
       place-items: center;
@@ -415,7 +408,7 @@
       font-weight: 700;
       color: var(--text-primary);
       border: 1px solid rgba(16, 185, 129, 0.4);
-      background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(16, 185, 129, 0.1));
+      background: rgba(16, 185, 129, 0.15);
       padding: 0.28rem 0.55rem;
       border-radius: 999px;
       box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
@@ -484,17 +477,12 @@
       margin-bottom: 0.85rem;
       font-weight: 800;
       line-height: 1.1;
-      background: linear-gradient(135deg, var(--label-from) 0%, var(--label-to) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #ffffff;
     }
 
     .card {
-      background:
-        linear-gradient(135deg, var(--card-overlay-1) 0%, var(--card-overlay-2) 100%),
-        var(--card-surface);
-      border: 1px solid var(--card-border);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 20px;
       padding: 1.2rem;
       margin-bottom: 1rem;
@@ -542,14 +530,12 @@
     }
 
     .kpi {
-      background: 
-        linear-gradient(135deg, var(--kpi-overlay-from) 0%, var(--kpi-overlay-to) 100%),
-        var(--kpi-surface);
-      border: 1px solid var(--kpi-border);
+      background: rgba(99, 102, 241, 0.08);
+      border: 1px solid rgba(99, 102, 241, 0.20);
       border-radius: 16px;
       padding: 0.85rem 0.5rem;
       text-align: center;
-      box-shadow: 0 4px 12px var(--kpi-glow);
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.12);
       transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.4s ease, border-color 0.4s ease;
     }
 
@@ -560,10 +546,7 @@
 
     .kpi strong {
       display: block;
-      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #6366f1;
       font-size: 1.1rem;
       font-weight: 900;
       line-height: 1;
@@ -590,10 +573,10 @@
       padding: 0.32rem 0.65rem;
       font-size: 0.7rem;
       font-weight: 700;
-      background: linear-gradient(135deg, var(--chip-bg-from), var(--chip-bg-to));
-      border: 1px solid var(--chip-border);
+      background: rgba(99, 102, 241, 0.15);
+      border: 1px solid rgba(99, 102, 241, 0.35);
       color: var(--chip-color);
-      box-shadow: 0 2px 8px var(--chip-shadow);
+      box-shadow: 0 2px 8px rgba(99, 102, 241, 0.15);
       transition: color 0.4s ease, background 0.4s ease, border-color 0.4s ease;
     }
 
@@ -625,7 +608,7 @@
     }
 
     .btn.primary {
-      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      background: #6366f1;
       border-color: transparent;
       color: #ffffff;
       box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
@@ -639,9 +622,7 @@
       border-radius: 18px;
       overflow: hidden;
       border: 1px solid var(--list-border);
-      background:
-        linear-gradient(135deg, var(--list-overlay) 0%, transparent 100%),
-        var(--list-surface);
+      background: rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(20px) saturate(180%);
       -webkit-backdrop-filter: blur(20px) saturate(180%);
       margin-bottom: 1rem;
@@ -765,7 +746,7 @@
 
     .segment.active {
       color: #ffffff;
-      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      background: #6366f1;
       box-shadow: 
         0 2px 8px rgba(99, 102, 241, 0.4),
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
@@ -845,7 +826,7 @@
       z-index: 21;
       border-top-left-radius: 24px;
       border-top-right-radius: 24px;
-      background: linear-gradient(180deg, var(--sheet-start), var(--sheet-end));
+      background: var(--sheet-start);
       border-top: 1px solid var(--sheet-border);
       box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.20);
       transform: translateY(100%);
@@ -924,11 +905,18 @@
       display: flex;
       align-items: flex-start;
       gap: 0.7rem;
-      background: var(--row-hover);
-      border: 1px solid var(--card-border);
+      background: rgba(99, 102, 241, 0.08);
+      border: 1px solid rgba(99, 102, 241, 0.18);
       border-radius: 12px;
-      padding: 0.72rem 0.85rem;
-      transition: background 0.4s ease;
+      padding: 0.85rem 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .highlight-row:hover {
+      background: rgba(99, 102, 241, 0.12);
+      border-color: rgba(99, 102, 241, 0.25);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
     }
 
     .highlight-icon {
@@ -958,14 +946,15 @@
       display: inline-flex;
       align-items: center;
       gap: 0.3rem;
-      font-size: 0.66rem;
-      font-weight: 700;
-      color: #10b981;
-      background: rgba(16,185,129,.12);
-      border: 1px solid rgba(16,185,129,.30);
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: #ffffff;
+      background: #10b981;
+      border: none;
       border-radius: 999px;
-      padding: 0.2rem 0.5rem;
+      padding: 0.3rem 0.7rem;
       margin-bottom: 0.5rem;
+      letter-spacing: 0.2px;
     }
 
     @keyframes stageIn {
@@ -1246,7 +1235,7 @@
                   <span class="chev">›</span>
                 </button>
                 <button class="list-row" data-sheet-title="Artificial Intelligence (AI) Certifications" data-sheet-subtitle="Generative AI & LLM Specialization" data-sheet-body="Recent certifications in AI and machine learning specializing in generative models, large language models, and responsible AI practices." data-sheet-points="Introduction to Generative AI|Introduction to Large Language Models|Introduction to Responsible AI">
-                  <span class="list-icon" style="background:linear-gradient(135deg,#ec4899,#f43f5e)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></span>
+                  <span class="list-icon" style="background:#ec4899"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></span>
                   <div>
                     <p class="list-title">AI & Generative Models</p>
                     <p class="list-sub">Generative AI · LLMs · Responsible AI</p>
@@ -1254,7 +1243,7 @@
                   <span class="chev">›</span>
                 </button>
                 <button class="list-row" data-sheet-title="Security Certifications" data-sheet-subtitle="CompTIA, OWASP & Vendor-Specific" data-sheet-body="Professional security certifications including CompTIA Security+, cryptography, OWASP architecture, and Cisco iOS security." data-sheet-points="CompTIA Security+ (SY0-601) Cert Prep|Cryptography Design and Implementation|OWASP Top 10 Security|Cisco iOS Security Specialist">
-                  <span class="list-icon" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+                  <span class="list-icon" style="background:#3b82f6"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
                   <div>
                     <p class="list-title">Security & Compliance</p>
                     <p class="list-sub">Security+, OWASP, Cryptography, Cisco</p>
@@ -1341,7 +1330,7 @@
                 <span class="chev">›</span>
               </button>
               <button class="list-row" data-sheet-title="Celebkonect" data-sheet-subtitle="Social Networking App" data-sheet-body="Social platform enabling celebrity interactions and community engagement with scalable backend communication patterns." data-sheet-points="Messaging and content interactions|Community-focused UX|Scalable networking integration">
-                <span class="list-icon" style="background:linear-gradient(135deg,#be185d,#ec4899)">CK</span>
+                <span class="list-icon" style="background:#ec4899">CK</span>
                 <div>
                   <p class="list-title">Celebkonect</p>
                   <p class="list-sub">Social networking product</p>
@@ -1369,7 +1358,7 @@
 
             <div class="list">
               <a class="list-row" href="mailto:manojgadamsetty@zohomail.in">
-                <span class="list-icon" style="background:linear-gradient(135deg,#ea580c,#fb923c)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg></span>
+                <span class="list-icon" style="background:#fb923c"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg></span>
                 <div>
                   <p class="list-title">Email</p>
                   <p class="list-sub">manojgadamsetty@zohomail.in</p>
@@ -1377,7 +1366,7 @@
                 <span class="chev">↗</span>
               </a>
               <a class="list-row" href="https://www.linkedin.com/in/manojgadamsetty/" target="_blank" rel="noopener noreferrer">
-                <span class="list-icon" style="background:linear-gradient(135deg,#0077b5,#0ea5e9)"><svg width="18" height="18" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span>
+                <span class="list-icon" style="background:#0077b5"><svg width="18" height="18" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span>
                 <div>
                   <p class="list-title">LinkedIn</p>
                   <p class="list-sub">Professional profile and updates</p>
@@ -1385,7 +1374,7 @@
                 <span class="chev">↗</span>
               </a>
               <a class="list-row" href="https://github.com/manojgadamsetty" target="_blank" rel="noopener noreferrer">
-                <span class="list-icon" style="background:linear-gradient(135deg,#24292e,#4a5568)"><svg width="18" height="18" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg></span>
+                <span class="list-icon" style="background:#24292e"><svg width="18" height="18" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg></span>
                 <div>
                   <p class="list-title">GitHub</p>
                   <p class="list-sub">Code repositories and experiments</p>
@@ -1393,7 +1382,7 @@
                 <span class="chev">↗</span>
               </a>
               <a class="list-row" href="../resume-cv.html" target="_blank" rel="noopener noreferrer">
-                <span class="list-icon" style="background:linear-gradient(135deg,#4f46e5,#818cf8)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></span>
+                <span class="list-icon" style="background:#4f46e5"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></span>
                 <div>
                   <p class="list-title">Resume</p>
                   <p class="list-sub">Printable CV and complete timeline</p>
@@ -1401,7 +1390,7 @@
                 <span class="chev">↗</span>
               </a>
               <a class="list-row" href="../index.html">
-                <span class="list-icon" style="background:linear-gradient(135deg,#7c3aed,#c084fc)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+                <span class="list-icon" style="background:#7c3aed"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
                 <div>
                   <p class="list-title">Full Website</p>
                   <p class="list-sub">Open complete desktop portfolio view</p>
