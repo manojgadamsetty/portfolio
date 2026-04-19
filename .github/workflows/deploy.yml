@@ -1,10 +1,11 @@
-name: Deploy to GitHub Pages
+name: Deploy Portfolio to GitHub Pages
 
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -13,27 +14,106 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    
     runs-on: ubuntu-latest
     
     steps:
-    - name: Checkout
+    - name: Checkout repository
       uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    - name: Verify directory structure
+      run: |
+        echo "=== Repository Structure ==="
+        ls -la
+        echo ""
+        echo "=== V2 Directory Structure ==="
+        ls -la v2/
+        echo ""
+        echo "=== Root index.html exists ==="
+        [ -f index.html ] && echo "✓ Root index.html found" || echo "✗ Root index.html missing"
+        echo ""
+        echo "=== V2 index.html exists ==="
+        [ -f v2/index.html ] && echo "✓ V2 index.html found" || echo "✗ V2 index.html missing"
+        echo ""
+        echo "=== CNAME file ==="
+        [ -f CNAME ] && cat CNAME || echo "No CNAME file"
     
     - name: Setup Pages
       uses: actions/configure-pages@v4
-      
+    
+    - name: Create 404.html for SPA routing
+      run: |
+        echo "Creating 404.html for proper SPA routing..."
+        cat > 404.html << 'EOF'
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>404 - Not Found</title>
+            <script>
+              // For v2 SPA routing: redirect v2 subpaths to v2/index.html
+              (function() {
+                const path = window.location.pathname;
+                if (path.startsWith('/v2/')) {
+                  // Keep v2 navigation
+                  window.location.replace('/v2/index.html?' + path.substring(4));
+                } else if (path.startsWith('/v2')) {
+                  // Redirect /v2 to /v2/
+                  window.location.replace('/v2/');
+                } else {
+                  // Redirect other 404s to root
+                  window.location.replace('/');
+                }
+              })();
+            </script>
+        </head>
+        <body>
+            <p>Redirecting...</p>
+        </body>
+        </html>
+        EOF
+        echo "✓ 404.html created"
+    
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
         path: '.'
-        
+    
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4
+    
+    - name: Deployment Summary
+      run: |
+        echo "========================================"
+        echo "✓ Deployment Complete!"
+        echo "========================================"
+        echo "Root URL: https://manojgadamsetty.com"
+        echo "V2 URL:   https://manojgadamsetty.com/v2"
+        echo "========================================"
+        echo ""
+        echo "Deployment Details:"
+        echo "- Repository: manojgadamsetty/portfolio"
+        echo "- Branch: main"
+        echo "- Pages URL: ${{ steps.deployment.outputs.page_url }}"
+        echo ""
+        echo "What was deployed:"
+        echo "✓ Root portfolio (v1) - all HTML, CSS, JS files"
+        echo "✓ V2 portfolio at /v2 - with proper SPA routing"
+        echo "✓ CNAME - manojgadamsetty.com"
+        echo "✓ 404.html - for error handling and SPA routing"
+        echo ""
+        echo "Test the deployment:"
+        echo "- https://manojgadamsetty.com (should load root index)"
+        echo "- https://manojgadamsetty.com/v2 (should load v2 index)"
+        echo "- https://manojgadamsetty.com/v2/resume (should load v2 resume)"

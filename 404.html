@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .container {
+            text-align: center;
+            padding: 2rem;
+        }
+        h1 {
+            font-size: 4rem;
+            margin: 0 0 1rem 0;
+        }
+        p {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+        }
+        a {
+            color: white;
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        // Smart routing for SPA navigation and error recovery
+        (function() {
+            const pathname = window.location.pathname;
+            const baseUrl = 'https://manojgadamsetty.com';
+            
+            // Log redirect info for debugging
+            console.log('404 Handler:', {
+                originalPath: pathname,
+                hostname: window.location.hostname
+            });
+            
+            // Check if this is a v2 subpath request
+            if (pathname.startsWith('/v2')) {
+                // For /v2 or /v2/ - redirect to v2 index
+                if (pathname === '/v2' || pathname === '/v2/') {
+                    window.location.replace('/v2/index.html');
+                    return;
+                }
+                
+                // For /v2/page paths - look for page.html in v2
+                // Extract the page name from the path
+                const pathMatch = pathname.match(/^\/v2\/([^/]+)(?:\/)?$/);
+                if (pathMatch) {
+                    const pageName = pathMatch[1];
+                    // Try to load the page, v2/index.html will handle routing
+                    window.location.replace('/v2/index.html');
+                    return;
+                }
+                
+                // Default v2 redirect
+                window.location.replace('/v2/index.html');
+            } else {
+                // Non-v2 404s redirect to root
+                window.location.replace('/');
+            }
+        })();
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>404</h1>
+        <p>Page not found</p>
+        <p><a href="/">Back to Home</a> • <a href="/v2">V2 Portfolio</a></p>
+        <p style="font-size: 0.9rem; margin-top: 2rem; opacity: 0.8;">
+            If you're not redirected automatically, please click one of the links above.
+        </p>
+    </div>
+</body>
+</html>
