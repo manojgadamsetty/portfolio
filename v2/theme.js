@@ -24,6 +24,16 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateThemeIcon(theme) {
         themeToggle.innerHTML = theme === 'light' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
     }
+    
+    // Highlight current page in navigation
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === './' + currentPage || (currentPage === '' && href === './index.html')) {
+            link.classList.add('active');
+        }
+    });
 });
 
 // Smooth scroll anchors
