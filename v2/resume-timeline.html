@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Manoj Gadamsetty | Interactive Timeline</title>
+    <meta name="description" content="Interactive resume with visual timeline of work experience, education, and professional practices.">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <style>
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: var(--blur-md);
+            -webkit-backdrop-filter: var(--blur-md);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            transition: color var(--transition-fast);
+        }
+
+        nav a:hover {
+            color: var(--accent-primary);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .theme-toggle {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all var(--transition-fast);
+        }
+
+        .theme-toggle:hover {
+            background: var(--glass-dark);
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 4rem 0;
+            text-align: center;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .page-header h1 {
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary));
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            width: 48%;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .timeline-item:nth-child(odd) {
+            margin-left: 0;
+            text-align: right;
+            padding-right: 2rem;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: 52%;
+            text-align: left;
+            padding-left: 2rem;
+        }
+
+        .timeline-circle {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            border: 4px solid var(--bg-primary);
+            border-radius: 50%;
+            top: 2rem;
+            transition: all var(--transition-base);
+        }
+
+        .timeline-item:hover .timeline-circle {
+            width: 28px;
+            height: 28px;
+            top: 1.2rem;
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
+        }
+
+        .timeline-content {
+            glass;
+            padding: 2rem;
+            border-radius: 16px;
+            position: relative;
+        }
+
+        .timeline-content h3 {
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            color: var(--text-tertiary);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-company {
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .timeline-content ul {
+            list-style: none;
+            padding: 1rem 0 0 0;
+        }
+
+        .timeline-content li {
+            padding: 0.5rem 0;
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .timeline-content li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-secondary);
+        }
+
+        /* Sections */
+        .section-divider {
+            padding: 4rem 0;
+            position: relative;
+        }
+
+        .section-divider h2 {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border), transparent);
+        }
+
+        /* Education & Certifications Grid */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .grid-item {
+            glass;
+            padding: 2rem;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .grid-item h3 {
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .grid-item p {
+            font-size: 0.95rem;
+            color: var(--text-tertiary);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            margin-bottom: 2rem;
+            glass;
+            padding: 2rem;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .skill-category h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+            border: 1px solid var(--accent-primary);
+            color: var(--accent-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all var(--transition-fast);
+        }
+
+        .skill-tag:hover {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
+            transform: translateY(-2px);
+        }
+
+        /* Export Button */
+        .export-section {
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .btn-export {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+
+        .btn-export:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 50px;
+                margin-left: 0 !important;
+                text-align: left !important;
+            }
+
+            .timeline-circle {
+                left: 20px;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .page-header {
+                padding: 2rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="blur-background"></div>
+
+    <header>
+        <nav class="container">
+            <div class="logo">MG</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#blog">Blog</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <span id="themeIcon">🌙</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="page-header">
+            <h1>Interactive Resume</h1>
+            <p>10+ years of expertise in mobile development, security, and enterprise systems</p>
+        </div>
+
+        <!-- Work Experience Timeline -->
+        <section class="section-divider">
+            <h2>Professional Experience</h2>
+        </section>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-circle"></div>
+                <div class="timeline-content">
+                    <h3>Staff Software Engineer - Mobile Security</h3>
+                    <div class="timeline-company">Palo Alto Networks</div>
+                    <div class="timeline-date">2021 - Present</div>
+                    <ul>
+                        <li>Leading mobile security initiatives on next-generation enterprise identity platforms</li>
+                        <li>Architecting secure, scalable solutions for SSO, IAM, and zero-trust access</li>
+                        <li>Implementing OAuth 2.0, OIDC, SAML 2.0, FIDO2, WebAuthn authentication</li>
+                        <li>Delivered enterprise-grade solutions with 99.99% crash-free stability</li>
+                        <li>Conducted 150+ successful Root Cause Analyses with preventive measures</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-circle"></div>
+                <div class="timeline-content">
+                    <h3>Senior iOS Developer</h3>
+                    <div class="timeline-company">CyberArk</div>
+                    <div class="timeline-date">2019 - 2021</div>
+                    <ul>
+                        <li>Architected secure mobile applications with advanced password management</li>
+                        <li>Implemented offline data management and autofill functionality</li>
+                        <li>Integrated FIDO2 and WebAuthn multi-factor authentication</li>
+                        <li>Designed enterprise-grade security frameworks and identity integrations</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-circle"></div>
+                <div class="timeline-content">
+                    <h3>Mobile Application Developer</h3>
+                    <div class="timeline-company">Various Tech Companies</div>
+                    <div class="timeline-date">2013 - 2019</div>
+                    <ul>
+                        <li>Developed iOS and Android applications serving millions of users</li>
+                        <li>Implemented mobile security best practices and secure coding standards</li>
+                        <li>Built RESTful APIs and backend integrations with secure protocols</li>
+                        <li>Led technical implementations for enterprise clients</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <section class="section-divider">
+            <h2>Education</h2>
+        </section>
+
+        <div class="grid-2">
+            <div class="grid-item">
+                <h3>Master's in Software Systems</h3>
+                <p><strong>BITS Pilani</strong></p>
+                <p class="timeline-date">Jul 2025 - Jul 2027</p>
+                <p>Advanced study in software architecture and system design</p>
+            </div>
+            <div class="grid-item">
+                <h3>B.Tech in Electrical & Electronics</h3>
+                <p><strong>QIS College of Engineering</strong></p>
+                <p class="timeline-date">2013 - 2016</p>
+                <p>Solid foundation in engineering principles and problem-solving</p>
+            </div>
+        </div>
+
+        <!-- Certifications -->
+        <section class="section-divider">
+            <h2>Certifications & Learning</h2>
+        </section>
+
+        <div class="grid-2">
+            <div class="grid-item">
+                <h3>🤖 AI & Machine Learning</h3>
+                <p>Introduction to Generative AI, Large Language Models, Responsible AI</p>
+            </div>
+            <div class="grid-item">
+                <h3>🔒 Security</h3>
+                <p>CompTIA Security+, Cryptography Design, OWASP Top 10, iOS Security Specialist</p>
+            </div>
+        </div>
+
+        <!-- Skills -->
+        <section class="section-divider">
+            <h2>Core Competencies</h2>
+        </section>
+
+        <div class="skills-container">
+            <div class="skill-category">
+                <h4>Languages & Platforms</h4>
+                <div class="skill-tags">
+                    <span class="skill-tag">Swift</span>
+                    <span class="skill-tag">Objective-C</span>
+                    <span class="skill-tag">Kotlin</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">.NET</span>
+                    <span class="skill-tag">Golang</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h4>Identity & Authentication</h4>
+                <div class="skill-tags">
+                    <span class="skill-tag">OAuth 2.0</span>
+                    <span class="skill-tag">OpenID Connect</span>
+                    <span class="skill-tag">SAML 2.0</span>
+                    <span class="skill-tag">FIDO2</span>
+                    <span class="skill-tag">WebAuthn</span>
+                    <span class="skill-tag">SSO</span>
+                    <span class="skill-tag">IAM</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h4>Enterprise & Security</h4>
+                <div class="skill-tags">
+                    <span class="skill-tag">Threat Modeling</span>
+                    <span class="skill-tag">Security Architecture</span>
+                    <span class="skill-tag">Penetration Testing</span>
+                    <span class="skill-tag">DREAD Analysis</span>
+                    <span class="skill-tag">Zero-Trust</span>
+                    <span class="skill-tag">DevSecOps</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h4>Tools & Technologies</h4>
+                <div class="skill-tags">
+                    <span class="skill-tag">Xcode</span>
+                    <span class="skill-tag">Android Studio</span>
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">CI/CD</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Kubernetes</span>
+                    <span class="skill-tag">AWS</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Export -->
+        <div class="export-section">
+            <h3>Need a PDF version?</h3>
+            <p>Download your personalized resume with all sections</p>
+            <button class="btn-export" onclick="exportToPDF()">📥 Export as PDF</button>
+        </div>
+    </main>
+
+    <footer style="margin-top: 6rem; padding: 3rem 0; text-align: center; border-top: 1px solid var(--border); color: var(--text-tertiary);">
+        <p>&copy; 2026 Manoj Gadamsetty. All rights reserved.</p>
+    </footer>
+
+    <script src="assets/js/theme-toggle.js"></script>
+    <script>
+        // Stagger animation for timeline items
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        timelineItems.forEach((item, index) => {
+            item.style.setProperty('--delay', `${index * 0.2}s`);
+            item.style.animationDelay = `${index * 0.2}s`;
+        });
+
+        // PDF Export placeholder
+        function exportToPDF() {
+            alert('PDF export feature coming soon! This will download your resume with all information.');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manoj Gadamsetty - Portfolio v2 | Staff Software Engineer</title>
+    <meta name="description" content="Staff Software Engineer with 10+ years of expertise in iOS, Android, mobile security, enterprise IAM, and system architecture.">
+    <meta name="theme-color" content="#f8f9fa">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <style>
+        /* Header Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: var(--blur-md);
+            -webkit-backdrop-filter: var(--blur-md);
+            border-bottom: 1px solid var(--border);
+            transition: all var(--transition-base);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            transition: color var(--transition-fast);
+        }
+
+        nav a:hover {
+            color: var(--accent-primary);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .theme-toggle {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all var(--transition-fast);
+        }
+
+        .theme-toggle:hover {
+            background: var(--glass-dark);
+        }
+
+        .theme-toggle span {
+            font-size: 1.2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 0;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInDown 0.8s ease-out 0.2s both;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+            flex-wrap: wrap;
+        }
+
+        /* Spotlight Cards */
+        .spotlight {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 6rem;
+            padding: 4rem 0;
+        }
+
+        .spotlight-card {
+            glass;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .spotlight-card:nth-child(1) { animation-delay: 0.7s; }
+        .spotlight-card:nth-child(2) { animation-delay: 0.8s; }
+        .spotlight-card:nth-child(3) { animation-delay: 0.9s; }
+
+        .spotlight-card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .spotlight-card h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .spotlight-card p {
+            font-size: 0.95rem;
+            color: var(--text-tertiary);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(139, 92, 246, 0.05));
+            border-radius: 40px;
+            margin: 4rem 0;
+        }
+
+        .features h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-item {
+            glass-subtle;
+            padding: 1.5rem;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .feature-item:nth-child(1) { animation-delay: 0.1s; }
+        .feature-item:nth-child(2) { animation-delay: 0.2s; }
+        .feature-item:nth-child(3) { animation-delay: 0.3s; }
+        .feature-item:nth-child(4) { animation-delay: 0.4s; }
+        .feature-item:nth-child(5) { animation-delay: 0.5s; }
+        .feature-item:nth-child(6) { animation-delay: 0.6s; }
+
+        .feature-item h4 {
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-item p {
+            font-size: 0.85rem;
+            color: var(--text-tertiary);
+            margin-bottom: 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            glass;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 30px;
+            margin: 6rem 0;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .cta-section h2 {
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-tertiary);
+            margin-top: 6rem;
+        }
+
+        footer p {
+            margin-bottom: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            nav {
+                padding: 0.75rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="blur-background"></div>
+
+    <header>
+        <nav class="container">
+            <div class="logo">MG</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#speaking">Speaking</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <span id="themeIcon">🌙</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Staff Software Engineer</h1>
+                <p>Building secure, scalable systems with 10+ years of expertise in iOS, Android, mobile security & enterprise IAM</p>
+                <div class="hero-cta">
+                    <a href="#resume" class="btn btn-primary">View Resume</a>
+                    <a href="#projects" class="btn">Explore Projects</a>
+                    <a href="mailto:manojgadamsetty@zohomail.in" class="btn">Get in Touch</a>
+                </div>
+
+                <!-- Spotlight Cards -->
+                <div class="spotlight">
+                    <div class="spotlight-card glass">
+                        <div class="spotlight-card-icon">🚀</div>
+                        <h3>10+ Years</h3>
+                        <p>of specialized experience in mobile & enterprise</p>
+                    </div>
+                    <div class="spotlight-card glass">
+                        <div class="spotlight-card-icon">🔒</div>
+                        <h3>Security First</h3>
+                        <p>Mobile security architecture & threat modeling</p>
+                    </div>
+                    <div class="spotlight-card glass">
+                        <div class="spotlight-card-icon">🏗️</div>
+                        <h3>Scale Ready</h3>
+                        <p>Enterprise-grade systems with millions of users</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <h2>Core Expertise</h2>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <h4>Mobile Development</h4>
+                        <p>iOS (Swift), Android (Kotlin), Cross-platform (React Native, KMM, Flutter)</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Security & IAM</h4>
+                        <p>OAuth, OIDC, SAML, FIDO2, Mobile security architecture</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Enterprise Systems</h4>
+                        <p>Zero-trust architecture, SSO, Directory integrations, MDM</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>System Design</h4>
+                        <p>Microservices, API design, Database architecture, DevOps</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>DevSecOps</h4>
+                        <p>Threat modeling, Code reviews, Secure SDLC, CI/CD pipelines</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>AI/LLM</h4>
+                        <p>RAG systems, Prompt engineering, LLM integrations</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2>Ready to collaborate?</h2>
+            <p>Let's discuss your project, security challenges, or technical vision</p>
+            <a href="https://calendly.com/manojgadamsetty/from-website" target="_blank" rel="noopener" class="btn btn-primary">Schedule a Call</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Manoj Gadamsetty. All rights reserved. | <a href="https://github.com/manojgadamsetty" target="_blank">GitHub</a> • <a href="https://linkedin.com/in/manojgadamsetty" target="_blank">LinkedIn</a></p>
+    </footer>
+
+    <script src="assets/js/theme-toggle.js"></script>
+</body>
+</html>
