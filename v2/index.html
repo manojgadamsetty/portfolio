@@ -1,363 +1,227 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manoj Gadamsetty - Portfolio v2 | Staff Software Engineer</title>
-    <meta name="description" content="Staff Software Engineer with 10+ years of expertise in iOS, Android, mobile security, enterprise IAM, and system architecture.">
-    <meta name="theme-color" content="#f8f9fa">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Styles -->
-    <link rel="stylesheet" href="assets/css/theme.css">
-    <style>
-        /* Header Navigation */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: var(--blur-md);
-            -webkit-backdrop-filter: var(--blur-md);
-            border-bottom: 1px solid var(--border);
-            transition: all var(--transition-base);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav a {
-            font-weight: 500;
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            transition: color var(--transition-fast);
-        }
-
-        nav a:hover {
-            color: var(--accent-primary);
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .theme-toggle {
-            background: var(--glass);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 0.5rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all var(--transition-fast);
-        }
-
-        .theme-toggle:hover {
-            background: var(--glass-dark);
-        }
-
-        .theme-toggle span {
-            font-size: 1.2rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 4rem 0;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero-content {
-            max-width: 900px;
-        }
-
-        .hero h1 {
-            font-size: 4.5rem;
-            margin-bottom: 1.5rem;
-            animation: fadeInDown 0.8s ease-out 0.2s both;
-            line-height: 1.1;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            color: var(--text-secondary);
-            animation: fadeInUp 0.8s ease-out 0.4s both;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            animation: fadeInUp 0.8s ease-out 0.6s both;
-            flex-wrap: wrap;
-        }
-
-        /* Spotlight Cards */
-        .spotlight {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 6rem;
-            padding: 4rem 0;
-        }
-
-        .spotlight-card {
-            glass;
-            padding: 2rem;
-            text-align: center;
-            cursor: pointer;
-            animation: fadeInUp 0.8s ease-out both;
-        }
-
-        .spotlight-card:nth-child(1) { animation-delay: 0.7s; }
-        .spotlight-card:nth-child(2) { animation-delay: 0.8s; }
-        .spotlight-card:nth-child(3) { animation-delay: 0.9s; }
-
-        .spotlight-card-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .spotlight-card h3 {
-            margin-bottom: 0.5rem;
-        }
-
-        .spotlight-card p {
-            font-size: 0.95rem;
-            color: var(--text-tertiary);
-        }
-
-        /* Features Section */
-        .features {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(139, 92, 246, 0.05));
-            border-radius: 40px;
-            margin: 4rem 0;
-        }
-
-        .features h2 {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-item {
-            glass-subtle;
-            padding: 1.5rem;
-            animation: fadeInUp 0.8s ease-out both;
-        }
-
-        .feature-item:nth-child(1) { animation-delay: 0.1s; }
-        .feature-item:nth-child(2) { animation-delay: 0.2s; }
-        .feature-item:nth-child(3) { animation-delay: 0.3s; }
-        .feature-item:nth-child(4) { animation-delay: 0.4s; }
-        .feature-item:nth-child(5) { animation-delay: 0.5s; }
-        .feature-item:nth-child(6) { animation-delay: 0.6s; }
-
-        .feature-item h4 {
-            color: var(--accent-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .feature-item p {
-            font-size: 0.85rem;
-            color: var(--text-tertiary);
-            margin-bottom: 0;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            glass;
-            padding: 4rem 2rem;
-            text-align: center;
-            border-radius: 30px;
-            margin: 6rem 0;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .cta-section h2 {
-            margin-bottom: 1rem;
-        }
-
-        .cta-section p {
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
-
-        /* Footer */
-        footer {
-            padding: 3rem 0;
-            text-align: center;
-            border-top: 1px solid var(--border);
-            color: var(--text-tertiary);
-            margin-top: 6rem;
-        }
-
-        footer p {
-            margin-bottom: 0;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav ul {
-                gap: 1rem;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .hero-cta {
-                flex-direction: column;
-            }
-
-            nav {
-                padding: 0.75rem 0;
-            }
-        }
-    </style>
+    <title>Manoj Gadamsetty — Staff Software Engineer | Mobile Security & Identity</title>
+    <meta name="description" content="Staff Software Engineer specializing in mobile security, enterprise identity platforms, and zero-trust architecture.">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="blur-background"></div>
-
-    <header>
-        <nav class="container">
-            <div class="logo">MG</div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#resume">Resume</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#speaking">Speaking</a></li>
+    <nav class="header">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">MANOJ GADAMSETTY</a>
+            <ul class="nav-menu">
+                <li><a href="/">HOME</a></li>
+                <li><a href="/v2/experience.html">EXPERIENCE</a></li>
+                <li><a href="/v2/work.html">WORK</a></li>
+                <li><a href="/v2/about.html">ABOUT</a></li>
+                <li><a href="/#contact">CONTACT</a></li>
             </ul>
-            <div class="nav-actions">
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-                    <span id="themeIcon">🌙</span>
-                </button>
-            </div>
-        </nav>
-    </header>
+            <button class="theme-toggle" id="themeToggle">☀</button>
+        </div>
+    </nav>
 
-    <main class="container">
+    <main id="main-content">
         <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h1>Staff Software Engineer</h1>
-                <p>Building secure, scalable systems with 10+ years of expertise in iOS, Android, mobile security & enterprise IAM</p>
-                <div class="hero-cta">
-                    <a href="#resume" class="btn btn-primary">View Resume</a>
-                    <a href="#projects" class="btn">Explore Projects</a>
-                    <a href="mailto:manojgadamsetty@zohomail.in" class="btn">Get in Touch</a>
+        <section class="hero">
+            <h1>Hi, I'm Manoj Gadamsetty.</h1>
+            <p class="tagline">a staff software engineer with expertise in mobile security, enterprise identity platforms, and zero-trust architecture.</p>
+            
+            <div class="intro">
+                <p>
+                    I specialize in designing and building secure, scalable systems at enterprise scale. 
+                    Currently leading mobile security initiatives at Palo Alto Networks on next-generation identity platforms,
+                    implementing advanced authentication protocols (OAuth 2.0, OIDC, SAML, FIDO2) and zero-trust architecture.
+                </p>
+                <p>
+                    With 10+ years of experience across iOS, Android, and enterprise systems, I've delivered solutions for millions of users 
+                    with 99.99% crash-free stability. I'm passionate about building secure, performant, and user-friendly systems.
+                </p>
+            </div>
+
+            <div class="cta-links">
+                <a href="/resume-cv.html" target="_blank" class="cta-link primary">RESUME</a>
+                <span class="divider">•</span>
+                <a href="#experience" class="cta-link">RECENT WORK</a>
+            </div>
+        </section>
+
+        <!-- Employment Timeline -->
+        <section id="experience" class="experience-section">
+            <div class="section-header">
+                <h2>Employment</h2>
+                <a href="/v2/experience.html" class="view-all">ALL EXPERIENCE →</a>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-entry">
+                    <div class="timeline-date">AUG 2021 - PRESENT</div>
+                    <div class="timeline-item">
+                        <h3>PALO ALTO NETWORKS</h3>
+                        <p class="role">Staff Software Engineer</p>
+                        <p class="description">
+                            Leading development of enterprise next-generation identity platform. Architecting advanced authentication 
+                            (OAuth 2.0, OIDC, SAML 2.0, FIDO2), secure mobile applications, enterprise SSO integration, and zero-trust access strategies. 
+                            Focus on enterprise-grade security, scalability, and seamless cloud integration.
+                        </p>
+                    </div>
                 </div>
 
-                <!-- Spotlight Cards -->
-                <div class="spotlight">
-                    <div class="spotlight-card glass">
-                        <div class="spotlight-card-icon">🚀</div>
-                        <h3>10+ Years</h3>
-                        <p>of specialized experience in mobile & enterprise</p>
+                <div class="timeline-entry">
+                    <div class="timeline-date">JUL 2019 - AUG 2021</div>
+                    <div class="timeline-item">
+                        <h3>CYBERARK</h3>
+                        <p class="role">Senior Engineer, Identity & Access Management</p>
+                        <p class="description">
+                            Designed and implemented privilege access management solutions for enterprise environments. 
+                            Built iOS mobile applications for credential management, secure authentication, and enterprise integrations. 
+                            Architected multi-MFA support and advanced credential policies.
+                        </p>
                     </div>
-                    <div class="spotlight-card glass">
-                        <div class="spotlight-card-icon">🔒</div>
-                        <h3>Security First</h3>
-                        <p>Mobile security architecture & threat modeling</p>
-                    </div>
-                    <div class="spotlight-card glass">
-                        <div class="spotlight-card-icon">🏗️</div>
-                        <h3>Scale Ready</h3>
-                        <p>Enterprise-grade systems with millions of users</p>
+                </div>
+
+                <div class="timeline-entry">
+                    <div class="timeline-date">JAN 2018 - JUN 2019</div>
+                    <div class="timeline-item">
+                        <h3>VMWARE</h3>
+                        <p class="role">Senior iOS Engineer</p>
+                        <p class="description">
+                            Built enterprise mobile device management (MDM) solutions with advanced security hardening. 
+                            Implemented enterprise authentication integrations, secure data protection, and compliance features. 
+                            Led mobile security architecture initiatives.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Features Section -->
-        <section class="features">
-            <div class="container">
-                <h2>Core Expertise</h2>
-                <div class="feature-grid">
-                    <div class="feature-item">
-                        <h4>Mobile Development</h4>
-                        <p>iOS (Swift), Android (Kotlin), Cross-platform (React Native, KMM, Flutter)</p>
+        <!-- Featured Work -->
+        <section id="work" class="work-section">
+            <div class="section-header">
+                <h2>Featured Work</h2>
+                <a href="/v2/work.html" class="view-all">ALL WORK →</a>
+            </div>
+
+            <div class="work-grid">
+                <article class="work-card featured">
+                    <div class="badge">Featured</div>
+                    <h3>Enterprise Identity Platform</h3>
+                    <p>
+                        Next-generation identity and access management platform for enterprise environments. 
+                        Implements OAuth 2.0, OIDC, SAML 2.0 federation, FIDO2/WebAuthn multi-factor authentication, 
+                        and Entra ID/Active Directory integration with zero-trust architecture.
+                    </p>
+                    <div class="tags">
+                        <span>Identity & Access</span>
+                        <span>OAuth 2.0</span>
+                        <span>FIDO2</span>
+                        <span>Zero-Trust</span>
                     </div>
-                    <div class="feature-item">
-                        <h4>Security & IAM</h4>
-                        <p>OAuth, OIDC, SAML, FIDO2, Mobile security architecture</p>
+                </article>
+
+                <article class="work-card featured">
+                    <div class="badge">Featured</div>
+                    <h3>Mobile Security Framework</h3>
+                    <p>
+                        Comprehensive mobile app security architecture with iXGuard obfuscation, RASP protection, FairPlay DRM licensing,
+                        and advanced threat detection. Delivers enterprise-grade security for millions of users across iOS and Android.
+                    </p>
+                    <div class="tags">
+                        <span>iOS</span>
+                        <span>Android</span>
+                        <span>RASP</span>
+                        <span>Security</span>
                     </div>
-                    <div class="feature-item">
-                        <h4>Enterprise Systems</h4>
-                        <p>Zero-trust architecture, SSO, Directory integrations, MDM</p>
+                </article>
+
+                <article class="work-card">
+                    <h3>Cross-Platform Development POCs</h3>
+                    <p>
+                        Rapid prototyping and production systems using React Native, Kotlin Multiplatform Mobile (KMM), and Flutter 
+                        for enterprise applications requiring simultaneous iOS and Android deployment.
+                    </p>
+                    <div class="tags">
+                        <span>React Native</span>
+                        <span>KMM</span>
+                        <span>Flutter</span>
                     </div>
-                    <div class="feature-item">
-                        <h4>System Design</h4>
-                        <p>Microservices, API design, Database architecture, DevOps</p>
-                    </div>
-                    <div class="feature-item">
-                        <h4>DevSecOps</h4>
-                        <p>Threat modeling, Code reviews, Secure SDLC, CI/CD pipelines</p>
-                    </div>
-                    <div class="feature-item">
-                        <h4>AI/LLM</h4>
-                        <p>RAG systems, Prompt engineering, LLM integrations</p>
-                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Professional Practices -->
+        <section class="practices-section">
+            <h2>Professional Practices & Methodologies</h2>
+            
+            <div class="practices-grid">
+                <div class="practice">
+                    <h4>Development Excellence</h4>
+                    <p>Agile & Scrum • PI Planning • Code Reviews • Testing & QA • CI/CD • DevOps • Technical Debt Management</p>
+                </div>
+
+                <div class="practice">
+                    <h4>Security Leadership</h4>
+                    <p>Threat Modeling • Security Code Reviews • DREAD Analysis • SAST Scanning • Penetration Testing • Compliance</p>
+                </div>
+
+                <div class="practice">
+                    <h4>Incident Management</h4>
+                    <p>On-Call Operations • Incident Tracking • Severity Classification • Root Cause Analysis • Post-Mortems</p>
+                </div>
+
+                <div class="practice">
+                    <h4>Architecture & Design</h4>
+                    <p>System Architecture • API Design • Database Optimization • Microservices • Event-Driven Systems</p>
                 </div>
             </div>
         </section>
 
-        <!-- CTA Section -->
-        <section class="cta-section">
-            <h2>Ready to collaborate?</h2>
-            <p>Let's discuss your project, security challenges, or technical vision</p>
-            <a href="https://calendly.com/manojgadamsetty/from-website" target="_blank" rel="noopener" class="btn btn-primary">Schedule a Call</a>
+        <!-- Core Skills -->
+        <section class="skills-section">
+            <h2>Core Expertise</h2>
+            
+            <div class="skills">
+                <div class="skill-group">
+                    <h5>Mobile Development</h5>
+                    <p>iOS (Swift, Objective-C) • Android (Kotlin, Java) • macOS • React Native • KMM • Flutter</p>
+                </div>
+
+                <div class="skill-group">
+                    <h5>Identity & Authentication</h5>
+                    <p>OAuth 2.0 • OpenID Connect • SAML 2.0 • FIDO2 • WebAuthn • Enterprise SSO • Zero-Trust Architecture</p>
+                </div>
+
+                <div class="skill-group">
+                    <h5>Security & DevSecOps</h5>
+                    <p>Threat Modeling • Security Architecture • RASP • iXGuard • Code Scanning • Vulnerability Management</p>
+                </div>
+
+                <div class="skill-group">
+                    <h5>Backend & Cloud</h5>
+                    <p>.NET • Python • Golang • Database Design • Distributed Systems • Microservices • LLM & RAG Systems</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <h2>Let's Work Together</h2>
+            <p>Open to mobile security discussions, architecture consulting, and collaboration opportunities.</p>
+            
+            <div class="contact-links">
+                <a href="mailto:manojgadamsetty@zohomail.in" class="contact-link">Email</a>
+                <a href="https://linkedin.com/in/manojgadamsetty" target="_blank" class="contact-link">LinkedIn</a>
+                <a href="https://github.com/manojgadamsetty" target="_blank" class="contact-link">GitHub</a>
+                <a href="https://medium.com/@manojgadamsetty" target="_blank" class="contact-link">Medium</a>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2026 Manoj Gadamsetty. All rights reserved. | <a href="https://github.com/manojgadamsetty" target="_blank">GitHub</a> • <a href="https://linkedin.com/in/manojgadamsetty" target="_blank">LinkedIn</a></p>
+    <footer class="footer">
+        <p>Manoj Gadamsetty &copy; 2026 | <a href="/">Back to top</a></p>
     </footer>
 
-    <script src="assets/js/theme-toggle.js"></script>
+    <script src="theme.js"></script>
 </body>
 </html>
