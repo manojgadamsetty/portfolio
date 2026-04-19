@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manoj Gadamsetty — Professional CV</title>
+    <meta name="description" content="Professional CV and Curriculum Vitae for Manoj Gadamsetty - Staff Software Engineer with 10+ years experience">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #14b8a6;
+            --dark: #0f172a;
+            --light: #f8f9fa;
+            --gray: #6b7280;
+            --border: #e5e7eb;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: #ffffff;
+        }
+
+        .no-print {
+            padding: 2rem;
+            background: #f3f4f6;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: opacity 0.3s;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .cv-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+        }
+
+        /* Header */
+        .cv-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .cv-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .cv-header .title {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .cv-header .contact {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            font-size: 0.95rem;
+            color: var(--gray);
+        }
+
+        .cv-header a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* Section */
+        .cv-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .cv-section h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary);
+            color: var(--dark);
+        }
+
+        /* Entry */
+        .cv-entry {
+            margin-bottom: 1.5rem;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 0.5rem;
+        }
+
+        .entry-header h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .entry-date {
+            font-size: 0.95rem;
+            color: var(--gray);
+            font-weight: 600;
+        }
+
+        .entry-subtitle {
+            font-size: 0.95rem;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .entry-subtitle strong {
+            color: var(--dark);
+        }
+
+        .entry-description {
+            font-size: 0.9rem;
+            color: #374151;
+            line-height: 1.7;
+            margin-bottom: 0.5rem;
+        }
+
+        .entry-points {
+            font-size: 0.9rem;
+            color: #374151;
+            margin-left: 1rem;
+        }
+
+        .entry-points li {
+            margin-bottom: 0.3rem;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            padding: 1rem;
+            background: var(--light);
+            border-radius: 6px;
+        }
+
+        .skill-category h4 {
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .skill-category p {
+            font-size: 0.85rem;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* Metrics */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .metric {
+            text-align: center;
+            padding: 1rem;
+            background: var(--light);
+            border-radius: 6px;
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .metric-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .no-print {
+                display: none;
+            }
+
+            .cv-container {
+                max-width: 100%;
+                padding: 0;
+                margin: 0;
+            }
+
+            .cv-section {
+                page-break-inside: avoid;
+            }
+
+            a {
+                color: var(--primary);
+                text-decoration: none;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .cv-header h1 {
+                font-size: 2rem;
+            }
+
+            .entry-header {
+                flex-direction: column;
+            }
+
+            .entry-date {
+                margin-top: 0.5rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="no-print">
+        <a href="./index.html" class="btn">← Back to Home</a>
+        <button class="btn" onclick="window.print()">🖨️ Print / Save as PDF</button>
+        <a href="../resume-cv.html" target="_blank" class="btn">📄 Download PDF</a>
+    </div>
+
+    <div class="cv-container">
+        <!-- Header -->
+        <div class="cv-header">
+            <h1>Manoj Gadamsetty</h1>
+            <div class="title">Staff Software Engineer | Mobile Security & Identity Platform Specialist</div>
+            <div class="contact">
+                <span>📧 <a href="mailto:manojgadamsetty@zohomail.in">manojgadamsetty@zohomail.in</a></span>
+                <span>🔗 <a href="https://linkedin.com/in/manojgadamsetty" target="_blank">LinkedIn</a></span>
+                <span>💻 <a href="https://github.com/manojgadamsetty" target="_blank">GitHub</a></span>
+                <span>✍️ <a href="https://medium.com/@manojgadamsetty" target="_blank">Medium</a></span>
+            </div>
+        </div>
+
+        <!-- Professional Summary -->
+        <div class="cv-section">
+            <h2>Professional Summary</h2>
+            <p style="line-height: 1.8; color: #374151;">
+                Staff Software Engineer with 10+ years of specialized experience in mobile development and cybersecurity. 
+                Currently leading mobile security initiatives at Palo Alto Networks on next-generation enterprise identity platforms. 
+                Expert in OAuth 2.0, OIDC, SAML 2.0, FIDO2/WebAuthn, and zero-trust architecture. Proven track record of delivering 
+                enterprise-grade solutions with 99.99% crash-free stability, 150+ successful RCAs, and serving millions of users globally. 
+                Passionate about building secure, scalable systems and mentoring engineering teams.
+            </p>
+        </div>
+
+        <!-- Key Metrics -->
+        <div class="cv-section">
+            <h2>Key Achievements</h2>
+            <div class="metrics-grid">
+                <div class="metric">
+                    <div class="metric-value">99.99%</div>
+                    <div class="metric-label">Crash-Free Stability</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">150+</div>
+                    <div class="metric-label">RCAs Conducted</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">100M+</div>
+                    <div class="metric-label">Users Served</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Work Experience -->
+        <div class="cv-section">
+            <h2>Work Experience</h2>
+
+            <div class="cv-entry">
+                <div class="entry-header">
+                    <h3>Palo Alto Networks</h3>
+                    <div class="entry-date">Feb 2026 - Present</div>
+                </div>
+                <div class="entry-subtitle"><strong>Staff Software Engineer</strong> | Hyderabad</div>
+                <div class="entry-description">
+                    Leading development of next-generation enterprise identity platform and Workforce Password Manager. Architecting secure mobile applications with advanced authentication protocols (OAuth 2.0, OIDC, SAML 2.0, FIDO2/WebAuthn). Implementing enterprise SSO strategies and zero-trust access architectures.
+                </div>
+                <ul class="entry-points">
+                    <li>Architect secure mobile identity experiences with OAuth, OIDC, SAML federation</li>
+                    <li>Build Entra ID and Active Directory integration flows for enterprise SSO</li>
+                    <li>Implement FIDO2/WebAuthn MFA for passwordless authentication</li>
+                    <li>Drive enterprise SSO and platform SSO strategies across products</li>
+                </ul>
+            </div>
+
+            <div class="cv-entry">
+                <div class="entry-header">
+                    <h3>CyberArk</h3>
+                    <div class="entry-date">Jun 2021 - Jan 2026</div>
+                </div>
+                <div class="entry-subtitle"><strong>Senior/Staff Software Engineer</strong> | Hyderabad</div>
+                <div class="entry-description">
+                    Led high-impact mobile and identity initiatives for CyberArk Mobile and CyberArk Identity serving 100,000+ users. Built secure architectures for PAM (Privilege Access Management), IAM, and remote access with enterprise-grade security.
+                </div>
+                <ul class="entry-points">
+                    <li>Implemented OAuth 2.0, OIDC, SAML 2.0, and FIDO2/U2F authentication flows</li>
+                    <li>Entra ID and Active Directory integrations for enterprise environments</li>
+                    <li>Secure offline data management and autofill capabilities</li>
+                    <li>Advanced IAM/PAM aligned architectures supporting enterprise compliance</li>
+                </ul>
+            </div>
+
+            <div class="cv-entry">
+                <div class="entry-header">
+                    <h3>Frost Interactive</h3>
+                    <div class="entry-date">May 2020 - May 2021</div>
+                </div>
+                <div class="entry-subtitle"><strong>Senior iOS Developer</strong> | Bangalore</div>
+                <div class="entry-description">
+                    Built production video streaming platform (ACE Online) with custom AVPlayer controls, gesture-driven interactions, and FairPlay DRM licensing for secure content delivery.
+                </div>
+            </div>
+
+            <div class="cv-entry">
+                <div class="entry-header">
+                    <h3>Edwisely</h3>
+                    <div class="entry-date">Jan 2019 - May 2020</div>
+                </div>
+                <div class="entry-subtitle"><strong>Senior iOS Developer</strong> | Hyderabad</div>
+                <div class="entry-description">
+                    Developed secure educational platform with LaTeX/KaTeX mathematical rendering, robust authentication, and protected content delivery. Managed portfolio of 8 live App Store applications.
+                </div>
+            </div>
+
+            <div class="cv-entry">
+                <div class="entry-header">
+                    <h3>Proxim Quest IT Solutions</h3>
+                    <div class="entry-date">May 2018 - Jan 2019</div>
+                </div>
+                <div class="entry-subtitle"><strong>iOS App Developer</strong> | Bangalore</div>
+                <div class="entry-description">
+                    Developed enterprise iOS applications with emphasis on maintainable architecture, feature delivery, and production stability.
+                </div>
+            </div>
+
+            <div class="cv-entry">
+                <div class="entry-header">
+                    <h3>BRN Infotech</h3>
+                    <div class="entry-date">Apr 2016 - May 2018</div>
+                </div>
+                <div class="entry-subtitle"><strong>iOS Developer → iOS App Developer</strong> | Hyderabad</div>
+                <div class="entry-description">
+                    Started as iOS intern, progressed to developer. Built strong foundation in Swift, Objective-C, and mobile development best practices.
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Skills -->
+        <div class="cv-section">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Mobile Development</h4>
+                    <p>iOS (Swift, Objective-C), Android (Kotlin, Java), macOS, React Native, KMM, Flutter</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Identity & Authentication</h4>
+                    <p>OAuth 2.0, OIDC, SAML 2.0, FIDO2, U2F, WebAuthn, Enterprise SSO, Zero-Trust</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Security & DevSecOps</h4>
+                    <p>Threat Modeling, iXGuard, RASP, Code Scanning, SAST/DAST, Vulnerability Management</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Backend & Cloud</h4>
+                    <p>.NET, Python, Golang, Database Design, Docker, Kubernetes, AWS, Azure, CI/CD</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Enterprise Systems</h4>
+                    <p>Enterprise SSO, MDM, PAM, IAM, Entra ID, Active Directory, LDAP, Federation</p>
+                </div>
+                <div class="skill-category">
+                    <h4>AI & ML</h4>
+                    <p>LLM Engineering, RAG Systems, Prompt Engineering, AI/ML Integration</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div class="cv-section">
+            <h2>Education</h2>
+
+            <div class="cv-entry">
+                <div class="entry-header">
+                    <h3>Master's in Software Systems</h3>
+                    <div class="entry-date">2025 - 2027 (In Progress)</div>
+                </div>
+                <div class="entry-subtitle">Birla Institute of Technology and Science (BITS), Pilani</div>
+            </div>
+
+            <div class="cv-entry">
+                <div class="entry-header">
+                    <h3>B.Tech in Electrical and Electronics Engineering</h3>
+                    <div class="entry-date">2013 - 2016</div>
+                </div>
+                <div class="entry-subtitle">QIS College of Engineering and Technology</div>
+            </div>
+
+            <div class="cv-entry">
+                <div class="entry-header">
+                    <h3>Diploma in Electrical and Electronics Engineering</h3>
+                    <div class="entry-date">2010 - 2013</div>
+                </div>
+                <div class="entry-subtitle">St. Ann's College of Engineering and Technology</div>
+            </div>
+        </div>
+
+        <!-- Certifications -->
+        <div class="cv-section">
+            <h2>Certifications & Learning</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Generative AI</h4>
+                    <p>• Introduction to Generative AI<br>• Introduction to LLMs<br>• Responsible AI</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Security</h4>
+                    <p>• CompTIA Security+<br>• OWASP Top 10<br>• Cryptography Fundamentals</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Mobile Security</h4>
+                    <p>• Cisco iOS Security<br>• Mobile App Security<br>• Threat Modeling</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Continuous Learning</h4>
+                    <p>• Advanced Authentication Protocols<br>• Cloud Security<br>• Microservices Architecture</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Professional Practices -->
+        <div class="cv-section">
+            <h2>Professional Practices & Methodologies</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Development Excellence</h4>
+                    <p>Agile, Scrum, PI Planning, Code Reviews, Testing & QA, CI/CD, DevOps, Technical Debt Management</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Security Leadership</h4>
+                    <p>Threat Modeling, Security Code Reviews, DREAD Analysis, SAST Scanning, Penetration Testing</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Incident Management</h4>
+                    <p>On-Call Operations, Incident Tracking, RCA (150+), Post-Mortems, SLA Management</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Architecture & Design</h4>
+                    <p>System Design, API Design, Database Optimization, Microservices, Event-Driven Systems</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
