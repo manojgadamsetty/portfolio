@@ -1,0 +1,77 @@
+name: Deploy React Portfolio to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'react/**'
+      - '.github/workflows/deploy-react.yml'
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages-react"
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: 'react/package-lock.json'
+    
+    - name: Install dependencies
+      working-directory: ./react
+      run: npm ci
+    
+    - name: Build React app
+      working-directory: ./react
+      run: npm run build
+      env:
+        VITE_APP_VERSION: ${{ github.sha }}
+    
+    - name: Prepare deployment
+      run: |
+        # Copy build output to root for deployment
+        cp -r react/dist/* ./
+        # Keep the CNAME and other important files
+        echo "Build prepared for deployment"
+    
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+    
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: '.'
+    
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
+    
+    - name: Deployment Summary
+      run: |
+        echo "========================================"
+        echo "✓ React Portfolio Deployment Complete!"
+        echo "========================================"
+        echo "Deployment URL: ${{ steps.deployment.outputs.page_url }}"
