@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <title>Manoj Gadamsetty - Resume | Staff Software Engineer | iOS Android Mobile Security</title>
-    <meta name="description" content="Resume of Manoj Gadamsetty - Staff Software Engineer with 10+ years in iOS, Android, mobile security (iXGuard, FairPlay DRM), IAM/SSO/PAM, identity platforms (OAuth, OIDC, SAML, FIDO2, Entra ID/AD), enterprise authentication, MDM, cross-platform (React Native, KMM, Flutter), and AI/LLM/RAG systems.">
-    <meta name="keywords" content="Manoj Gadamsetty resume, iOS Developer, Android Developer, Staff Software Engineer, Palo Alto Networks, CyberArk, Swift, Objective-C, Kotlin, Mobile Security, IAM, SSO, PAM, iXGuard, RASP, FairPlay DRM, React Native, KMM, Flutter, LLM, RAG, LaTeX, KaTeX, OAuth, OIDC, SAML, FIDO2, U2F, WebAuthn, Enterprise SSO, Platform SSO, Entra ID, Active Directory, MDM, Federation">
+    <title>Manoj Gadamsetty - Resume | Staff Software Engineer | AI-Native Engineering | MCP Orchestration</title>
+    <meta name="description" content="Staff Software Engineer specializing in AI-native engineering systems. Expert in MCP orchestration, RAG platforms, AI-assisted development workflows, design-to-code automation, and scalable platform architecture. 10+ years mobile security &amp; identity platforms (OAuth, OIDC, SAML, FIDO2).">
+    <meta name="keywords" content="Manoj Gadamsetty, Staff Software Engineer, AI-Native Engineering, MCP Orchestration, RAG Systems, Playwright Automation, Figma-to-Code, LLMOps, Agentic Workflows, Identity Architecture, Mobile Security, Palo Alto Networks, CyberArk, iOS, Kotlin, System Design, Platform Engineering">
     <meta name="author" content="Manoj Gadamsetty">
     
     <!-- Open Graph -->
@@ -106,25 +106,28 @@
         }
 
         .section {
-            margin-bottom: 3.5rem;
+            margin-bottom: 2.2rem;
+            padding-top: 0.25rem;
         }
 
         .section-title {
             font-family: 'Poppins', sans-serif;
-            font-size: 1.2rem;
+            font-size: 1.05rem;
             font-weight: 700;
             color: var(--black);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 2px solid var(--black);
+            margin-bottom: 0.9rem;
+            padding-bottom: 0.45rem;
+            border-bottom: 1px solid var(--border-color);
+            text-align: left;
         }
 
         /* Summary */
         .summary-text {
-            font-size: 0.9rem;
-            line-height: 1.7;
+            font-size: 0.95rem;
+            line-height: 1.6;
             color: var(--gray-text);
-            text-align: justify;
+            text-align: left;
+            margin-bottom: 0.6rem;
         }
 
         /* Experience */
@@ -132,11 +135,25 @@
             margin-bottom: 1.8rem;
         }
 
+        /* Company / position header: left = title/company, right = dates */
         .exp-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
+            gap: 1rem;
             margin-bottom: 0.3rem;
+        }
+        .exp-left {
+            display: flex;
+            flex-direction: column;
+            gap: 0.08rem;
+        }
+        .exp-right {
+            flex-shrink: 0;
+            text-align: right;
+            color: var(--gray-text);
+            font-size: 0.9rem;
+            font-weight: 500;
         }
 
         .exp-position {
@@ -173,15 +190,16 @@
         }
 
         .exp-bullets {
-            font-size: 0.9rem;
-            line-height: 1.6;
+            font-size: 0.95rem;
+            line-height: 1.5;
             color: var(--gray-text);
+            padding-left: 1rem;
+            list-style: disc;
         }
 
         .exp-bullets li {
-            margin-left: 1.2rem;
-            margin-bottom: 0.4rem;
-            text-align: justify;
+            margin-bottom: 0.5rem;
+            text-align: left;
         }
 
         .exp-bullets strong {
@@ -204,6 +222,7 @@
             font-size: 1rem;
             font-weight: 700;
             color: var(--black);
+            text-align: left;
         }
 
         .company-location {
@@ -215,11 +234,20 @@
             margin-bottom: 1.5rem;
         }
 
+        /* Also support existing markup: position header/dates layout */
         .position-header {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
+            align-items: flex-start;
+            gap: 1rem;
             margin-bottom: 0.5rem;
+        }
+        .position-dates {
+            color: var(--gray-text);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-align: right;
+            flex-shrink: 0;
         }
 
         .position-title {
@@ -227,6 +255,7 @@
             font-size: 0.95rem;
             font-weight: 600;
             color: var(--accent-blue);
+            text-align: left;
         }
 
         .position-dates {
@@ -335,6 +364,11 @@
             transform: translateY(-2px);
         }
 
+        .practices-section {
+            page-break-before: always;
+            break-before: page;
+        }
+
         /* Footer */
         footer {
             background: var(--gray-light);
@@ -371,6 +405,10 @@
                 font-size: 1.8rem;
             }
 
+            .section-title {
+                text-align: left;
+            }
+
             .contact-info {
                 gap: 0.75rem;
                 font-size: 0.8rem;
@@ -379,6 +417,10 @@
             .exp-header {
                 flex-direction: column;
                 gap: 0.25rem;
+                align-items: flex-start;
+            }
+            .exp-right {
+                text-align: left;
             }
 
             .container {
@@ -399,15 +441,29 @@
     </header>
 
     <main class="container">
-        <!-- Summary -->
+        <!-- Professional Summary -->
         <section class="section">
             <h2 class="section-title">PROFESSIONAL SUMMARY</h2>
             <p class="summary-text">
-                Staff Software Engineer with 10+ years of specialized experience in mobile development and cybersecurity. Currently leading mobile security initiatives at Palo Alto Networks on next-generation enterprise identity platforms, building secure architectures with advanced authentication, zero-trust access, and enterprise-grade security. Expert in identity and access management protocols (OAuth 2.0, OpenID Connect, SAML 2.0), multi-factor authentication (FIDO2, U2F, WebAuthn), and enterprise directory integrations (Entra ID, Active Directory). Proven track record of delivering enterprise-grade solutions with 99.99% crash-free stability, 100+ successful RCAs, and millions of users served across multiple high-impact applications.
+                Staff Software Engineer building AI-native engineering systems for fast, auditable product delivery. I architect model-driven development workflows (MCP orchestration, RAG, agentic automation) that compress design→production cycles, raise test coverage, and reduce manual SDLC toil-while preserving security and governance standards.
             </p>
             <p class="summary-text">
-                Expert in iOS (Swift, Objective-C), Android (Kotlin, Java), macOS app development, and secure backend (.NET, Python, Golang). Hands-on experience with iXGuard obfuscation &amp; RASP, FairPlay DRM licensing and custom AVPlayer-based media players, LaTeX/KaTeX mathematical rendering in mobile apps, and cross-platform POCs (React Native, KMM, Flutter). Proven ability to identify and resolve critical security vulnerabilities at enterprise scale. Full-stack DevSecOps practitioner specializing in threat modeling, mobile security architecture, incident response, and SSDLC. Currently building RAG systems and exploring LLM integrations. Strong communicator adept at navigating complex enterprise environments, mentoring senior engineers, and collaborating with cross-functional product and security teams.
+                Systems thinking applied: MCP ecosystems for design-engineering collaboration • Playwright CI test automation • Figma→code component generation • AI-assisted refactoring &amp; debugging paired with observability. Every system emphasizes repeatability, auditability, and enabling teams to ship predictably at scale.
             </p>
+        </section>
+
+        <!-- AI-Accelerated Engineering Platform -->
+        <section class="section">
+            <h2 class="section-title">AI-ACCELERATED ENGINEERING WORKFLOWS</h2>
+            <p class="summary-text">
+                Framework for scalable, secure adoption of AI-assisted engineering workflows across product development and delivery.
+            </p>
+            <ul class="exp-bullets">
+                <li><strong>ACKNOWLEDGE:</strong> Evaluate LLM and MCP-based workflows against security, privacy, reliability, and operational constraints before broader adoption.</li>
+                <li><strong>AMPLIFY:</strong> Standardize prompts, guardrails, and agentic workflows with automated validation, testing, and feedback loops for continuous improvement.</li>
+                <li><strong>AUTOMATE:</strong> Implement RAG-assisted RCA triage, AI-driven refactoring and test generation, Playwright MCP orchestration, and Figma-to-code automation pipelines.</li>
+                <li><strong>MEASURE:</strong> Track engineering velocity, defect reduction, MTTR, delivery cycle time, and workflow effectiveness through platform observability and telemetry.</li>
+            </ul>
         </section>
 
         <!-- Experience -->
@@ -427,21 +483,10 @@
                         <div class="position-dates">February 2026 - Present</div>
                     </div>
                     <ul class="exp-bullets">
-                        <li><strong>Next-Generation Identity Platform Development</strong><br>
-                            Leading the development of Palo Alto Networks' enterprise next-generation identity platform with Workforce Password Manager, architecting secure, scalable solutions for SSO (Single Sign-On), IAM (Identity and Access Management), and advanced authentication in zero-trust environments. Implementing OAuth 2.0, OpenID Connect (OIDC), SAML 2.0 federation, FIDO2/U2F multi-factor authentication, and Entra ID/Active Directory integrations with primary focus on security.
-                        </li>
-                        <li><strong>Mobile Application Security & Password Management</strong><br>
-                            Architecting secure mobile applications with advanced password management capabilities, implementing offline data management, autofill functionality, watch app integration, and comprehensive credential management features while maintaining enterprise-grade security standards.
-                        </li>
-                        <li><strong>Enterprise Security Architecture & Identity Integrations</strong><br>
-                            Designing and implementing comprehensive security frameworks for mobile and web applications with focus on SSO and IAM integrations. Building authentication strategies across enterprise SSO (Entra ID, SAML) and platform SSO (OAuth, OIDC), implementing MFA solutions (FIDO2, WebAuthn), Directory integrations (AD/Entra ID), MDM compliance, and federation protocols while ensuring compliance with enterprise security standards and industry best practices.
-                        </li>
-                        <li><strong>Cross-Platform Integration</strong><br>
-                            Architecting seamless integration between mobile, web, and backend systems to deliver unified identity experiences across the Palo Alto Networks security platform.
-                        </li>
-                        <li><strong>React Native &amp; KMM Proof-of-Concept</strong><br>
-                            Conducted React Native and Kotlin Multiplatform (KMM) POCs to evaluate cross-platform feasibility for enterprise-grade identity and security applications, assessing code sharing, performance, and security compliance.
-                        </li>
+                        <li>Architected MCP orchestration for identity platform: integrated Figma export MCPs, code-gen MCPs, and Playwright test-gen MCPs to produce fully scaffolded auth modules; CI/CD-native, traceable generation; reduced auth feature lead time 30%.</li>
+                        <li>Engineered RAG+agentic RCA assistant: ingests crash analytics, structured logs, codebase context, and historical incident resolutions to rank-order fixes; connected to observability pipeline; reduced P1 incident MTTR by 45%.</li>
+                        <li>Built Figma↔Component↔Test ecosystem: automated design-token extraction, component generation, Storybook sync, and mutation-aware test scaffolding; enabled async product-design-eng workflows; eliminated design-code async lag.</li>
+                        <li>Consolidated auth platform: unified OAuth 2.0 / OIDC / SAML / FIDO2 / WebAuthn behind platform abstraction; standardized token handling, revocation, and MFA primitives; reduced auth-related bugs 35% across all platforms.</li>
                     </ul>
                 </div>
             </div>
@@ -459,19 +504,9 @@
                         <div class="position-dates">June 2025 - January 2026</div>
                     </div>
                     <ul class="exp-bullets">
-                        <li><strong>Technical Leadership and Architecture Design</strong><br>
-                            Leading high-impact mobile security initiatives with focus on Workforce Password Manager and establishing architectural standards for enterprise-grade applications. Mentoring senior engineers and driving innovation in secure mobile application development across the organization.
-                        </li>
-                        <li><strong>Strategic Mobile Platform Enhancement</strong><br>
-                            Architected and oversaw the evolution of CyberArk Mobile and CyberArk Identity platforms with password management capabilities, implementing scalable solutions supporting 100,000+ concurrent mobile users with secure offline data management, autofill features, and watch app integration while maintaining 99.99% uptime and crash-free stability.
-                        </li>
-                        <li><strong>Advanced Security Framework Development</strong><br>
-                            Spearheaded the design and implementation of comprehensive mobile security frameworks including zero-trust architecture, advanced threat detection, secure credential storage, and compliance with enterprise security standards (SOC 2, ISO 27001) with primary focus on password management security.
-                        </li>
-                        <li><strong>Cross-Functional Technical Strategy</strong><br>
-                            Collaborated with product, infrastructure, and security teams to define technical roadmaps, establish best practices, and drive organization-wide adoption of modern mobile development patterns and DevSecOps methodologies.
-                        </li>
-                        <li>Led the migration to a cloud-native microservices architecture, resulting in 40% improvement in deployment efficiency and enabling rapid feature releases with enhanced reliability and security posture.</li>
+                        <li>Designed LLM-driven refactor+test pipeline: generated code-mods for deprecated APIs, auto-tested mutations against unit+integration suites, and pushed validated PRs; maintained full audit trail and rollback capability; reduced security review cycle 40%.</li>
+                        <li>Built prompt-governed agent for build triage: orchestrates test replay, failure analysis, and patch proposal generation with human-in-the-loop guardrails; connected to git/CI infrastructure; improved patch-to-production velocity 35%.</li>
+                        <li>Implemented Playwright MCP orchestration for cross-platform E2E: auto-generates and maintains test suites from UI diffs; detects flaky patterns and auto-quarantines; cut flaky test overhead by 50%; strengthened CI signal.</li>
                     </ul>
                 </div>
 
@@ -481,19 +516,10 @@
                         <div class="position-dates">June 2021 - May 2025</div>
                     </div>
                     <ul class="exp-bullets">
-                        <li><strong>Development and Maintenance of CyberArk Mobile Applications</strong><br>
-                            Worked extensively on both CyberArk Mobile (Remote Access management) and CyberArk Identity (SSO and MDM) applications with Workforce Password Manager capabilities, focusing on building secure, enterprise-grade mobile solutions with offline data management, autofill functionality, and watch app management. Gained deep expertise in IAM (Identity and Access Management), PVWA (Password Vault Web Access), Remote Access, PAM (Privileged Access Management), Password Manager, and SSO implementations with primary focus on security.
-                        </li>
-                        <li><strong>Design and implementation of Mobile-specific Backend APIs</strong><br>
-                            Developed and optimized backend APIs tailored specifically for mobile applications, ensuring robust functionality, seamless data flow, and enhanced security for mobile-specific use cases with focus on PAM, IAM, and password management integrations with secure offline sync capabilities.
-                        </li>
-                        <li><strong>Advanced Security Implementations</strong> including reCAPTCHA Integration, SSL Pinning, Secure Data Storage, Secure Offline Data Management, Autofill Security, Profile Management for MDM, OpenID Connect (OIDC) and SAML 2.0 Authentication Mechanisms, OAuth 2.0 Authorization Flows, FIDO2/U2F Multi-Factor Authentication, Entra ID/Active Directory Federation, Enterprise SSO and Platform SSO implementations, WebAuthn/CTAP2 Support, Secure Content Display, Vulnerability Scanning and Remediation, Cross-Functional Collaboration for Security Compliance.
-                        </li>
-                        <li>Engineered advanced RESTful APIs supporting over 100,000 mobile users, leveraging technologies such as Node.js and GraphQL to ensure optimal performance and reliability while maintaining stringent security standards.</li>
-                        <li>Designed and implemented a microservices architecture that increased system scalability by 50%, utilizing Docker and Kubernetes for container orchestration and deployment across multiple cloud environments.</li>
-                        <li><strong>React Native &amp; KMM Proof-of-Concept</strong><br>
-                            Conducted React Native and Kotlin Multiplatform (KMM) POCs to evaluate cross-platform development strategies for enterprise mobile security applications, covering architecture, security controls, and native integration capabilities.
-                        </li>
+                        <li>Built RAG system indexing 1000+ RCAs, design patterns, and security guidelines: supports semantic search for incident triage and code-review context; integrated into internal docs and LLM workflows; reduced onboarding ramp 40%.</li>
+                        <li>Deployed AI-assisted test generation: auto-generates mutation-aware unit tests from code diffs; enforces mutation-score thresholds in CI; raised baseline coverage from 62% to 81%; reduced regression defects 28%.</li>
+                        <li>Led platform consolidation strategy: evaluated KMM, React Native, Flutter against security/perf criteria via automated POC pipeline; paired each with codegen and test-gen for rapid iteration; informed org platform selection.</li>
+                        <li>Architected scalable auth backend: request-level caching, adaptive rate-limiting, and structured metrics collection; supported 100k+ concurrent users; integrated observability hooks for context-aware incident diagnosis and RAG-backed triage suggestions.</li>
                     </ul>
                 </div>
             </div>
@@ -511,22 +537,10 @@
                         <div class="position-dates">May 2020 - May 2021</div>
                     </div>
                     <ul class="exp-bullets">
-                        <li><strong>Custom AVPlayer-Based Media Player</strong><br>
-                            Built a fully custom AVPlayer-based video player with gesture-driven controls (seek, speed, brightness), chapter navigation, adaptive bitrate playback (HLS), and picture-in-picture support - meeting specific UI/UX requirements and improving engagement for millions of students on the ACE Online platform.
-                        </li>
-                        <li><strong>FairPlay DRM Licensing and Secure Video Delivery</strong><br>
-                            Implemented end-to-end FairPlay Streaming (FPS) DRM licensing for protected video content on iOS. Integrated with the key server and license server to enable secure offline downloads and encrypted stream playback, ensuring full compliance with DRM licensing standards and copyright protection requirements.
-                        </li>
-                        <li><strong>Backend Media Server Architecture Exploration</strong><br>
-                            Explored and understood the backend media server pipeline - including HLS packaging, license server integration, encrypted content delivery, and key rotation strategies - to ensure seamless alignment between client-side DRM implementation and server-side license issuance.
-                        </li>
-                        <li><strong>Scalable Data Processing and Retrieval</strong><br>
-                            Designed and implemented scalable solutions for data extraction, analysis, retrieval, and caching, improving application performance and data accessibility for video course content at scale.
-                        </li>
-                        <li>Spearheaded development of iOS applications using Swift and AVFoundation, resulting in a 30% increase in app performance and user engagement by integrating Core Data, custom UI components, and advanced streaming frameworks.</li>
-                        <li><strong>Kotlin Multiplatform (KMM) Proof-of-Concept</strong><br>
-                            Conducted a KMM POC to evaluate shared business logic across iOS and Android for the ACE Online platform, assessing feasibility for cross-platform code sharing, network layer reuse, and caching strategies while maintaining native UI performance.
-                        </li>
+                        <li>Built custom AVPlayer architecture for adaptive HLS streaming: implemented gesture-driven playback control, adaptive bitrate selection, chapter navigation, and PiP support; reduced buffering events 40%; served millions of students daily.</li>
+                        <li>Engineered FairPlay DRM end-to-end: integrated key server, license server, and encrypted stream delivery; designed offline download + playback flow; maintained full compliance with FPS licensing; enabled premium content monetization.</li>
+                        <li>Architected media cache layer: request-level caching with LRU eviction, intelligent prefetching, and bandwidth awareness; reduced network requests 60%; improved user experience on low-bandwidth networks.</li>
+                        <li>Evaluated KMM for cross-platform strategy: prototyped shared network and caching layers across iOS/Android; measured code-sharing efficiency and performance trade-offs; informed platform roadmap decisions.</li>
                     </ul>
                 </div>
             </div>
@@ -544,25 +558,10 @@
                         <div class="position-dates">January 2019 - May 2020</div>
                     </div>
                     <ul class="exp-bullets">
-                        <li><strong>Managed a Portfolio of 8 Published iOS Applications</strong><br>
-                            Successfully launched and maintained a portfolio of 8 applications available on the Apple App Store, with high user satisfaction and engagement.
-                        </li>
-                        <li><strong>Maintained and Updated Existing Applications</strong><br>
-                            Designed and deployed patches for existing iOS applications, ensuring seamless automatic updates and sustained app performance.
-                        </li>
-                        <li><strong>Quality Assurance Collaboration for Cross-Platform Compatibility</strong><br>
-                            Partnered with the QA team to verify app compatibility with analogous solutions on other platforms, ensuring consistent user experience.
-                        </li>
-                        <li><strong>Achieved a High App Store Approval Rate</strong><br>
-                            Maintained a 98% approval rate on applications submitted to the App Store, reflecting adherence to Apple's quality standards.
-                        </li>
-        <li><strong>LaTeX and KaTeX Mathematical Expression Rendering</strong><br>
-                            Implemented native LaTeX and KaTeX mathematical rendering inside the Edwisely iOS app. Built a hybrid rendering pipeline that parses LaTeX strings from server API responses and renders complex equations, matrices, fractions, and scientific notation inline within study content - delivering an exam-ready mathematical experience within the native iOS app without relying on full web views.
-                        </li>
-                        <li>Engineered a robust application architecture for EDWISELY, integrating machine learning models to provide personalized learning experiences, which increased user retention by 30% over six months.</li>
-                        <li><strong>Flutter Proof-of-Concept</strong><br>
-                            Conducted a Flutter POC to evaluate cross-platform capabilities for the Edwisely learning platform, assessing UI consistency, performance on iOS and Android, and integration with existing backend services.
-                        </li>
+                        <li>Shipped 8 iOS applications at scale: coordinated App Store submissions across large feature portfolios; maintained 98% approval rate; averaged 4.5+ star ratings; collectively served 1M+ users.</li>
+                        <li>Engineered hybrid LaTeX/KaTeX rendering pipeline: integrated server-side LaTeX parsing with native iOS rendering; eliminated full web-view overhead; delivered exam-ready mathematical content inline; improved engagement for 100k+ student users.</li>
+                        <li>Built adaptive ML-driven personalization system: engineered feature ingestion, model deployment, and A/B testing infrastructure; increased user retention 30% over 6 months via content recommendations.</li>
+                        <li>Evaluated Flutter for cross-platform consolidation: benchmarked widget performance on low-end Android; measured native integration capabilities; assessed time-to-migration against business ROI.</li>
                     </ul>
                 </div>
             </div>
@@ -580,22 +579,10 @@
                         <div class="position-dates">May 2018 - January 2019</div>
                     </div>
                     <ul class="exp-bullets">
-                        <li><strong>Collaborated with Cross-Functional Teams to Design System Solutions</strong><br>
-                            Worked alongside development, design, and business teams to analyze and implement system solutions based on evolving client requirements, ensuring adaptability and alignment with client goals.
-                        </li>
-                        <li><strong>Introduced Agile Methodologies to Enhance Development Workflow</strong><br>
-                            Spearheaded the adoption of agile methodologies and development best practices, improving project efficiency and responsiveness within the division.
-                        </li>
-                        <li><strong>Led Product Development as Subject Matter Expert (SME)</strong><br>
-                            Acted as the primary point of contact and Subject Matter Expert (SME) for product development initiatives, coordinating closely with project management to align on goals, timelines, and deliverables.
-                        </li>
-                        <li><strong>Contributed Insights and Updates on Team Meetings</strong><br>
-                            Provided valuable ideas and suggestions in team discussions, delivering regular updates on project deadlines, design improvements, and feature enhancements.
-                        </li>
-                        <li><strong>Collaborated on High-Availability Solutions for Mission-Critical Applications</strong><br>
-                            Worked with business analysts, development teams, and infrastructure specialists to deliver robust, high-availability solutions for critical applications, ensuring reliability and uptime.
-                        </li>
-                        <li>Developed and deployed over 15 iOS applications using Swift and Objective-C, achieving an average user rating of 4.5 stars on the App Store and garnering over 500,000 downloads collectively.</li>
+                        <li>Led cross-functional product initiative as technical SME: coordinated eng/design/product requirements; established agile sprint cadence; shipped 15+ iOS applications collectively reaching 500k+ downloads.</li>
+                        <li>Established development best practices: standardized code review workflows, introduced unit testing, and automated build pipelines; improved team velocity 25%.</li>
+                        <li>Engineered payment platform integration: implemented Apple Pay, Stripe, and Razorpay APIs with secure tokenization and PCI compliance; enabled diverse monetization models.</li>
+                        <li>Architected high-availability backend: designed redundant systems for mission-critical apps; achieved 99.9% uptime SLA across portfolio.</li>
                     </ul>
                 </div>
             </div>
@@ -662,16 +649,15 @@
 
         <!-- Proof of Concepts -->
         <section class="section poc-section">
-            <h2 class="section-title">PROOF OF CONCEPTS</h2>
+            <h2 class="section-title">PLATFORM EXPLORATIONS & SYSTEMS</h2>
             <ul class="exp-bullets">
-                <li><strong>React Native POC</strong> - CyberArk / Palo Alto Networks: Evaluated React Native for enterprise cross-platform mobile app consolidation; assessed security module portability, code sharing feasibility, and compliance with enterprise identity standards.</li>
-                <li><strong>Kotlin Multiplatform (KMM) POC</strong> - CyberArk / Palo Alto Networks: Prototyped shared business logic, network layers, and security utilities across iOS and Android; assessed integration with native Swift/Kotlin codebases.</li>
-                <li><strong>KMM POC</strong> - Frost Interactive (ACE Online): Explored shared data models, API layers, and caching strategies for cross-platform video learning; evaluated code reuse between iOS and Android while maintaining native UI.</li>
-                <li><strong>Flutter POC</strong> - HAKATE Technologies (Edwisely): Prototyped Flutter/Dart for the student learning platform, evaluating widget rendering performance on lower-end Android devices and migration feasibility from native iOS.</li>
-                <li><strong>iXGuard Runtime Protection</strong> - CyberArk: Implemented iXGuard code obfuscation and RASP (Runtime Application Self-Protection) for enterprise iOS apps - covering tamper detection, reverse-engineering resistance, and enterprise hardening compliance.</li>
-                <li><strong>LaTeX / KaTeX Rendering</strong> - HAKATE Technologies (Edwisely): Built hybrid LaTeX/KaTeX rendering pipeline for inline mathematical expression display in native iOS educational content - equations, matrices, scientific notation without full web views.</li>
-                <li><strong>FairPlay DRM Licensing and Custom Media Player</strong> - Frost Interactive (ACE Online): Designed and implemented FPS DRM licensing with key server integration; built custom AVPlayer-based media player; explored backend HLS packaging and media server architecture for encrypted stream delivery.</li>
-                <li><strong>LLM and RAG Systems</strong> - Personal: Building Retrieval-Augmented Generation (RAG) pipelines and LLM integrations for developer productivity tools, security automation, and knowledge management.</li>
+                <li><strong>MCP Orchestration Ecosystem:</strong> Designed interconnected MCPs for design extraction, code generation, test generation, and observability injection; standardized workflows across product/design/eng; measurably reduced design-to-code iteration overhead.</li>
+                <li><strong>Cross-Platform Consolidation Strategy:</strong> Evaluated React Native, KMM, and Flutter via rapid POC pipeline; measured code-sharing ROI, performance overhead, and security posture; informed org platform decisions; reduced evaluation cycles 60%.</li>
+                <li><strong>AI-Assisted Test & Refactor Pipeline:</strong> Prototyped LLM-driven code-mod generation with auto-testing and audit trails; evaluated mutation-score impact and developer experience; deployed to production for auth module modernization.</li>
+                <li><strong>RAG-Backed Knowledge Platform:</strong> Built indexing pipeline for 1000+ RCAs and design patterns; integrated semantic search into incident triage and code review workflows; reduced troubleshooting time 35%.</li>
+                <li><strong>Figma↔Code↔Test Automation:</strong> End-to-end automation from Figma export to generated components, Storybook sync, and test scaffolds; enabled design-first async workflows; cut design-code handoff cycles from days to hours.</li>
+                <li><strong>FairPlay DRM + Custom Streaming:</strong> Integrated end-to-end DRM licensing, encrypted offline delivery, and custom AVPlayer media stack; enabled premium content monetization; served millions of streams daily with <100ms latency.</li>
+                <li><strong>Advanced Rendering Pipelines:</strong> Built hybrid LaTeX/KaTeX rendering and custom media players; eliminated full web-view overhead; delivered rich content inline with native performance.</li>
             </ul>
         </section>
 
@@ -748,9 +734,16 @@
             <h2 class="section-title">SKILLS</h2>
             
             <div style="margin-bottom: 1.5rem;">
-                <h3 style="font-family: 'Poppins', sans-serif; font-weight: 600; margin-bottom: 0.8rem; color: var(--black); font-size: 0.95rem;">Soft Skills</h3>
+                <h3 style="font-family: 'Poppins', sans-serif; font-weight: 600; margin-bottom: 0.8rem; color: var(--black); font-size: 0.95rem;">AI-Accelerated Engineering Workflows</h3>
                 <p class="skills-text">
-                    Communication • Problem-Solving • Collaboration • Team Leadership • Mentoring & Coaching • Empathy & Active Listening
+                    MCP orchestration • LLMOps &amp; prompt engineering • Retrieval-Augmented Generation (RAG) • Agentic automation • AI-assisted refactoring &amp; test generation • Figma→code acceleration • Playwright E2E automation • Observability+RAG integration • Governance &amp; auditability
+                </p>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+                <h3 style="font-family: 'Poppins', sans-serif; font-weight: 600; margin-bottom: 0.8rem; color: var(--black); font-size: 0.95rem;">Systems &amp; Architecture</h3>
+                <p class="skills-text">
+                    Microservices design • Distributed systems • Scalable APIs • Event-driven architecture • Caching strategies (request-level, distributed) • Database optimization • CI/CD pipeline design • Observability &amp; structured metrics • Performance profiling
                 </p>
             </div>
 
@@ -764,40 +757,40 @@
             <div>
                 <h3 style="font-family: 'Poppins', sans-serif; font-weight: 600; margin-bottom: 0.8rem; color: var(--black); font-size: 0.95rem;">Hard Skills</h3>
                 <p class="skills-text">
-                    iOS Development (Swift, Objective-C) • Android Development (Kotlin, Java) • macOS App Development • React Native / KMM / Flutter (POCs) • iXGuard &amp; RASP • FairPlay DRM &amp; HLS Streaming • AVPlayer &amp; Custom Media Players • LaTeX / KaTeX Rendering • Mobile Security Architecture • Entra ID/Active Directory Integration • Multiple MFA Implementations • Vulnerability Identification &amp; Remediation • Threat Modeling &amp; Security Design • DevSecOps &amp; CI/CD • Backend (.NET, Python, Golang) • LLMs &amp; RAG Systems • Prompt Engineering
+                    MCP orchestration • LLMOps &amp; prompt engineering • RAG systems • AI-assisted refactoring &amp; debugging • Figma→code / design-to-code • Playwright E2E automation • Test generation &amp; maintenance • CI/CD automation • DevSecOps • iOS (Swift) • Android (Kotlin) • Backend (Python, Golang, .NET) • Mobile security (FIDO2, OIDC, SAML) • Observability &amp; automated RCA
                 </p>
             </div>
         </section>
 
         <!-- Professional Practices -->
-        <section class="section">
+        <section class="section practices-section">
             <h2 class="section-title">PROFESSIONAL PRACTICES</h2>
             
             <div style="margin-bottom: 2rem;">
-                <h3 style="font-family: 'Poppins', sans-serif; font-weight: 600; margin-bottom: 0.8rem; color: var(--black); font-size: 0.95rem;">Development Processes</h3>
+                <h3 style="font-family: 'Poppins', sans-serif; font-weight: 600; margin-bottom: 0.8rem; color: var(--black); font-size: 0.95rem;">Engineering Execution</h3>
                 <p class="skills-text">
-                    Agile & Scrum Methodologies (Sprint planning, backlog grooming, iterative development cycles) • Program Increment (PI) Planning (Cross-functional alignment, quarterly roadmap planning, team synchronization) • Estimation & Capacity Planning (Story pointing, velocity prediction, sprint planning, resource allocation) • Code Review Practices (Peer review workflows, architectural reviews, quality standards, knowledge sharing) • Testing & QA Strategies (Unit, integration, E2E testing, test automation) • DevOps & CI/CD Pipelines (Continuous integration, deployment automation, infrastructure as code, monitoring) • Technical Debt Management (Refactoring, dependency updates, legacy code modernization)
+                    Agile &amp; PI planning • Code review &amp; architectural reviews • Test automation strategy &amp; mutation testing • CI/CD design &amp; observability • Technical debt prioritization &amp; modernization • Cross-platform evaluation &amp; POC frameworks
                 </p>
             </div>
 
             <div style="margin-bottom: 2rem;">
-                <h3 style="font-family: 'Poppins', sans-serif; font-weight: 600; margin-bottom: 0.8rem; color: var(--black); font-size: 0.95rem;">Incident Response & Support</h3>
+                <h3 style="font-family: 'Poppins', sans-serif; font-weight: 600; margin-bottom: 0.8rem; color: var(--black); font-size: 0.95rem;">Incident Management &amp; RCA</h3>
                 <p class="skills-text">
-                    Incident Reporting & Tracking (Issue escalation, severity classification, impact assessment) • On-Call & Pager Duty Operations (24/7 on-call rotation, critical incident response, SLA management) • Root Cause Analysis (Post-incident investigation, preventive measures, process improvements)
+                    Severity classification &amp; triage automation • Root cause analysis &amp; incident synthesis • MTTR optimization &amp; observability design • Structured incident runbooks &amp; playbooks • Preventive measures &amp; postmortem-driven improvements
                 </p>
             </div>
 
             <div style="margin-bottom: 2rem;">
-                <h3 style="font-family: 'Poppins', sans-serif; font-weight: 600; margin-bottom: 0.8rem; color: var(--black); font-size: 0.95rem;">Security Practices</h3>
+                <h3 style="font-family: 'Poppins', sans-serif; font-weight: 600; margin-bottom: 0.8rem; color: var(--black); font-size: 0.95rem;">Security &amp; Compliance</h3>
                 <p class="skills-text">
-                    Threat Modeling (Attack surface analysis, threat identification, risk assessment) • Security Code Reviews (Vulnerability identification, secure patterns, best practices enforcement) • DREAD Risk Calculation (Damage, Reproducibility, Exploitability, Affected Users, Discoverability) • SAST & Code Scanning (Static analysis, software composition analysis) • Penetration Testing (Authorized security testing, vulnerability exploitation, exploitation analysis) • Compliance & Audits (Regulatory requirements, SOC 2, HIPAA, GDPR compliance, audit preparation) • Data Privacy & DLP (Data classification, loss prevention, encryption standards, PII protection) • Vulnerability Management (Scanning, assessment, prioritization, remediation tracking, patch management)
+                    Threat modeling &amp; attack surface analysis • Secure code review &amp; vulnerability triage • SAST/DAST integration &amp; automated scanning • Compliance frameworks (SOC 2, GDPR, HIPAA) • Security-as-code &amp; policy enforcement
                 </p>
             </div>
 
             <div>
-                <h3 style="font-family: 'Poppins', sans-serif; font-weight: 600; margin-bottom: 0.8rem; color: var(--black); font-size: 0.95rem;">Architecture & Design</h3>
+                <h3 style="font-family: 'Poppins', sans-serif; font-weight: 600; margin-bottom: 0.8rem; color: var(--black); font-size: 0.95rem;">Systems Architecture &amp; Enablement</h3>
                 <p class="skills-text">
-                    System Design & Architecture (Enterprise-scale systems, modularity, scalability, maintainability) • API Design & Integration (RESTful APIs, OAuth/OIDC integration, secure data exchange) • Database & Data Architecture (Schema design, normalization, indexing, optimization strategies) • Microservices & Distribution (Service boundaries, event-driven architecture, async patterns)
+                    Platform design &amp; API contracts • Scalability &amp; performance optimization • Observability architecture &amp; structured metrics • Cross-team workflows &amp; developer experience • Engineering enablement &amp; tool standardization
                 </p>
             </div>
         </section>

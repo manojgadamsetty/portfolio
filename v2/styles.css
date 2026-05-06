@@ -360,6 +360,7 @@ main {
 .practices-section h2 {
     font-size: 1.8rem;
     margin-bottom: 3rem;
+    text-align: left;
 }
 
 .practices-grid {
@@ -396,6 +397,7 @@ main {
 .skills-section h2 {
     font-size: 1.8rem;
     margin-bottom: 3rem;
+    text-align: left;
 }
 
 .skills {
@@ -413,6 +415,7 @@ main {
 .about-section h2 {
     font-size: 1.8rem;
     margin-bottom: 2rem;
+    text-align: left;
 }
 
 /* Expertise Section */
@@ -424,6 +427,7 @@ main {
 .expertise-section h2 {
     font-size: 1.8rem;
     margin-bottom: 3rem;
+    text-align: left;
 }
 
 .expertise-grid {
