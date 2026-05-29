@@ -3,7 +3,7 @@
 [![Portfolio](https://img.shields.io/badge/Portfolio-Live-blue?style=for-the-badge)](https://manojgadamsetty.github.io/portfolio/)
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github)](https://github.com/manojgadamsetty/portfolio)
 
-A modern, responsive portfolio website showcasing my professional experience as a Staff Software Engineer specializing in mobile app security, iOS/Android development, and cybersecurity.
+A modern, responsive portfolio website showcasing my professional experience as a Principal Software Engineer specializing in mobile app security, iOS/Android development, and cybersecurity.
 
 ## Live Website
 
@@ -165,7 +165,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## Contact
 
-**Manoj Gadamsetty** - Staff Software Engineer | Mobile App Security Specialist
+**Manoj Gadamsetty** - Principal Software Engineer | Mobile App Security Specialist
 
 - **Portfolio**: [https://manojgadamsetty.github.io/portfolio/](https://manojgadamsetty.github.io/portfolio/)
 - **LinkedIn**: [linkedin.com/in/manojgadamsetty](https://www.linkedin.com/in/manojgadamsetty/)
