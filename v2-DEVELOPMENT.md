@@ -231,19 +231,11 @@ Templates ready - just need to:
 
 ---
 
-## 📊 Feature Comparison: v1 vs v2
+## 📊 Current Portfolio
 
-| Feature | v1 | v2 |
-|---------|----|----|
-| Theme Toggle | ✅ | ✅ |
-| Mobile UI | iPhone mockup | Responsive web |
-| Resume | Static HTML | Interactive timeline |
-| Projects | None | Case studies (coming) |
-| Blog | None | Articles (coming) |
-| Animations | Basic | Advanced (GSAP-ready) |
-| Glassmorphism | No | Yes |
-| Dark Mode | Yes | Yes (polished) |
-| PDF Export | No | Coming |
+v2 is the only portfolio experience and is served from the root entry point.
+The root `index.html` redirects to `v2/index.html` so local launches and
+deployed visits use the same design.
 
 ---
 
@@ -257,15 +249,5 @@ Templates ready - just need to:
 
 ---
 
-## 🔗 Integration with v1
-
-**Keep both running:**
-- v1 at `/v1/` for original iPhone showcase
-- v2 at `/v2/` for new glassmorphism design
-- Link between them for users to explore
-
-Eventually: Decide which to keep as primary
-
----
 
 **Ready to build Phase 3 (Projects)? Let me know!**

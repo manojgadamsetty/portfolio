@@ -1,11 +1,10 @@
 # GitHub Actions Deployment Guide
 
-This document explains how the portfolio is deployed using GitHub Actions with v1 at the root and v2 at `/v2`.
+This document explains how the v2 portfolio is deployed using GitHub Actions. The root entry point redirects to v2 so visitors see one portfolio experience.
 
 ## 🚀 Overview
 
-- **v1 (Root)**: `https://manojgadamsetty.com`
-- **v2**: `https://manojgadamsetty.com/v2`
+- **Portfolio**: `https://manojgadamsetty.com`
 - **Auto-deploys**: On every push to `main` branch
 - **Hosting**: GitHub Pages (free)
 - **Custom Domain**: manojgadamsetty.com
@@ -14,10 +13,7 @@ This document explains how the portfolio is deployed using GitHub Actions with v
 
 ```
 portfolio/
-├── index.html                 # V1 root index
-├── assets/                    # V1 shared assets
-├── showcase/                  # V1 showcase section
-├── resume-cv.html            # V1 resume
+├── index.html                 # Root redirect to v2
 │
 ├── v2/                        # V2 New Version
 │   ├── index.html            # V2 homepage
@@ -62,8 +58,8 @@ The workflow automatically triggers when you:
 ### Key Features
 
 ✅ **Automatic Deployment**: No manual steps after push  
-✅ **Dual Version Support**: Both v1 and v2 accessible  
-✅ **SPA Routing**: 404.html handles v2 navigation  
+✅ **Single Version**: v2 is the only portfolio experience
+✅ **Fallback Routing**: 404.html returns visitors to the portfolio
 ✅ **CNAME Preservation**: Custom domain maintained  
 ✅ **Workflow Dispatch**: Manual trigger option  
 ✅ **Concurrency Control**: Prevents simultaneous deployments  
@@ -74,28 +70,20 @@ The workflow automatically triggers when you:
 
 | URL | Served By | File |
 |-----|-----------|------|
-| `manojgadamsetty.com` | Root | `index.html` |
-| `manojgadamsetty.com/v2` | V2 | `v2/index.html` |
-| `manojgadamsetty.com/v2/resume` | 404 → SPA | `v2/index.html` |
-| `manojgadamsetty.com/v2/experience` | 404 → SPA | `v2/index.html` |
-| `manojgadamsetty.com/about.html` | Root | `about.html` |
-| `manojgadamsetty.com/resume-cv.html` | Root | `resume-cv.html` |
+| `manojgadamsetty.com` | Root redirect | `v2/index.html` |
+| `manojgadamsetty.com/v2/*` | V2 pages | `v2/*.html` |
+| `manojgadamsetty.com/resume-cv.html` | Resume document | `resume-cv.html` |
 
 ### SPA Routing Magic (404.html)
 
 When GitHub Pages can't find a file (404 error), it serves `404.html`. Our 404 handler:
 
 ```javascript
-if (pathname.startsWith('/v2')) {
-  window.location.replace('/v2/index.html');
-} else {
-  window.location.replace('/');
-}
+window.location.replace('/');
 ```
 
 This guarantees:
-- `/v2/*` requests go to v2 index (v2 app handles routing)
-- Other 404s go to root (v1 handles them)
+- Unknown requests return to the single portfolio entry point
 
 ## 📝 Deployment Workflow
 
@@ -121,8 +109,7 @@ git push origin main
 
 ### Step 4: Verify Live
 ```
-https://manojgadamsetty.com       # V1
-https://manojgadamsetty.com/v2    # V2
+https://manojgadamsetty.com       # V2 portfolio
 ```
 
 ## 🔧 Configuration
@@ -255,7 +242,7 @@ gh workflow run deploy.yml
 
 - [ ] Main branch has all latest changes
 - [ ] `v2/` folder with all v2 pages
-- [ ] `index.html` at root (v1)
+- [ ] `index.html` at root redirects to v2
 - [ ] `404.html` at root (SPA routing)
 - [ ] `CNAME` file with domain
 - [ ] `.github/workflows/deploy.yml` configured
@@ -265,4 +252,4 @@ gh workflow run deploy.yml
 ---
 
 **Last Updated**: April 19, 2026  
-**Workflow Version**: 2.0 (Dual v1 + v2 Support)
+**Workflow Version**: 3.0 (V2-only Support)
