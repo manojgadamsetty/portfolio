@@ -1,6 +1,6 @@
 # GitHub Actions Deployment Guide
 
-This document explains how the v2 portfolio is deployed using GitHub Actions. The root entry point redirects to v2 so visitors see one portfolio experience.
+This document explains how the v2 portfolio is deployed using GitHub Actions. The root entry point serves the v2 homepage directly so visitors see one portfolio experience without a browser redirect.
 
 ## 🚀 Overview
 
@@ -13,7 +13,7 @@ This document explains how the v2 portfolio is deployed using GitHub Actions. Th
 
 ```
 portfolio/
-├── index.html                 # Root redirect to v2
+├── index.html                 # Root-served v2 homepage
 │
 ├── v2/                        # V2 New Version
 │   ├── index.html            # V2 homepage
@@ -70,7 +70,7 @@ The workflow automatically triggers when you:
 
 | URL | Served By | File |
 |-----|-----------|------|
-| `manojgadamsetty.com` | Root redirect | `v2/index.html` |
+| `manojgadamsetty.com` | Root-served v2 homepage | `index.html` |
 | `manojgadamsetty.com/v2/*` | V2 pages | `v2/*.html` |
 | `manojgadamsetty.com/resume-cv.html` | Resume document | `resume-cv.html` |
 
@@ -242,7 +242,7 @@ gh workflow run deploy.yml
 
 - [ ] Main branch has all latest changes
 - [ ] `v2/` folder with all v2 pages
-- [ ] `index.html` at root redirects to v2
+- [ ] `index.html` at root serves the v2 homepage directly
 - [ ] `404.html` at root (SPA routing)
 - [ ] `CNAME` file with domain
 - [ ] `.github/workflows/deploy.yml` configured

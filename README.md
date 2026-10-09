@@ -11,9 +11,9 @@ and cybersecurity.
 - **Portfolio**: [manojgadamsetty.com](https://manojgadamsetty.com)
 - **Repository**: [github.com/manojgadamsetty/portfolio](https://github.com/manojgadamsetty/portfolio)
 
-The root [`index.html`](./index.html) redirects to [`v2/index.html`](./v2/index.html),
-so opening the root locally or visiting the deployed domain always loads the v2
-portfolio.
+The root [`index.html`](./index.html) serves the v2 homepage directly, so opening
+the root locally or visiting the deployed domain loads the v2 portfolio without
+a browser redirect. The original v2 pages remain under [`v2/`](./v2/).
 
 ## Features
 
@@ -27,7 +27,7 @@ portfolio.
 
 ```text
 portfolio/
-├── index.html                 # Root redirect to the v2 homepage
+├── index.html                 # Root-served v2 homepage
 ├── v2/                        # The only portfolio experience
 │   ├── index.html             # Homepage
 │   ├── experience.html
@@ -52,8 +52,8 @@ Open `index.html` directly, or run a local server:
 npm start
 ```
 
-Then open the URL shown by the server. The root entry point redirects to the
-v2 homepage automatically.
+Then open the URL shown by the server. The root entry point serves the v2
+homepage directly.
 
 ## Deployment
 

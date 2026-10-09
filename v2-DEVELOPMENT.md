@@ -234,7 +234,7 @@ Templates ready - just need to:
 ## 📊 Current Portfolio
 
 v2 is the only portfolio experience and is served from the root entry point.
-The root `index.html` redirects to `v2/index.html` so local launches and
+The root `index.html` serves the v2 homepage directly so local launches and
 deployed visits use the same design.
 
 ---

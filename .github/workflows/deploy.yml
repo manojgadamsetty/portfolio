@@ -39,7 +39,7 @@ jobs:
         ls -la v2/
         echo ""
         echo "=== Root entry point ==="
-        [ -f index.html ] && echo "✓ Root index.html found (redirects to v2)" || echo "✗ Root index.html missing"
+        [ -f index.html ] && echo "✓ Root index.html found (serves v2 homepage directly)" || echo "✗ Root index.html missing"
         echo ""
         echo "=== CNAME file ==="
         [ -f CNAME ] && cat CNAME || echo "No CNAME file"
@@ -105,7 +105,7 @@ jobs:
         echo ""
         echo "What was deployed:"
         echo "✓ V2 portfolio as the only portfolio experience"
-        echo "✓ Root entry point redirecting to /v2/index.html"
+        echo "✓ Root entry point serves the v2 homepage directly"
         echo "✓ CNAME - manojgadamsetty.com"
         echo "✓ 404.html - for error handling and SPA routing"
         echo ""
